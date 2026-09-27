@@ -1,12 +1,17 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/api/"],
-    },
-    sitemap: "https://heyberkshire.com/sitemap.xml",
-  };
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin/', '/api/'],
+      },
+    ],
+    sitemap: [
+      `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.calldrduffy.com'}/sitemap.xml`,
+    ],
+  }
 }
+

@@ -1,398 +1,308 @@
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import Link from "next/link";
-import { Phone, DollarSign, TrendingUp, Home as HomeIcon, Users } from "lucide-react";
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Berkshire Hathaway HomeServices North Las Vegas | Affordable Homes",
-  description:
-    "Find affordable North Las Vegas homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy helps first-time buyers and investors. Median price $385K. Call (702) 500-1942.",
-  keywords: [
-    "Berkshire Hathaway HomeServices North Las Vegas",
-    "North Las Vegas homes for sale",
-    "affordable homes Las Vegas",
-    "first time home buyer Las Vegas",
-    "new construction North Las Vegas",
-  ],
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is the current median home price in North Las Vegas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "As of January 2026, North Las Vegas' median home price is $385,000—the most affordable in the Las Vegas Valley. First-time buyers can find homes starting in the $320,000s, while new construction ranges from $380,000 to $550,000.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is North Las Vegas a good area to buy a home?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "North Las Vegas has transformed dramatically with new master-planned communities, improved infrastructure, and major employment centers. It offers excellent value for first-time buyers and investors seeking positive cash flow on rental properties.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What new construction is available in North Las Vegas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Major builders including Lennar, KB Home, Richmond American, and Century Communities offer new construction in North Las Vegas. Communities like Aliante, Tule Springs, and Valley Vista feature modern designs with energy-efficient features.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Why choose Berkshire Hathaway HomeServices for North Las Vegas?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "BHHS provides expert guidance for first-time buyers navigating the purchase process, plus free representation on new construction purchases. Dr. Jan Duffy helps clients find value while avoiding common pitfalls in emerging neighborhoods.",
-      },
-    },
-  ],
-};
+import Link from 'next/link'
+import AuthorBadge from '@/components/author-badge'
+import StructuredDataScript from '@/components/structured-data-script'
+import Breadcrumbs from '@/components/breadcrumbs'
+import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
 
 export default function NorthLasVegasPage() {
+  const articleSchema = getArticleSchema({
+    headline: 'North Las Vegas: Growth, Affordability, and Opportunity',
+    description: 'North Las Vegas combines affordability with growth, making it an attractive option for first-time homebuyers and families seeking value in the Las Vegas Valley.',
+    datePublished: '2024-03-10',
+    dateModified: '2024-12-01',
+    author: getPersonSchema()
+  })
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <div className="max-w-6xl mx-auto mb-6">
-            <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              {" / "}
-              <Link href="/neighborhoods" className="hover:text-blue-600">Neighborhoods</Link>
-              {" / "}
-              <span className="text-slate-900">North Las Vegas</span>
-            </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Berkshire Hathaway HomeServices North Las Vegas
-            </h1>
-            <p className="text-xl text-slate-600">
-              Affordable homeownership and investment opportunities. Find your North Las Vegas
-              home with <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
-            </p>
-          </div>
-
-          {/* Market Stats */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">
-              North Las Vegas Market | January 2026
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-1">$385,000</div>
-                <div className="text-slate-300 text-sm">Median Home Price</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">32 Days</div>
-                <div className="text-slate-300 text-sm">Avg. Days on Market</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-1">892</div>
-                <div className="text-slate-300 text-sm">Active Listings</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">+3.2%</div>
-                <div className="text-slate-300 text-sm">YoY Appreciation</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Main Content */}
-          <section className="mb-16 max-w-5xl mx-auto">
-            <div className="prose prose-lg max-w-none text-slate-700">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                North Las Vegas: The Valley's Best Value for First-Time Buyers
-              </h2>
-              <p>
-                <strong>North Las Vegas</strong> has undergone a remarkable transformation over the past
-                decade. What was once considered a distant suburb is now a thriving city with new
-                master-planned communities, major employers, and infrastructure improvements that make
-                it the Las Vegas Valley's best opportunity for affordable homeownership. <strong>Berkshire
-                Hathaway HomeServices</strong> is proud to help first-time buyers and investors
-                discover North Las Vegas's potential.
-              </p>
-              <p>
-                With a median home price of <strong>$385,000</strong>—roughly $65,000 less than Las Vegas
-                and $100,000 less than Henderson—North Las Vegas offers entry to homeownership that's
-                increasingly difficult to find elsewhere in Southern Nevada. First-time buyers priced
-                out of Summerlin or Henderson find that North Las Vegas delivers modern homes with
-                contemporary features at prices they can actually afford. And with Nevada's lack of
-                state income tax, more of their income goes toward building equity.
-              </p>
-              <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong> provides the same
-                expert service in North Las Vegas as we do in the valley's luxury markets. Dr. Jan Duffy
-                helps first-time buyers understand the purchase process, navigate financing options, and
-                avoid common pitfalls. For new construction—where builders' sales agents represent the
-                builder, not you—BHHS provides free buyer representation that can save thousands in
-                upgrades and negotiations.
-              </p>
-
-              {/* Community Highlights */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Community Highlights</h3>
-              <div className="grid md:grid-cols-2 gap-8 not-prose">
-                <div className="bg-slate-50 p-6 rounded-xl">
-                  <div className="flex items-center mb-4">
-                    <DollarSign className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Most Affordable in the Valley</h4>
-                  </div>
-                  <p className="text-slate-600">
-                    North Las Vegas offers the lowest median home prices in the Las Vegas Valley, making
-                    homeownership attainable for first-time buyers, young families, and investors. Entry-level
-                    homes start in the $320,000s, while new construction from quality builders ranges
-                    from $380,000 to $550,000—prices that would buy a condo elsewhere.
-                  </p>
-                </div>
-                <div className="bg-slate-50 p-6 rounded-xl">
-                  <div className="flex items-center mb-4">
-                    <TrendingUp className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Rapid Growth & Development</h4>
-                  </div>
-                  <p className="text-slate-600">
-                    North Las Vegas is experiencing unprecedented growth with new retail centers, improved
-                    roads, and major employers moving to the area. The city's population has grown over
-                    30% in the past decade, bringing new amenities, restaurants, and services. This growth
-                    trajectory suggests continued appreciation for today's buyers.
-                  </p>
-                </div>
-              </div>
-
-              {/* Major Employers */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Major North Las Vegas Employers</h3>
-              <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
-                <p className="text-slate-700 mb-4">
-                  North Las Vegas has attracted major employers, creating local jobs and driving housing demand:
-                </p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <ul className="text-slate-600 space-y-2">
-                    <li><strong>Amazon:</strong> Multiple fulfillment centers employing 5,000+</li>
-                    <li><strong>Fanatics:</strong> Sports merchandise distribution (~3,000 jobs)</li>
-                    <li><strong>Sephora:</strong> Major distribution center</li>
-                    <li><strong>Chewy:</strong> Pet supply distribution center</li>
-                  </ul>
-                  <ul className="text-slate-600 space-y-2">
-                    <li><strong>City of North Las Vegas:</strong> Growing municipal workforce</li>
-                    <li><strong>North Las Vegas Airport:</strong> Aviation and logistics</li>
-                    <li><strong>Nellis Air Force Base:</strong> Major employer just east</li>
-                    <li><strong>Las Vegas Motor Speedway:</strong> Events and hospitality</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* School Districts */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">North Las Vegas Schools</h3>
-              <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
-                <p className="text-slate-700 mb-4">
-                  North Las Vegas is served by Clark County School District, with newer schools in
-                  master-planned communities often performing above area averages:
-                </p>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Top Elementary</h5>
-                    <ul className="text-slate-600 text-sm space-y-1">
-                      <li>• Aliante Elementary</li>
-                      <li>• Oran K. Gragson Elementary</li>
-                      <li>• Mabel Hoggard Elementary</li>
-                      <li>• Tate Elementary</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Middle & High Schools</h5>
-                    <ul className="text-slate-600 text-sm space-y-1">
-                      <li>• Canyon Springs High School</li>
-                      <li>• Legacy High School</li>
-                      <li>• Aliante Middle School</li>
-                      <li>• Sawyer Middle School</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Charter Options</h5>
-                    <ul className="text-slate-600 text-sm space-y-1">
-                      <li>• Pinecrest Academy North</li>
-                      <li>• Somerset Academy</li>
-                      <li>• Coral Academy of Science</li>
-                      <li>• SLAM! Academy</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Commute Times */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Commute Times from North Las Vegas</h3>
-              <div className="not-prose overflow-x-auto">
-                <table className="w-full bg-white border border-slate-200 rounded-lg">
-                  <thead className="bg-slate-50">
-                    <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Destination</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Distance</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Drive Time</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Rush Hour</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-200">
-                    <tr><td className="px-4 py-3">Downtown Las Vegas</td><td className="px-4 py-3">8 miles</td><td className="px-4 py-3">15 min</td><td className="px-4 py-3">20-30 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Las Vegas Strip</td><td className="px-4 py-3">10 miles</td><td className="px-4 py-3">18 min</td><td className="px-4 py-3">25-40 min</td></tr>
-                    <tr><td className="px-4 py-3">McCarran Airport (LAS)</td><td className="px-4 py-3">15 miles</td><td className="px-4 py-3">20 min</td><td className="px-4 py-3">30-45 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Summerlin</td><td className="px-4 py-3">18 miles</td><td className="px-4 py-3">25 min</td><td className="px-4 py-3">35-50 min</td></tr>
-                    <tr><td className="px-4 py-3">Henderson</td><td className="px-4 py-3">18 miles</td><td className="px-4 py-3">22 min</td><td className="px-4 py-3">30-45 min</td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <p className="text-slate-600 text-sm mt-2 not-prose">
-                The 215 Beltway provides excellent access from North Las Vegas to all parts of the valley.
-                Many Amazon/warehouse workers live in NLV for the short commute to nearby facilities.
-              </p>
-
-              {/* New Construction Communities */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">New Construction Communities</h3>
-              <div className="not-prose grid md:grid-cols-2 gap-6">
-                <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Active Builder Communities</h5>
-                  <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Aliante:</strong> Master-planned with golf, casino, town center. Homes $400K-$550K.</li>
-                    <li><strong>Tule Springs:</strong> Newer community near I-215. KB Home, Lennar. $380K-$500K.</li>
-                    <li><strong>Valley Vista:</strong> Family-focused with parks, pools. Century Communities. $350K-$450K.</li>
-                    <li><strong>Camino Al Norte:</strong> Growing area near 215. Multiple builders. $380K-$480K.</li>
-                  </ul>
-                </div>
-                <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Healthcare & Services</h5>
-                  <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>North Vista Hospital:</strong> Full-service hospital with ER, surgical center.</li>
-                    <li><strong>VA Southern Nevada Healthcare:</strong> Veterans medical facility on Craig Road.</li>
-                    <li><strong>Southwest Medical:</strong> Multiple urgent care and primary care locations.</li>
-                    <li><strong>Aliante Station Casino:</strong> Entertainment, dining, and gaming nearby.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <p className="mt-8">
-                The current market shows <strong>892 active listings</strong> with homes averaging
-                <strong> 32 days on market</strong>—slightly longer than the valley average, giving
-                buyers more time to make informed decisions. Year-over-year appreciation of <strong>3.2%</strong>
-                is more modest than luxury markets but represents solid, sustainable growth. Investors
-                find particularly strong opportunities here, with rental yields often exceeding 6%.
-              </p>
-              <p>
-                Working with <strong>Berkshire Hathaway HomeServices</strong> in North Las Vegas means
-                getting honest guidance about which neighborhoods offer the best value, which builders
-                have the best reputations, and which areas are poised for the strongest appreciation.
-                Dr. Jan Duffy won't push you toward a more expensive area when North Las Vegas fits
-                your needs—that integrity is what sets BHHS apart from agencies focused solely on
-                commission.
-              </p>
-            </div>
-          </section>
-
-          {/* Expert Quote */}
-          <section className="mb-16 max-w-4xl mx-auto">
-            <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
-              <blockquote className="text-lg text-slate-700 italic mb-4">
-                "I tell first-time buyers the truth: you don't need to stretch your budget to own a
-                great home. North Las Vegas offers brand-new construction with modern features at
-                prices that let you build wealth instead of struggling with payments. As a Berkshire
-                Hathaway HomeServices agent, my job is to find the right fit—not the highest price."
-              </blockquote>
-              <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
-              </cite>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About North Las Vegas
-            </h2>
-            <div className="space-y-6">
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  What is the current median home price in North Las Vegas?
-                </h3>
-                <p className="text-slate-600">
-                  As of January 2026, North Las Vegas' median home price is $385,000—the most affordable
-                  in the Las Vegas Valley. First-time buyers can find homes starting in the $320,000s,
-                  while new construction ranges from $380,000 to $550,000.
-                </p>
-              </div>
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  Is North Las Vegas a good area to buy a home?
-                </h3>
-                <p className="text-slate-600">
-                  North Las Vegas has transformed dramatically with new master-planned communities,
-                  improved infrastructure, and major employment centers. It offers excellent value for
-                  first-time buyers and investors seeking positive cash flow on rental properties.
-                </p>
-              </div>
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  What new construction is available in North Las Vegas?
-                </h3>
-                <p className="text-slate-600">
-                  Major builders including Lennar, KB Home, Richmond American, and Century Communities
-                  offer new construction in North Las Vegas. Communities like Aliante, Tule Springs,
-                  and Valley Vista feature modern designs with energy-efficient features.
-                </p>
-              </div>
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-bold text-slate-900 mb-2">
-                  Why choose Berkshire Hathaway HomeServices for North Las Vegas?
-                </h3>
-                <p className="text-slate-600">
-                  BHHS provides expert guidance for first-time buyers navigating the purchase process,
-                  plus free representation on new construction purchases. Dr. Jan Duffy helps clients
-                  find value while avoiding common pitfalls in emerging neighborhoods.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Start Your Homeownership Journey
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices North Las Vegas expert,
-              for guidance on finding affordable homes that fit your budget.
-            </p>
-            <a
-              href="tel:+17025001942"
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
-            </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-          </section>
+      <StructuredDataScript data={articleSchema} id="article-schema" />
+      <Breadcrumbs />
+      <div className="min-h-screen bg-white">
+      {/* Hero with H1 */}
+      <section className="bg-gradient-to-r from-pink-600 to-rose-600 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            North Las Vegas: Affordable New Construction and Growing Communities
+          </h1>
+          <p className="text-xl md:text-2xl text-rose-100 max-w-3xl">
+            North Las Vegas offers exceptional value with new construction, affordable housing, and rapidly developing master-planned communities ideal for families and first-time buyers.
+          </p>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
-      </main>
-      <RealScoutListings />
-      <Footer />
+      </section>
+
+      {/* Author Badge */}
+      <section className="py-4 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <AuthorBadge />
+        </div>
+      </section>
+
+      {/* H2 #1 */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Why North Las Vegas is One of Las Vegas's Fastest-Growing Areas
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+              <p className="text-lg text-gray-700 mb-4">
+                North Las Vegas represents one of Las Vegas Valley's most dynamic growth areas, attracting buyers seeking new construction, affordability, and modern amenities. As Las Vegas expands northward, North Las Vegas provides excellent value with newer homes, updated infrastructure, and master-planned communities designed for contemporary lifestyles.
+              </p>
+              <p className="text-lg text-gray-700 mb-4">
+                The city has invested heavily in infrastructure improvements, new parks, schools, and commercial development. These investments create an attractive environment for families, especially first-time buyers seeking modern floor plans, energy-efficient features, and turn-key new construction without premium pricing.
+              </p>
+              <p className="text-lg text-gray-700">
+                Major master-planned communities like Skye Canyon, Tule Springs, and Aliante continue building, offering new-home buyers choices across various price points. These developments feature modern amenities, planned commercial centers, parks, and schools - providing complete lifestyle packages that appeal to today's buyers.
+              </p>
+            </div>
+            
+            <div className="bg-pink-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">North Las Vegas Quick Facts</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• Population:</span>
+                  <span>Over 260,000 and growing rapidly</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• Median Home Price:</span>
+                  <span>$385,000 - Excellent value</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• New Construction:</span>
+                  <span>Extensive new-home developments</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• Master-Planned:</span>
+                  <span>Skye Canyon, Tule Springs, Aliante</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• Active Listings:</span>
+                  <span>212 homes currently available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-bold mr-2">• Growth Rate:</span>
+                  <span>One of fastest-growing in Nevada</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* H2 #2 */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            North Las Vegas Real Estate: Value and Opportunity
+          </h2>
+          
+          <p className="text-lg text-gray-700 mb-8">
+            North Las Vegas real estate offers Las Vegas Valley's best affordability for new construction and master-planned community living. Properties here typically cost significantly less than Summerlin while still offering quality schools, amenities, and modern home features that buyers seek.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Median Home Prices</h3>
+              <p className="text-4xl font-bold text-pink-600 mb-2">$385,000</p>
+              <p className="text-gray-600">Median sale price, exceptional value for new construction</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Days on Market</h3>
+              <p className="text-4xl font-bold text-pink-600 mb-2">35</p>
+              <p className="text-gray-600">Average days to sale for properly priced homes</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Active Listings</h3>
+              <p className="text-4xl font-bold text-pink-600 mb-2">212</p>
+              <p className="text-gray-600">Homes available across North Las Vegas</p>
+            </div>
+          </div>
+
+          <div className="bg-pink-600 text-white p-8 rounded-lg mb-8">
+            <h3 className="text-2xl font-bold mb-4">Why North Las Vegas Properties Deliver Value</h3>
+            <p className="mb-4 text-pink-100">
+              North Las Vegas real estate represents exceptional value due to new construction inventory, modern home features, and affordable pricing compared to older Las Vegas areas. New homes often include energy-efficient systems, modern floor plans, smart home features, and builder warranties.
+            </p>
+            <p className="mb-4 text-pink-100">
+              Master-planned communities provide amenities typically found only in higher-priced areas: community centers, pools, parks, trails, and planned commercial areas. These amenities create lifestyle value that supports property values over time while offering immediate quality of life benefits.
+            </p>
+            <p className="text-pink-100">
+              For buyers, North Las Vegas means accessing modern home features and community amenities at prices 30-40% below comparable homes in areas like Summerlin. For sellers, it means competing in a market where value-conscious buyers actively seek properties, creating steady demand for well-priced homes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Buying in North Las Vegas</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas buyers enjoy choices ranging from new construction to established neighborhoods. Skye Canyon offers mountain views and resort-style amenities. Tule Springs features new homes near planned commercial development. Aliante provides established community with mature amenities.
+              </p>
+              <p className="text-gray-700 mb-3">
+                Property types include single-family homes, townhomes, and condos across various price points from $250k to $600k. The abundance of new construction means buyers can choose move-in ready homes or customize during the building process with new communities regularly adding phases.
+              </p>
+              <p className="text-gray-700">
+                Working with a North Las Vegas specialist helps navigate new construction contracts, understand builder reputations, identify established neighborhoods with value, and ensure you're getting maximum value for your budget. Dr. Janet Duffy provides this expertise.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Selling in North Las Vegas</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas sellers compete with new construction inventory, requiring strategic positioning. Well-maintained homes in established communities near new developments can offer better value than brand-new homes while providing mature landscaping and proven neighborhood character.
+              </p>
+              <p className="text-gray-700 mb-3">
+                Understanding buyer motivations in North Las Vegas - seeking value, new construction alternatives, family-friendly neighborhoods - helps sellers position properties effectively. Pricing competitively relative to new homes, highlighting improvements, and emphasizing neighborhood maturity all matter.
+              </p>
+              <p className="text-gray-700">
+                Dr. Janet Duffy's expertise with expired listings includes understanding why North Las Vegas homes don't sell initially and how to reposition them for success. Her systematic approach addresses pricing relative to new construction, professional presentation, and targeted marketing to value-seeking buyers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* H2 #3 */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Living in North Las Vegas: Modern Amenities and Growth
+          </h2>
+          
+          <p className="text-lg text-gray-700 mb-8">
+            Living in North Las Vegas means enjoying newly developed infrastructure, modern amenities, and community focus on families. The area combines affordability with quality schools, parks, shopping, and easy access to entire Las Vegas Valley employment centers.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Community Amenities</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas master-planned communities offer resort-style amenities: community pools with cabanas, fitness centers, parks with play structures, basketball courts, and walking trails. These amenities rival premium areas at fraction of cost, creating strong value proposition.
+              </p>
+              <p className="text-gray-700 mb-3">
+                Aliante Casino and Resort provides entertainment, dining, and events. New commercial centers including shopping and dining continue developing, bringing more convenience to residents. Craig Ranch Regional Park offers 170 acres of sports fields, pools, and recreational facilities.
+              </p>
+              <p className="text-gray-700">
+                The planned Aviators baseball stadium development will add Major League Baseball Triple-A facilities and additional commercial development. This ongoing infrastructure investment ensures North Las Vegas remains desirable long-term investment area.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Schools and Education</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas schools include newer facilities with modern technology and programs. Clark County School District serves the area with new schools being built to support population growth. Many families choosing North Las Vegas specifically appreciate newer school facilities.
+              </p>
+              <p className="text-gray-700 mb-3">
+                Existing schools include Shadow Ridge High School receiving good ratings, while new schools in master-planned communities continue opening with latest educational infrastructure. School choice options and magnet programs provide additional educational opportunities.
+              </p>
+              <p className="text-gray-700">
+                Higher education access includes College of Southern Nevada North Las Vegas campus and proximity to University of Nevada Las Vegas. This educational infrastructure supports professional development while creating employment opportunities in the area.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Convenience and Location</h3>
+            <p className="text-gray-700 mb-3">
+              North Las Vegas location provides convenient access to entire Las Vegas Valley via major highways. The area sits near Interstate 15 for quick access to Strip and downtown, Highway 215 connects to Summerlin and Henderson, and US 95 provides valley-wide connectivity.
+            </p>
+            <p className="text-gray-700 mb-3">
+              Proximity to Nellis Air Force Base creates stable employment anchor and steady demand from military families. The new Veterans Affairs hospital development further supports the area's growth and provides additional employment base.
+            </p>
+            <p className="text-gray-700">
+              Shopping options continue expanding with new commercial centers in master-planned communities plus access to major Las Vegas shopping destinations. Dining ranges from casual to upscale while entertainment options include Aliante Casino and multiple movie theaters throughout area.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* H2 #4 */}
+      <section className="py-16 px-4 bg-pink-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Expert North Las Vegas Real Estate Service
+          </h2>
+          
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            North Las Vegas real estate requires understanding new construction dynamics, value-conscious buyer profiles, and positioning properties competitively in a market with abundant new-home options. Dr. Janet Duffy provides specialized North Las Vegas expertise.
+          </p>
+
+          <div className="bg-white p-8 rounded-lg mb-8 shadow-md">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Why North Las Vegas Properties Need Strategic Approach</h3>
+            <p className="text-gray-700 mb-3">
+              When North Las Vegas homes don't sell, it's often because they're competing against new construction without highlighting comparative advantages. Pricing must reflect value relative to new homes while showcasing what existing homes offer that new construction can't.
+            </p>
+            <p className="text-gray-700 mb-3">
+              Presentation becomes crucial since new construction has inherent appeal. Existing homes need professional staging and photography demonstrating move-in ready quality, modern updates, or potential for customization. Marketing must reach buyers actively comparing new vs existing options.
+            </p>
+            <p className="text-gray-700">
+              Dr. Janet Duffy's approach understands these dynamics. She positions North Las Vegas properties to compete effectively by emphasizing value advantages: established neighborhoods, mature landscaping, proven construction quality, and often lower purchase prices with potential for improvements that add equity.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Finding Your North Las Vegas Home</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas buyers face decisions between new construction and existing homes, different master-planned communities, and various price ranges. Understanding trade-offs between new construction customization vs immediate move-in, and between established vs developing areas, requires expertise.
+              </p>
+              <p className="text-gray-700">
+                Dr. Jan helps North Las Vegas buyers navigate these decisions by understanding specific priorities: timing needs, budget constraints, desired amenities, school requirements, and long-term goals. This personalized guidance ensures buyers make optimal choices in dynamic North Las Vegas market.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Selling Your North Las Vegas Property</h3>
+              <p className="text-gray-700 mb-3">
+                North Las Vegas sellers need strategies that compete with new construction while highlighting unique value propositions. Whether selling newer or existing homes, understanding target buyer motivations and positioning accordingly determines success.
+              </p>
+              <p className="text-gray-700">
+                Dr. Jan's North Las Vegas specialization includes knowing which improvements add value, how to price relative to new construction, and what marketing approach attracts value-conscious buyers seeking quality homes. Her expired listing expertise specifically addresses North Las Vegas market challenges.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4 bg-pink-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Buy or Sell in North Las Vegas?
+          </h2>
+          <p className="text-lg mb-8 text-pink-100">
+            Let Dr. Janet Duffy help you navigate North Las Vegas real estate with expertise and proven results.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a
+              href="tel:+17025667890"
+              className="bg-white text-pink-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Call: (702) 222-1964
+            </a>
+            <Link
+              href="/contact"
+              className="bg-pink-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-pink-900 transition-colors"
+            >
+              Schedule Consultation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-8 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <Link href="/neighborhoods" className="text-pink-600 hover:text-pink-800 font-semibold">
+            ← Back to All Las Vegas Neighborhoods
+          </Link>
+        </div>
+      </section>
+      </div>
     </>
-  );
+  )
 }
+

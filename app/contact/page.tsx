@@ -1,327 +1,225 @@
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield } from "lucide-react";
-import CalendlyWidget from "@/components/calendly/CalendlyWidget";
-import Link from "next/link";
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
-  description:
-    "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1942. Las Vegas, Henderson, Summerlin real estate expert.",
-  keywords: [
-    "contact real estate agent Las Vegas",
-    "Berkshire Hathaway contact",
-    "Dr. Jan Duffy phone",
-    "Las Vegas realtor contact",
-    "schedule real estate appointment",
-  ],
-};
-
-const contactSchema = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  mainEntity: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-    email: "homes@heyberkshire.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-      addressCountry: "US",
-    },
-  },
-};
+import { useState } from 'react'
+import Link from 'next/link'
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: 'Contact Page'
+        })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', phone: '', address: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-      />
-      <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="text-center mb-12">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Contact Dr. Jan Duffy
-            </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Questions about Las Vegas real estate? Your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> expert is here to help. 
-              Schedule an appointment or reach out directly.
+    <div className="min-h-screen bg-white">
+      {/* Hero with H1 */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Contact Dr. Janet Duffy: Let's Talk About Selling Your Home
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl">
+            Your home didn't sell? Let's change that. Reach out today for a free consultation.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              Get In Touch Today
+            </h2>
+            <p className="text-lg text-gray-700 mb-8">
+              Fill out the form or call directly. Dr. Janet Duffy responds quickly to help homeowners whose properties didn't sell successfully.
             </p>
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Info & Map */}
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h2>
-              <p className="text-slate-700 mb-8">
-                Whether you're buying your first home, selling a luxury property, or exploring
-                investment opportunities, I'm here to provide expert guidance backed by the trusted{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> brand. Serving Las Vegas since 2008 
-                with $127M+ in closed transactions.
-              </p>
-
-              {/* NAP Information */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start bg-slate-50 rounded-lg p-4">
-                  <Phone className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Phone (Call or Text)</h3>
-                    <a
-                      href="tel:+17025001942"
-                      className="text-2xl font-bold text-blue-600 hover:text-blue-700"
-                    >
-                      (702) 500-1942
-                    </a>
-                    <p className="text-sm text-slate-500 mt-1">
-                      Available 7 days a week, 9am-6pm
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start bg-slate-50 rounded-lg p-4">
-                  <Mail className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
-                    <a
-                      href="mailto:homes@heyberkshire.com"
-                      className="text-blue-600 hover:text-blue-700 font-medium"
-                    >
-                      Homes@HeyBerkshire.com
-                    </a>
-                    <p className="text-sm text-slate-500 mt-1">
-                      Typically respond within 2 hours
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start bg-slate-50 rounded-lg p-4">
-                  <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Office Address</h3>
-                    <address className="not-italic text-slate-700">
-                      Berkshire Hathaway HomeServices<br />
-                      Nevada Properties<br />
-                      9406 W Lake Mead Blvd, Suite 100<br />
-                      Las Vegas, NV 89134
-                    </address>
-                  </div>
-                </div>
-
-                <div className="flex items-start bg-slate-50 rounded-lg p-4">
-                  <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-1">Office Hours</h3>
-                    <p className="text-slate-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday - Sunday: 10:00 AM - 4:00 PM
-                    </p>
-                    <p className="text-sm text-slate-500 mt-1">
-                      Available by appointment outside these hours
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Google Map Embed */}
-              <div className="rounded-xl overflow-hidden shadow-md mb-4">
-                <iframe
-                  src="https://maps.google.com/maps?q=9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Berkshire Hathaway HomeServices Nevada Properties - Office Location"
-                  className="w-full"
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="contact-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name</label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  required
                 />
               </div>
+
+              <div>
+                <label htmlFor="contact-email" className="block text-sm font-semibold mb-2 text-gray-900">Email Address</label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone Number</label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address</label>
+                <input
+                  id="contact-address"
+                  type="text"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="123 Main St, Las Vegas, NV"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-message" className="block text-sm font-semibold mb-2 text-gray-900">Message</label>
+                <textarea
+                  id="contact-message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tell us about your situation..."
+                />
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
+                  <p className="font-semibold">Thank you! Dr. Jan will contact you soon.</p>
+                </div>
+              )}
               
-              {/* Map Action Buttons */}
-              <div className="flex gap-3 mb-8">
-                <a
-                  href="https://www.google.com/maps/dir//9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <MapPin className="h-4 w-4 mr-2" />
-                  Get Directions
-                </a>
-                <a
-                  href="https://maps.google.com/?q=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
-                >
-                  View on Google Maps
-                </a>
-              </div>
-
-              {/* Credentials */}
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <p className="text-sm text-slate-700">
-                  <strong>Dr. Jan Duffy, REALTOR®</strong><br />
-                  License S.0197614.LLC<br />
-                  Berkshire Hathaway HomeServices Nevada Properties
-                </p>
-              </div>
-            </div>
-
-            {/* Schedule Appointment - Calendly Widget */}
-            <div>
-              <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                <div className="bg-blue-600 text-white p-6 text-center">
-                  <Calendar className="h-10 w-10 mx-auto mb-3" />
-                  <h2 className="text-2xl font-bold mb-2">Schedule an Appointment</h2>
-                  <p className="text-blue-100">
-                    Book a time that works for you—phone consultation, property showing, 
-                    or in-person meeting at our office.
-                  </p>
+              {submitStatus === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
+                  <p className="font-semibold">There was an error sending your message. Please try again or call (702) 222-1964.</p>
                 </div>
-                <CalendlyWidget height="600px" />
-              </div>
+              )}
 
-              {/* Why Contact BHHS */}
-              <div className="mt-6 bg-slate-900 text-white rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">Why Contact Berkshire Hathaway HomeServices?</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <Shield className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Trusted Brand:</strong> The only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <Star className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Proven Results:</strong> $127M+ in closed transactions serving Las Vegas since 2008.
-                    </p>
-                  </div>
-                  <div className="flex items-start">
-                    <Users className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
-                    <p className="text-slate-300 text-sm">
-                      <strong className="text-white">Global Network:</strong> 50,000+ agents worldwide for seamless relocations and referrals.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
           </div>
 
-          {/* Service Areas Section */}
-          <section className="max-w-5xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Areas We Serve
+          {/* Contact Info */}
+          <div>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              Contact Information
             </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              Dr. Jan Duffy provides expert real estate services throughout the Las Vegas Valley. 
-              Whether you're buying, selling, or investing in any of these communities, contact us 
-              for personalized guidance backed by Berkshire Hathaway HomeServices.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                "Las Vegas",
-                "Henderson",
-                "Summerlin",
-                "Green Valley",
-                "North Las Vegas",
-                "Southern Highlands",
-                "Skye Canyon",
-                "Centennial Hills",
-                "The Ridges",
-                "Inspirada",
-                "Mountains Edge",
-                "Spring Valley",
-              ].map((area) => (
-                <div key={area} className="bg-slate-50 rounded-lg p-3 text-center hover:bg-blue-50 transition-colors">
-                  <span className="text-slate-700 font-medium text-sm">{area}</span>
+            
+            <div className="space-y-6 mb-8">
+              <div className="flex items-start">
+                <div className="text-blue-600 mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
                 </div>
-              ))}
-            </div>
-          </section>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Phone</h3>
+                  <a href="tel:+17022221964" className="text-blue-600 hover:text-blue-800">
+                    (702) 222-1964
+                  </a>
+                </div>
+              </div>
 
-          {/* Quick Contact Options */}
-          <section className="max-w-4xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Prefer to Reach Out Directly?
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <a
-                href="tel:+17025001942"
-                className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-xl transition-colors"
-              >
-                <Phone className="h-8 w-8 mr-4" />
-                <div className="text-left">
-                  <div className="font-bold text-lg">Call Now</div>
-                  <div className="text-blue-100">(702) 500-1942</div>
+              <div className="flex items-start">
+                <div className="text-blue-600 mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                 </div>
-              </a>
-              <a
-                href="mailto:homes@heyberkshire.com"
-                className="flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white p-6 rounded-xl transition-colors"
-              >
-                <Mail className="h-8 w-8 mr-4" />
-                <div className="text-left">
-                  <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@HeyBerkshire.com</div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Email</h3>
+                  <a href="mailto:HomeSales@CallDrDuffy.com" className="text-blue-600 hover:text-blue-800">
+                    HomeSales@CallDrDuffy.com
+                  </a>
                 </div>
-              </a>
-            </div>
-          </section>
+              </div>
 
-          {/* FAQ Section */}
-          <section className="max-w-4xl mx-auto mt-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-4">
-              {[
-                {
-                  q: "What should I expect during my first consultation?",
-                  a: "Your consultation is a no-pressure conversation about your real estate goals. We'll discuss your timeline, budget, preferences, and answer any questions you have about the Las Vegas market. Whether you're buying, selling, or exploring options, I'll provide honest guidance tailored to your situation.",
-                },
-                {
-                  q: "Do I need to be pre-approved before scheduling a showing?",
-                  a: "For buyers, having a pre-approval letter strengthens your position, but it's not required for an initial consultation. I can connect you with trusted local lenders during our first meeting if you haven't started the financing process yet.",
-                },
-                {
-                  q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
-                },
-                {
-                  q: "Do you charge for consultations?",
-                  a: "No. Initial consultations are always free and without obligation. Whether you're ready to move forward or just exploring your options, there's never any pressure.",
-                },
-              ].map((faq, index) => (
-                <div key={index} className="bg-slate-50 rounded-lg p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
-                  <p className="text-slate-600">{faq.a}</p>
+              <div className="flex items-start">
+                <div className="text-blue-600 mr-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Office</h3>
+                  <p className="text-gray-600">Las Vegas, NV</p>
+                </div>
+              </div>
             </div>
-          </section>
+
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Prefer to Text?</h3>
+              <p className="text-gray-700 mb-4">
+                Send a quick text to (702) 222-1964 and we'll respond right away.
+              </p>
+              <a
+                href="sms:+17022221964"
+                className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Text Now
+              </a>
+            </div>
+          </div>
         </div>
-
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
-      </main>
-      <RealScoutListings />
-      <Footer />
-    </>
-  );
+      </section>
+    </div>
+  )
 }
+

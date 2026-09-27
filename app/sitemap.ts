@@ -1,79 +1,378 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://heyberkshire.com";
-  const lastModified = new Date();
-
-  // Core pages
-  const corePages = [
-    { url: baseUrl, priority: 1.0, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/about`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/contact`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/listings`, priority: 0.9, changeFrequency: "daily" as const },
-    { url: `${baseUrl}/why-berkshire-hathaway`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/market-report`, priority: 0.9, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/market-update`, priority: 0.9, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/market-insights`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/google-business`, priority: 0.9, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/faq`, priority: 0.8, changeFrequency: "monthly" as const },
-  ];
-
-  // Service pages
-  const servicePages = [
-    { url: `${baseUrl}/buyers`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/sellers`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/luxury-homes`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/new-construction`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/investment-properties`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/relocation`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/home-valuation`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/55-plus-communities`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/services`, priority: 0.7, changeFrequency: "monthly" as const },
-  ];
-
-  // Buyer persona pages
-  const buyerPersonaPages = [
-    { url: `${baseUrl}/buyers/california-relocator`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/buyers/first-time-buyers`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/buyers/luxury-homes-las-vegas`, priority: 0.8, changeFrequency: "monthly" as const },
-  ];
-
-  // Seller persona pages
-  const sellerPersonaPages = [
-    { url: `${baseUrl}/sellers/move-up`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/sellers/downsizing`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/sellers/divorce-probate`, priority: 0.7, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/sellers/relocation`, priority: 0.8, changeFrequency: "monthly" as const },
-  ];
-
-  // 55+ community sub-pages
-  const fiftyPlusCommunityPages = [
-    { url: `${baseUrl}/55-plus-communities/sun-city-summerlin`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/55-plus-communities/sun-city-anthem`, priority: 0.8, changeFrequency: "monthly" as const },
-    { url: `${baseUrl}/55-plus-communities/del-webb-lake-las-vegas`, priority: 0.8, changeFrequency: "monthly" as const },
-  ];
-
-  // Neighborhood pages
-  const neighborhoodPages = [
-    { url: `${baseUrl}/neighborhoods`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/summerlin`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/henderson`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/green-valley`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/the-ridges`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/southern-highlands`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/north-las-vegas`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/skye-canyon`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/centennial-hills`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/inspirada`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/mountains-edge`, priority: 0.7, changeFrequency: "weekly" as const },
-  ];
-
-  const allPages = [...corePages, ...servicePages, ...buyerPersonaPages, ...sellerPersonaPages, ...fiftyPlusCommunityPages, ...neighborhoodPages];
-
-  return allPages.map((page) => ({
-    url: page.url,
-    lastModified,
-    changeFrequency: page.changeFrequency,
-    priority: page.priority,
-  }));
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
+    'https://www.calldrduffy.com'
+  const now = new Date()
+  
+  return [
+    // Core Pages - Priority 1.0
+    {
+      url: baseUrl,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/didnt-sell`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/expired-listing-help`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    
+    // High Priority Pages - 0.9
+    {
+      url: `${baseUrl}/seller-consultation`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/real-estate-agent-scripts-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/real-estate-marketing-tools-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/las-vegas-real-estate-website`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/las-vegas-luxury-homes`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/realtor-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/houses-for-sale-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/las-vegas-mls`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/best-neighborhoods-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/las-vegas-condos-for-sale`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/las-vegas-homes`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/las-vegas-property-tax`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/las-vegas-mansions`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/3d-house-tours-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/real-estate-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/success-stories`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/neighborhoods`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/home-valuation`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/why-berkshire-hathaway`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/how-it-works`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    
+    // Standard Priority Pages - 0.8-0.85
+    {
+      url: `${baseUrl}/about`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
+    // Neighborhood Pages - 0.85
+    {
+      url: `${baseUrl}/neighborhoods/summerlin`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/henderson`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/north-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/downtown-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/paradise`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/boulder-city`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/enterprise`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/spring-valley`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/winchester`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/whitney`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    
+    // Sub-Neighborhood Pages - 0.8
+    {
+      url: `${baseUrl}/neighborhoods/summerlin/the-trails`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/summerlin/the-foothills`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/summerlin/sun-city`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/henderson/green-valley`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/henderson/lake-las-vegas`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/henderson/macdonald-ranch`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/neighborhoods/north-las-vegas/skye-canyon`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/downtown-las-vegas/fremont`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
+    // Zip Code Pages - 0.75
+    {
+      url: `${baseUrl}/zipcodes/89117`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89074`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89131`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89113`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89102`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89052`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89103`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89128`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89129`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89134`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/zipcodes/89139`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    
+    // Berkshire Hathaway Pages - 0.85
+    {
+      url: `${baseUrl}/berkshire-hathaway/marketing-power`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/berkshire-hathaway/pricing-mastery`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/berkshire-hathaway/communication`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/berkshire-hathaway/turnaround-plan`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/berkshire-hathaway/comparison`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+  ]
 }

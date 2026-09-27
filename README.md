@@ -1,117 +1,162 @@
-# Table of Contents
-- [Table of Contents](#table-of-contents)
-- [FAQ Generator](#faq-generator)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [How to use the FAQ Generator?](#how-to-use-the-faq-generator)
-  - [OpenAI Integration](#openai-integration)
-  - [Caching](#caching)
-  - [Deployment](#deployment)
-  - [Conclusion](#conclusion)
+# Simple v0
 
+The simplest way to use v0. Just prompt and see your app generated instantly - no chat management, no complexity. Build AI-powered apps with real-time generation and seamless deployment to Vercel.
 
-# FAQ Generator
+![Screenshot](screenshot.png)
 
-The FAQ Generator is a tool designed to generate frequently asked questions (FAQs) from Markdown files stored in GitHub repositories. It leverages the power of OpenAI's GPT models to analyze the content of Markdown files and automatically generate questions and answers based on that content. The tool aims to reduce the workload of developers and make life easier for them.
+## Deploy Your Own
 
-<a class="inline-flex hover:bg-transparent" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fupstash%2Ffaq-generator&amp;env=UPSTASH_ENDPOINT,UPSTASH_PASSWORD,UPSTASH_PORT,OPENAI_API_KEY,GITHUB_ACCESS_TOKEN&amp;demo-title=FAQ%20Generator&amp;demo-description=The%20FAQ%20Generator%20uses%20OpenAI's%20GPT%20models%20to%20create%20FAQs%20from%20Markdown%20files%20on%20GitHub.&amp;demo-url=https%3A%2F%2Ffaq-gen.vercel.app"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
+You can deploy your own version of Simple v0 to Vercel with one click:
 
-[The Demo App](https://faq-gen.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fv0-sdk%2Ftree%2Fmain%2Fexamples%2Fsimple-v0&env=V0_API_KEY&envDescription=Get+your+v0+API+key&envLink=https%3A%2F%2Fv0.app%2Fchat%2Fsettings%2Fkeys&project-name=simple-v0&repository-name=simple-v0&demo-title=Simple+v0&demo-description=The+simplest+way+to+use+v0+-+just+prompt+and+see+your+app&demo-url=https%3A%2F%2Fsimple-demo.v0-sdk.dev)
 
-https://github.com/upstash/faq-generator/assets/234086/c7359e19-6d17-433b-902c-f1a2eaa09090
+## Setup
+
+1. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+2. **Configure environment:**
+   Create a `.env.local` file in the root directory:
+
+   ```env
+   V0_API_KEY=your_api_key_here
+
+   # Optional: For rate limiting (if not provided, rate limiting is disabled)
+   KV_REST_API_URL=your_kv_rest_api_url
+   KV_REST_API_TOKEN=your_kv_rest_api_token
+   ```
+
+   - Get your v0 API key from [v0.dev/settings](https://v0.dev/settings)
+   - Optionally get your Upstash Redis credentials from [upstash.com](https://upstash.com) for rate limiting
+
+3. **Run development server:**
+
+   ```bash
+   pnpm dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Features
 
-- Automatically generates FAQs from Markdown files.
-- Supports multiple Markdown files from different GitHub repositories.
-- Utilizes multithreading for efficient processing.
-- Implements rate limiting to prevent abuse of API resources.
-- Provides a user-friendly web interface for input and output.
+- **AI App Generation**: Create applications from natural language prompts using v0's AI
+- **Project Management**: Organize your work into projects with multiple chat conversations
+- **Live Preview**: Instantly preview generated applications in an embedded iframe
+- **Chat Management**: Continue conversations, fork chats, rename, and delete as needed
+- **One-Click Deployment**: Deploy generated apps directly to Vercel
+- **File Attachments**: Upload images and files to enhance your prompts
+- **Voice Input**: Use speech-to-text for hands-free prompt creation
+- **Rate Limiting**: Built-in rate limiting (3 AI generations per 12 hours) to prevent abuse
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Session Caching**: Improved performance with intelligent caching of projects and chats
 
-## Installation
+## API Routes
 
-If you want to examine the source code or change some things according to your needs, you can install it by following these steps:
+- `GET /api/validate` - Validate API key
+- `GET /api/projects` - List all projects
+- `GET /api/projects/[id]` - Get project details with associated chats
+- `POST /api/generate` - Generate or continue app conversation
+- `GET /api/chats/[id]` - Retrieve chat details and history
+- `DELETE /api/chats/[id]` - Delete a chat conversation
+- `PATCH /api/chats/[id]` - Update chat (rename)
+- `POST /api/chats/fork` - Create a new chat from an existing one
+- `POST /api/deployments` - Deploy generated apps to Vercel
 
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/upstash/faq-generator 
-   ```
+## Tech Stack
 
-2. Navigate to the project folder:
-   ```bash
-   cd faq-generator
-   ```
+- **Framework:** Next.js 15 with App Router
+- **Runtime:** React 19 with TypeScript
+- **Styling:** Tailwind CSS 4
+- **UI Components:** Radix UI primitives with custom styling
+- **API Integration:** v0-sdk for Platform API communication
+- **Rate Limiting:** Upstash Redis with sliding window algorithm
+- **Fonts:** Geist Sans and Geist Mono via next/font
+- **Build Tool:** Turbopack for fast development
 
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Rate Limiting
 
-4. Now you need to set up environment variables by creating a .env file in the project root directory and adding the following variables:
-  
-  - GITHUB_ACCESS_TOKEN
-  - UPSTASH_ENDPOINT
-  - UPSTASH_PORT
-  - UPSTASH_PASSWORD 
-  - OPENAI_API_KEY
-  
-   
-   To set these variables, you need to have an account on [Upstash](https://console.upstash.com/login) and [OpenAI](https://auth0.openai.com/u/login/identifier?state=hKFo2SBJY3lhbWZGVmg1QU8zc0xYTi1TWEtKa1dWaTkwNUFGT6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEZhcUp2V0hkTUZlRm15aEZIX0lCNVV6NmdvaDZ3UXNio2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q). After signing in to Upstash, you need to create a database. You should enable TLS while creating your database, other than that you can proceed with default settings, they are perfectly fine for our purposes. We will use this database to store generated FAQs.
+This application implements optional rate limiting to prevent abuse and ensure fair usage:
 
-  Then, you need to log in to your OpenAI account and create an API key. The use of API isn't free, but OpenAI lets you use the API until you reach a certain amount (For today, the limit is 5 dollars. But I suggest you check it for possible changes). Once you have your API key, the only remaining variable is the GitHub token. You can generate one by navigating through developer settings. The token must access all fields related to repository actions, so don't forget the give necessary permissions while generating your token.
+- **Limit:** 3 AI generations per 12 hours per IP address
+- **What counts as 1 generation:** Each call to `v0.chats.create()` or `v0.chats.sendMessage()`
+- **Scope:** Applies to all AI generation requests regardless of chat type
+- **Implementation:** Uses Upstash Redis with a sliding window algorithm
+- **Optional:** If Upstash credentials are not provided, rate limiting is disabled
+- **Fallback:** If rate limiting service is unavailable, requests are allowed (fail-open strategy)
 
+When the rate limit is exceeded, users receive a 429 status code with information about when they can try again.
 
-5. As the last step, you can run the program on your local machine by entering this command into your console:
-   ```bash
-   npm run dev
-   ```
-   You can access the interface by navigating to http://localhost:3000 in your web browser.
+## Project Structure
 
-## How to use the FAQ Generator?
+```
+├── app/
+│   ├── api/                    # API route handlers
+│   │   ├── chats/[chatId]/     # Chat CRUD operations
+│   │   ├── deployments/        # Vercel deployment handling
+│   │   ├── generate/           # AI app generation
+│   │   ├── projects/           # Project management
+│   │   └── validate/           # API key validation
+│   ├── components/             # App-specific components
+│   ├── projects/[projectId]/   # Dynamic project pages
+│   │   └── chats/[chatId]/     # Individual chat pages
+│   ├── globals.css             # Global styles and Tailwind config
+│   ├── layout.tsx              # Root layout with metadata
+│   └── page.tsx                # Homepage with main interface
+├── components/
+│   └── ui/                     # Reusable UI components (buttons, dialogs, etc.)
+├── lib/
+│   ├── hooks/                  # Custom React hooks
+│   └── utils.ts                # Utility functions
+└── public/                     # Static assets
+```
 
-The tool has a very simple interface. It has a search bar where the user enters the URLs and a generate button that initiates the backend process. Once the FAQs are generated, they will be displayed on the page. The user can copy the FAQs to the clipboard, in a markdown format.
+## Environment Variables
 
-## OpenAI Integration
-The main logic behind the idea of this tool and why developers would use it revolves around automating the process of generating FAQs from Markdown files hosted on GitHub repositories. To automate this process, we will use OpenAI's API.
+| Variable            | Required | Description                                                                             |
+| ------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `V0_API_KEY`        | Yes      | Your v0 Platform API key from [v0.dev/settings](https://v0.dev/settings)                |
+| `KV_REST_API_URL`   | No       | Upstash Redis REST URL for rate limiting (if not provided, rate limiting is disabled)   |
+| `KV_REST_API_TOKEN` | No       | Upstash Redis REST token for rate limiting (if not provided, rate limiting is disabled) |
 
-The OpenAI API provides a chat-based interface, allowing developers to interact with language models to generate human-like responses. In this project, we provide the contents of Markdown files as input, and the API processes them. At first, it understands the content, then tries to detect the parts where users may struggle to understand the content and require assistance. Based on them, the API generates five FAQs for every single file.
+## Development Commands
 
-When a user provides multiple URLs as a single input, the application processes each URL concurrently, leveraging multithreading. This means that instead of handling each URL sequentially, where one URL is processed after the other, the application initiates the processing of multiple URLs simultaneously. As a result of parallel processing, the overall time required to process all the URLs is significantly reduced.
+```bash
+# Install dependencies
+pnpm install
 
-## Caching
+# Start development server with Turbopack
+pnpm dev
 
-The generated FAQs, along with their associated metadata (such as the latest commit ID), are cached in Upstash. This caching mechanism enables quick retrieval of previously generated FAQs for specific URLs without the need to regenerate them every time. By storing FAQs in Upstash, the application reduces the overhead of repetitive computations and improves response times when users request FAQs for URLs that have been previously processed.
+# Build for production
+pnpm build
 
-Upstash is also used to implement rate-limiting functionality, which restricts the number of requests a user can make within a specified time window. By storing rate-limiting information in Upstash, the application can efficiently track the number of requests made by each user and enforce rate limits accordingly. This helps prevent abuse or excessive usage of the application's resources, ensuring fair access for all users and maintaining system stability.
+# Start production server
+pnpm start
 
-## Deployment
+# Run linting
+pnpm lint
 
-We hosted our application on Vercel. It can be hosted anywhere that supports Next.js frontend and Flask backend. If you also want to use [Vercel](https://vercel.com/login), you'll need to create an account and follow these steps:
+# Format code
+pnpm format
 
-1. Install the Vercel Command Line Interface (CLI) tool globally on your machine using npm or yarn. This CLI tool allows you to deploy projects directly from your terminal.
-   ```bash
-   npm install -g vercel
-   # or
-   yarn global add vercel
-   ```
+# Check formatting
+pnpm format:check
+```
 
-2. Once the CLI is installed, log in to your Vercel account from the terminal using the following command:
-   ```bash
-   vercel login
-   ```
-3. Then, you can initialize your project. Navigate to your project directory and use the following command:
-   ```bash
-   vercel init
-   ```
-   This command will prompt you to link your project directory to a Vercel project. Follow the prompts to select your project and configure deployment settings.
+## Usage
 
-4. Once the project is initialized, you can deploy it to Vercel. This command will start the deployment process and upload your project files to Vercel's servers. Once the deployment is complete, Vercel will provide you with a unique URL where your application is hosted.
-   ```bash
-   vercel --prod
-   ```
+1. **Start Creating**: Enter a prompt describing the app you want to build
+2. **Organize Work**: Create projects to group related conversations
+3. **Iterate**: Continue conversations to refine and improve your apps
+4. **Deploy**: One-click deployment to Vercel for sharing and testing
+5. **Manage**: Rename, delete, or fork chats as your projects evolve
 
-As you can see, hosting your website on Vercel is a straightforward process. Even though Vercel originally offers frontend hosting servers,  its support for serverless functions enables you to effortlessly host your backend as well. Additionally, Vercel offers templates that serve as excellent starting points for your projects. In this project, I used [nextjs&flask template](https://vercel.com/templates/next.js/nextjs-flask-starter). You can find other templates on the resources page of the Vercel site.
+## Learn More
 
-## Conclusion
-
-In conclusion, the FAQ Generator tool provides a seamless solution for automatically generating frequently asked questions from markdown files. With its ability to process multiple URLs in parallel, integrate with Upstash for data storage, and deploy effortlessly on Vercel, the FAQ Generator simplifies the process of FAQ generation and enhances developer productivity. Additionally, this project is open to contributions from the community. If you have ideas for improvements, additional features, or bug fixes, feel free to contribute to the GitHub repository. Your contributions are valuable and can help make the FAQ Generator even more robust and useful for developers.
+- [v0 Platform API Documentation](https://v0.dev/docs/api/platform)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Radix UI](https://www.radix-ui.com)
