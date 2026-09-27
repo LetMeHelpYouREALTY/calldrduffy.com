@@ -15,12 +15,12 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     "description": "Your home didn't sell because your agent disappeared. Dr. Jan delivers weekly updates, 24/7 accessibility, and strategic pivots that keep your listing moving to"
   },
   "/berkshire-hathaway/comparison": {
-    "title": "Brokerage Comparison: Why | Dr. Jan Duffy",
-    "description": "Side-by-side comparison of what each major Las Vegas brokerage delivers - and why"
+    "title": "How My Brokerage Compares | Dr. Jan Duffy",
+    "description": "Side-by-side comparison of what each major Las Vegas brokerage delivers - and why with Dr. Jan Duffy is the clear choice for exp"
   },
   "/berkshire-hathaway/marketing-power": {
     "title": "Institutional Marketing Power: Why 87% of Expired Listings Failed | Dr. Jan Duffy",
-    "description": "Your home didn't sell because it never reached qualified buyers. Dr. Jan +"
+    "description": "Your home didn't sell because it never reached qualified buyers. Dr. Jan + delivers global marketing reach that regional firms s"
   },
   "/berkshire-hathaway/pricing-mastery": {
     "title": "Pricing Mastery: Why 73% of Expired Listings Were Overpriced | Dr. Jan Duffy",
@@ -168,7 +168,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/realtor-las-vegas": {
     "title": "Realtor Las Vegas: Expert Real Estate Agent for Homes That Didn't Sell | Dr. Jan Duffy",
-    "description": "Las Vegas realtor specializing in expired listings and homes that didn't sell. Licensed real estate professional with"
+    "description": "Las Vegas realtor specializing in expired listings and homes that didn't sell. Licensed real estate professional with. Expert gu"
   },
   "/seller-consultation": {
     "title": "Free Seller Consultation - Expert Help for Homes That Didn't Sell | Dr. Jan Duffy",
@@ -187,7 +187,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     "description": "Specialized help for Whitney homes that didn't sell. Expert guidance for successful home sales in this diverse East Las Vegas community."
   },
   "/why-berkshire-hathaway": {
-    "title": "Why | Dr. Jan Duffy",
+    "title": "Why My Brokerage Matters When You Sell a Tenant-Occupied Rental | Dr. Jan Duffy",
     "description": "Three critical advantages that turn expired listings into sold properties. Institutional marketing power, pricing mastery, and proactive communication that bout"
   },
   "/winchester": {
