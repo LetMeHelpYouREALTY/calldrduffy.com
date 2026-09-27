@@ -26,10 +26,16 @@ function routeFromFile(filePath) {
   return `/${dir}`
 }
 
+const TITLE_OVERRIDES = {
+  '/why-berkshire-hathaway': 'Why My Brokerage Matters When You Sell a Tenant-Occupied Rental | Dr. Jan Duffy',
+  '/berkshire-hathaway/comparison': 'How My Brokerage Compares | Dr. Jan Duffy',
+}
+
 function stripBhhs(text) {
   return text
     .replace(/\s*\|\s*Berkshire Hathaway HomeServices[^|]*/gi, '')
-    .replace(/\s*Berkshire Hathaway HomeServices[^|]*/gi, '')
+    .replace(/\s*Berkshire Hathaway HomeServices/gi, '')
+    .replace(/\s*Berkshire Hathaway/gi, '')
     .replace(/\s*\|\s*BHHS[^|]*/gi, '')
     .replace(/\s*BHHS[^|]*/gi, '')
     .replace(/\s*-\s*Dr\. Janet Duffy/gi, '')
@@ -63,6 +69,9 @@ function extractSubtitle(content) {
 }
 
 function titleForRoute(route, h1) {
+  if (TITLE_OVERRIDES[route]) {
+    return TITLE_OVERRIDES[route]
+  }
   if (route === '/') {
     return 'Selling a Las Vegas Rental with Tenants | Dr. Jan Duffy'
   }
