@@ -4,7 +4,7 @@ import Link from 'next/link'
 import AuthorBadge from '@/components/author-badge'
 import StructuredDataScript from '@/components/structured-data-script'
 import Breadcrumbs from '@/components/breadcrumbs'
-import { getArticleSchema, getPersonSchema, getReviewSchema, getAggregateRatingSchema, BASE_URL } from '@/lib/schema'
+import { getArticleSchema, getPersonSchema, getReviewSchema, BASE_URL } from '@/lib/schema'
 
 export default function SuccessStoriesPage() {
   const articleSchema = getArticleSchema({
@@ -14,8 +14,6 @@ export default function SuccessStoriesPage() {
     dateModified: '2024-12-01',
     author: getPersonSchema()
   })
-
-  const aggregateRating = getAggregateRatingSchema(5, 3)
 
   const stories = [
     {
@@ -58,7 +56,6 @@ export default function SuccessStoriesPage() {
   return (
     <>
       <StructuredDataScript data={articleSchema} id="article-schema" />
-      <StructuredDataScript data={aggregateRating} id="aggregate-rating-schema" />
       {reviewSchemas.map((review, index) => (
         <StructuredDataScript key={index} data={review} id={`review-schema-${index}`} />
       ))}

@@ -13,21 +13,26 @@ export default function SiteFooter() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Business Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Dr. Janet Duffy</h3>
+            <h3 className="text-lg font-bold mb-4">Dr. Jan Duffy</h3>
             <p className="text-gray-300 mb-2">
-              <span itemProp="name">Dr. Janet Duffy</span> | Licensed Real Estate Professional
+              <span itemProp="name">Dr. Jan Duffy</span>, REALTOR®
+            </p>
+            <p className="text-gray-300 mb-2" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+              <span itemProp="streetAddress">9406 W Lake Mead Blvd, Suite 100</span>,{' '}
+              <span itemProp="addressLocality">Las Vegas</span>,{' '}
+              <span itemProp="addressRegion">NV</span>{' '}
+              <span itemProp="postalCode">89134</span>
             </p>
             <p className="text-gray-300 mb-2">
-              <span itemProp="brand">Berkshire Hathaway HomeServices</span> | Las Vegas, NV
-            </p>
-            <p className="text-gray-300 mb-2">
-              NV RE License #<span itemProp="licenseNumber">S.0197614</span>
+              NV RE License #<span itemProp="licenseNumber">S.0197614.LLC</span>
             </p>
             <p className="text-gray-300 mt-2">
-              © {currentYear} <span itemProp="description">Las Vegas&apos;s Trusted Expert for Hard-to-Sell Homes</span>. All rights reserved.
+              © {currentYear}{' '}
+              <span itemProp="description">Sell a tenant-occupied rental in Las Vegas</span>. All rights
+              reserved.
             </p>
             <p className="text-gray-300 mt-2">
-              Specializing in getting top dollar for homes that didn&apos;t sell the first time around.
+              Berkshire Hathaway HomeServices Nevada Properties
             </p>
             
             {/* Hidden schema metadata */}
@@ -37,7 +42,8 @@ export default function SiteFooter() {
             <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
               <meta itemProp="addressLocality" content="Las Vegas" />
               <meta itemProp="addressRegion" content="NV" />
-              <meta itemProp="postalCode" content="89109" />
+              <meta itemProp="postalCode" content="89134" />
+              <meta itemProp="streetAddress" content="9406 W Lake Mead Blvd, Suite 100" />
               <meta itemProp="addressCountry" content="US" />
             </div>
           </div>
@@ -63,6 +69,15 @@ export default function SiteFooter() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.justcalldrjan.com"
+                  className="hover:text-white transition-colors"
+                  rel="noopener noreferrer"
+                >
+                  Las Vegas expired listing help
+                </a>
               </li>
             </ul>
           </div>
@@ -92,7 +107,7 @@ export default function SiteFooter() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            Dr. Janet Duffy is a licensed real estate agent with Berkshire Hathaway HomeServices.
+            Dr. Jan Duffy is a licensed Nevada real estate agent (S.0197614.LLC).
           </p>
         </div>
       </div>

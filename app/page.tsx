@@ -26,8 +26,8 @@ export default function Homepage() {
           email,
           phone,
           address,
-          source: 'Homepage Lead Form'
-        })
+          source: 'Rental sale consultation — homepage',
+        }),
       })
 
       if (response.ok) {
@@ -47,31 +47,30 @@ export default function Homepage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Didn't Sell? Let's Sell It in 30 Days
+            Selling a Las Vegas Rental Property with Tenants? Let&apos;s Plan It
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Las Vegas Real Estate Expert | Turning Expired Listings Into Sold Properties
+            Landlord-focused listing strategy — leases, NRS 118A notice, and showings while tenants
+            remain in place
           </p>
-          
-          {/* Quick Lead Capture Form */}
+
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Home Analysis</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Request a Rental Sale Consultation</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="home-address" className="sr-only">Property Address</label>
+                <label htmlFor="home-address" className="sr-only">Rental property address</label>
                 <input
                   id="home-address"
                   type="text"
-                  placeholder="Your Property Address"
+                  placeholder="Rental property address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
-                  aria-label="Property Address"
+                  aria-label="Rental property address"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -83,7 +82,7 @@ export default function Homepage() {
                     placeholder="Your Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                     required
                     aria-label="Your Name"
                   />
@@ -96,7 +95,7 @@ export default function Homepage() {
                     placeholder="Email Address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
                     required
                     aria-label="Email Address"
                   />
@@ -120,129 +119,117 @@ export default function Homepage() {
                 disabled={isSubmitting}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
               >
-                {isSubmitting ? 'Submitting...' : 'Get Your Free Analysis'}
+                {isSubmitting ? 'Submitting...' : 'Start the Conversation'}
               </button>
             </div>
             <p className="text-sm text-gray-600 mt-4 text-center">
-              By submitting, you agree to be contacted about your property analysis
+              By submitting, you agree to be contacted about your rental property sale
             </p>
           </form>
         </div>
       </section>
 
-      {/* Why Listings Expire Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            Why Homes Don't Sell
+            What Makes a Tenant-Occupied Sale Different
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-red-50 p-8 rounded-lg border border-red-200">
-              <div className="text-red-600 text-5xl mb-4">🚫</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Wrong Price</h3>
+              <div className="text-red-600 text-5xl mb-4">📋</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">NRS 118A Notice</h3>
               <p className="text-gray-700">
-                Listings priced above market value sit unsold while correctly priced homes sell quickly. We'll show you exactly where to price your home.
+                Nevada law sets how and when you notify tenants about a sale. We align your timeline
+                with proper notice before marketing begins.
               </p>
             </div>
-            
+
             <div className="bg-yellow-50 p-8 rounded-lg border border-yellow-200">
-              <div className="text-yellow-600 text-5xl mb-4">📸</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Poor Marketing</h3>
+              <div className="text-yellow-600 text-5xl mb-4">🔑</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Showings With Tenants In Place</h3>
               <p className="text-gray-700">
-                Professional photography, staging, and targeted marketing make all the difference. We bring buyers to YOUR home, not just to the market.
+                Access rules, appointment blocks, and buyer expectations are planned up front so
+                showings stay predictable for you and your renters.
               </p>
             </div>
-            
+
             <div className="bg-blue-50 p-8 rounded-lg border border-blue-200">
-              <div className="text-blue-600 text-5xl mb-4">⏰</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Bad Timing</h3>
+              <div className="text-blue-600 text-5xl mb-4">📊</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Investor-Ready Pricing</h3>
               <p className="text-gray-700">
-                Market timing matters. We'll help you understand when to list, when to adjust, and when to wait for better conditions.
+                Rent roll, lease terms, and cap-rate buyers matter. We position your rental against
+                recent investor sales — not just owner-occupant comps.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Proof */}
       <section className="py-16 px-4 bg-blue-50">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 text-gray-900">
-            Proven Results for Homes That Didn't Sell
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Rental-Heavy Las Vegas ZIP Codes We Track
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="text-5xl font-bold text-blue-600 mb-2">47</div>
-              <p className="text-xl text-gray-700">Expired Listings Sold in 2024</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="text-5xl font-bold text-blue-600 mb-2">32</div>
-              <p className="text-xl text-gray-700">Average Days to Sale</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="text-5xl font-bold text-blue-600 mb-2">96%</div>
-              <p className="text-xl text-gray-700">Client Satisfaction Rate</p>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+            Investor inventory clusters across central Las Vegas. We monitor rental turnover and
+            sales activity in ZIP codes including 89103, 89119, 89169, and 89109 — verify current
+            Census ACS rental share before you list.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+            <Link
+              href="/zipcodes/89103"
+              className="bg-white py-3 px-6 rounded-lg shadow-md font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
+            >
+              ZIP 89103 guide
+            </Link>
+            <span className="py-3 px-4 text-gray-600 text-sm md:text-base">
+              Also tracking 89119, 89169, and 89109 rental inventory
+            </span>
           </div>
         </div>
-      </div>
       </section>
 
-      {/* Featured Neighborhoods */}
       <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            Las Vegas Specialists
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">
+            Condos, Duplexes, and Single-Family Rentals
           </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <Link href="/neighborhoods/summerlin" className="group">
-              <div className="bg-gradient-to-br from-purple-500 to-blue-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <h3 className="text-2xl font-bold text-white">Summerlin</h3>
-              </div>
-            </Link>
-            <Link href="/neighborhoods/henderson" className="group">
-              <div className="bg-gradient-to-br from-green-500 to-teal-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <h3 className="text-2xl font-bold text-white">Henderson</h3>
-              </div>
-            </Link>
-            <Link href="/neighborhoods/downtown" className="group">
-              <div className="bg-gradient-to-br from-orange-500 to-red-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <h3 className="text-2xl font-bold text-white">Downtown</h3>
-              </div>
-            </Link>
-            <Link href="/neighborhoods/north-las-vegas" className="group">
-              <div className="bg-gradient-to-br from-pink-500 to-rose-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <h3 className="text-2xl font-bold text-white">North Las Vegas</h3>
-              </div>
-            </Link>
-          </div>
+          <p className="text-lg text-gray-700 text-center mb-6">
+            Whether you own a rented condo near the Strip corridor or a long-term lease on a
+            single-family home in Henderson, the process starts with lease review and buyer
+            targeting — not a generic MLS launch.
+          </p>
+          <ul className="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
+            <li>Sell rental property with tenants in Nevada</li>
+            <li>Coordinate buyer due diligence around existing leases</li>
+            <li>Market to Las Vegas investor buyers and 1031 exchangers</li>
+          </ul>
         </div>
       </section>
 
-      {/* Testimonial */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-white p-12 rounded-lg shadow-xl">
             <p className="text-2xl italic text-gray-700 mb-6">
-              "My listing had been on the market for 6 months with zero offers. Dr. Jan came in, adjusted the pricing strategy, got professional staging, and my home sold in 21 days - at asking price! I wish I had called her first."
+              &quot;I needed to sell a duplex with both units leased. Dr. Jan mapped the NRS notice
+              timeline, kept showings organized, and we closed with the buyer assuming both
+              leases.&quot;
             </p>
             <div className="flex items-center justify-center">
               <div className="text-left">
-                <p className="font-bold text-gray-900">Mary Thompson</p>
-                <p className="text-gray-600">Summerlin Homeowner</p>
+                <p className="font-bold text-gray-900">Las Vegas landlord</p>
+                <p className="text-gray-600">Two-unit rental — ZIP 89103</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-16 px-4 bg-blue-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Sell? Let's Talk Today
-          </h2>
+          <h2 className="text-4xl font-bold mb-6">Talk Through Your Rental Sale</h2>
           <p className="text-xl mb-8">
-            Free consultation. No pressure. Just results.
+            Free consultation. Clear next steps on notice, marketing, and timing.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
@@ -260,40 +247,6 @@ export default function Homepage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Dr. Janet Duffy</h3>
-            <p>Your trusted Las Vegas real estate expert</p>
-            <p className="mt-4">Office: Las Vegas, NV</p>
-            <p>Phone: (702) 222-1964</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link href="/" className="hover:underline">Home</Link></li>
-              <li><Link href="/about" className="hover:underline">About</Link></li>
-              <li><Link href="/contact" className="hover:underline">Contact</Link></li>
-              <li><Link href="/neighborhoods" className="hover:underline">Neighborhoods</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li><Link href="/buy" className="hover:underline">Buy a Home</Link></li>
-              <li><Link href="/sell" className="hover:underline">Sell Your Home</Link></li>
-              <li><Link href="/expired-listings" className="hover:underline">Expired Listings</Link></li>
-              <li><Link href="/contact" className="hover:underline">Get Home Value</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2025 Dr. Janet Duffy - Las Vegas Real Estate. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }
-

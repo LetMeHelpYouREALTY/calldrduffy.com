@@ -13,7 +13,12 @@ import {
   getWebSiteSchema
 } from '../lib/schema'
 import { getMultiLocationBusinessSchema } from '../lib/hyperlocal-schema'
+import { SITE_URL } from '../lib/site-url'
 import './globals.css'
+
+const siteTitle = 'Selling a Las Vegas Rental with Tenants | Dr. Jan Duffy'
+const siteDescription =
+  'Sell a tenant-occupied rental in Las Vegas or Henderson. Dr. Jan Duffy helps landlords navigate NRS 118A notices, showings with tenants in place, and investor-ready marketing.'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,25 +34,34 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Dr. Janet Duffy | Licensed Real Estate Professional | Berkshire Hathaway HomeServices',
-  description: 'Licensed Real Estate Professional with Berkshire Hathaway HomeServices. Las Vegas, NV. License #S.0197614. Expert help for homes that didn\'t sell.',
+  title: siteTitle,
+  description: siteDescription,
+  alternates: {
+    canonical: `${SITE_URL}/`,
+  },
   openGraph: {
-    title: 'Dr. Janet Duffy | Licensed Real Estate Professional | Berkshire Hathaway HomeServices',
-    description: 'Licensed Real Estate Professional with Berkshire Hathaway HomeServices. Las Vegas, NV. License #S.0197614.',
+    title: siteTitle,
+    description: siteDescription,
     images: ['/og-image.png'],
-    url: 'https://www.calldrduffy.com',
-    siteName: 'Just Call Dr. Jan',
+    url: SITE_URL,
+    siteName: 'Call Dr. Duffy',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dr. Janet Duffy - Las Vegas Real Estate',
-    description: 'Your trusted Las Vegas real estate expert. Find your dream home or sell with confidence.',
+    title: siteTitle,
+    description: siteDescription,
     images: ['/og-image.png'],
   },
-  keywords: ['Las Vegas real estate', 'Nevada homes', 'real estate agent', 'Dr. Janet Duffy', 'Las Vegas realtor', 'property search', 'home buying', 'home selling'],
-  authors: [{ name: 'Dr. Janet Duffy' }],
+  keywords: [
+    'sell a tenant-occupied rental Las Vegas',
+    'sell rental property with tenants Nevada',
+    'NRS 118A tenant notice when selling',
+    'Las Vegas investor rental sale',
+    'sell a rented condo Las Vegas',
+  ],
+  authors: [{ name: 'Dr. Jan Duffy' }],
   robots: {
     index: true,
     follow: true,

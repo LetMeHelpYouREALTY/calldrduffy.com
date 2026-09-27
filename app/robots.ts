@@ -10,8 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      'https://www.calldrduffy.com/sitemap.xml',
-      'https://justcalldrjan.com/sitemap.xml',
+      `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || 'https://www.calldrduffy.com'}/sitemap.xml`,
     ],
   }
 }

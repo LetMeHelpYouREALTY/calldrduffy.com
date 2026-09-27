@@ -1,22 +1,25 @@
 // Schema.org structured data utilities
 
-export const BASE_URL = 'https://www.calldrduffy.com'
+import { SITE_URL } from './site-url'
+
+export const BASE_URL = SITE_URL
 
 export const DR_JAN_INFO = {
-  name: 'Dr. Janet Duffy',
-  fullTitle: 'Dr. Janet Duffy | Licensed Real Estate Professional',
+  name: 'Dr. Jan Duffy',
+  fullTitle: 'Dr. Jan Duffy, REALTOR®',
   telephone: '+17022221964',
   email: 'HomeSales@CallDrDuffy.com',
-  licenseNumber: 'S.0197614',
-  brokerage: 'Berkshire Hathaway HomeServices',
+  licenseNumber: 'S.0197614.LLC',
+  brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
   location: 'Las Vegas, NV',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '9406 W Lake Mead Blvd, Suite 100',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
-    postalCode: '89109',
-    addressCountry: 'US'
-  }
+    postalCode: '89134',
+    addressCountry: 'US',
+  },
 }
 
 export function getLocalBusinessSchema() {
@@ -25,14 +28,12 @@ export function getLocalBusinessSchema() {
     '@type': 'RealEstateAgent',
     '@id': `${BASE_URL}#realestateagent`,
     name: DR_JAN_INFO.name,
-    description: "Las Vegas's Trusted Expert for Hard-to-Sell Homes",
+    description:
+      'Las Vegas rental property sales with tenants in place — NRS 118A notice, showings, and investor-focused marketing.',
     url: BASE_URL,
     telephone: DR_JAN_INFO.telephone,
     email: DR_JAN_INFO.email,
-    address: {
-      ...DR_JAN_INFO.address,
-      streetAddress: 'Las Vegas, NV' // Add if specific address available
-    },
+    address: DR_JAN_INFO.address,
     priceRange: '$$',
     image: `${BASE_URL}/og-image.png`,
     logo: `${BASE_URL}/og-image.png`,
@@ -82,8 +83,8 @@ export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Dr. Janet Duffy Real Estate',
-    legalName: 'Dr. Janet Duffy',
+    name: 'Dr. Jan Duffy',
+    legalName: 'Dr. Jan Duffy',
     url: BASE_URL,
     logo: `${BASE_URL}/og-image.png`,
     contactPoint: {
