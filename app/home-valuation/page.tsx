@@ -122,8 +122,9 @@ export default function HomeValuationPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                   ...formData,
+                  website: '',
                   message: `Home Valuation Request: ${formData.bedrooms}BR/${formData.bathrooms}BA, ${formData.squareFeet} sq ft, Built ${formData.yearBuilt}`,
-                  source: 'Home Valuation Page'
+                  source: 'Home Valuation Page',
                 })
               })
 

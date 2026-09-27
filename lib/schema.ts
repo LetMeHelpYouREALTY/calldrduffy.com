@@ -299,17 +299,6 @@ export function getReviewSchema({
   }
 }
 
-export function getAggregateRatingSchema(ratingValue: number, reviewCount: number) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'AggregateRating',
-    ratingValue,
-    reviewCount,
-    bestRating: 5,
-    worstRating: 1
-  }
-}
-
 export function getImageObjectSchema({
   contentUrl,
   description,

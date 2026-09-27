@@ -27,7 +27,8 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           ...formData,
-          source: 'Contact Page'
+          website: '',
+          source: 'Contact Page',
         })
       })
 
