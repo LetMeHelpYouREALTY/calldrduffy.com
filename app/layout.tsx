@@ -16,9 +16,8 @@ import { getMultiLocationBusinessSchema } from '../lib/hyperlocal-schema'
 import { SITE_URL } from '../lib/site-url'
 import './globals.css'
 
-const siteTitle = 'Selling a Las Vegas Rental with Tenants | Dr. Jan Duffy'
-const siteDescription =
-  'Sell a tenant-occupied rental in Las Vegas or Henderson. Dr. Jan Duffy helps landlords navigate NRS 118A notices, showings with tenants in place, and investor-ready marketing.'
+import { headers } from 'next/headers'
+import { getMetadataForPath } from '../lib/page-metadata'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,39 +32,19 @@ const geistMono = Geist_Mono({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: siteTitle,
-  description: siteDescription,
-  alternates: {
-    canonical: `${SITE_URL}/`,
-  },
-  openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    images: ['/og-image.png'],
-    url: SITE_URL,
-    siteName: 'Call Dr. Duffy',
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteTitle,
-    description: siteDescription,
-    images: ['/og-image.png'],
-  },
-  keywords: [
-    'sell a tenant-occupied rental Las Vegas',
-    'sell rental property with tenants Nevada',
-    'NRS 118A tenant notice when selling',
-    'Las Vegas investor rental sale',
-    'sell a rented condo Las Vegas',
-  ],
-  authors: [{ name: 'Dr. Jan Duffy' }],
-  robots: {
-    index: true,
-    follow: true,
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const pathname = (await headers()).get('x-pathname') ?? '/'
+  return {
+    metadataBase: new URL(SITE_URL),
+    ...getMetadataForPath(pathname),
+    keywords: [
+      'sell a tenant-occupied rental Las Vegas',
+      'sell rental property with tenants Nevada',
+      'NRS 118A tenant notice when selling',
+      'Las Vegas investor rental sale',
+      'sell a rented condo Las Vegas',
+    ],
+  }
 }
 
 export default function RootLayout({

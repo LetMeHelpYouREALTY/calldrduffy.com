@@ -69,8 +69,9 @@ export default function SellerConsultationPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          website: '',
           message: `Consultation Request: ${formData.consultationType}, Preferred Time: ${formData.preferredTime}`,
-          source: 'Seller Consultation Page'
+          source: 'Seller Consultation Page',
         })
       })
 
