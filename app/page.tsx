@@ -1,187 +1,299 @@
-import Navbar from "@/components/layouts/Navbar";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import ReviewsSection from "@/components/sections/ReviewsSection";
-import FAQSection from "@/components/sections/FAQSection";
-import Footer from "@/components/layouts/Footer";
-import Link from "next/link";
-import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
-import { getPageDomainConfig } from "@/lib/get-domain-config";
+'use client'
 
-export default async function Home() {
-  const config = await getPageDomainConfig();
+import { useState } from 'react'
+import Link from 'next/link'
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : "heyberkshire.com"}`,
-    telephone: "+17022221964",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-    },
-  };
+export default function Homepage() {
+  const [address, setAddress] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          address,
+          source: 'Homepage Lead Form'
+        })
+      })
+
+      if (response.ok) {
+        alert('Thank you! Dr. Jan will contact you soon.')
+        setAddress('')
+        setName('')
+        setEmail('')
+        setPhone('')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('There was an error. Please try again or call (702) 222-1964.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <Navbar />
-      <main>
-        {/* Domain-Aware Hero */}
-        <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{ backgroundImage: "url('/Image/hero_bg_1.jpg')" }}
-          />
-          <div className="relative z-10 container mx-auto px-4 text-center">
-            {config.ctaBadge && (
-              <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
-                {config.ctaBadge}
-              </span>
-            )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              {config.heroHeadline}
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto">
-              {config.heroSubheadline}
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Didn't Sell? Let's Sell It in 30 Days
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            Las Vegas Real Estate Expert | Turning Expired Listings Into Sold Properties
+          </p>
+          
+          {/* Quick Lead Capture Form */}
+          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Home Analysis</h2>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="home-address" className="sr-only">Property Address</label>
+                <input
+                  id="home-address"
+                  type="text"
+                  placeholder="Your Property Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                  aria-label="Property Address"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="home-name" className="sr-only">Your Name</label>
+                  <input
+                    id="home-name"
+                    type="text"
+                    placeholder="Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    required
+                    aria-label="Your Name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="home-email" className="sr-only">Email Address</label>
+                  <input
+                    id="home-email"
+                    type="email"
+                    placeholder="Email Address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                    required
+                    aria-label="Email Address"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="home-phone" className="sr-only">Phone Number</label>
+                <input
+                  id="home-phone"
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  required
+                  aria-label="Phone Number"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
+              >
+                {isSubmitting ? 'Submitting...' : 'Get Your Free Analysis'}
+              </button>
+            </div>
+            <p className="text-sm text-gray-600 mt-4 text-center">
+              By submitting, you agree to be contacted about your property analysis
             </p>
+          </form>
+        </div>
+      </section>
 
-            {/* RealScout Search Widget */}
-            <div className="mb-8 flex justify-center">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
-                }}
-              />
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-6 text-white/80 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">500+</span>
-                <span>Families Helped</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">30+ Years</span>
-                <span>Las Vegas Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">4.9★</span>
-                <span>Client Rating</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Value Proposition */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Why Work With Dr. Jan Duffy?
-              </h2>
-              <p className="text-lg text-slate-600">
-                Berkshire Hathaway HomeServices Nevada Properties — the most trusted name in Las Vegas real estate.
+      {/* Why Listings Expire Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+            Why Homes Don't Sell
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
+              <div className="text-red-600 text-5xl mb-4">🚫</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Wrong Price</h3>
+              <p className="text-gray-700">
+                Listings priced above market value sit unsold while correctly priced homes sell quickly. We'll show you exactly where to price your home.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {[
-                { icon: Shield, title: "Trusted Brand", desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity" },
-                { icon: Users, title: "50K+ Network", desc: "Global referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across every Las Vegas neighborhood since 2008" },
-                { icon: HomeIcon, title: "Full Service", desc: "Buying, selling, 55+, luxury, investment — one expert handles it all" },
-              ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="text-center p-6">
-                  <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <Icon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2">{title}</h3>
-                  <p className="text-slate-600 text-sm">{desc}</p>
-                </div>
-              ))}
+            
+            <div className="bg-yellow-50 p-8 rounded-lg border border-yellow-200">
+              <div className="text-yellow-600 text-5xl mb-4">📸</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Poor Marketing</h3>
+              <p className="text-gray-700">
+                Professional photography, staging, and targeted marketing make all the difference. We bring buyers to YOUR home, not just to the market.
+              </p>
+            </div>
+            
+            <div className="bg-blue-50 p-8 rounded-lg border border-blue-200">
+              <div className="text-blue-600 text-5xl mb-4">⏰</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Bad Timing</h3>
+              <p className="text-gray-700">
+                Market timing matters. We'll help you understand when to list, when to adjust, and when to wait for better conditions.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Market Stats */}
-        <section className="py-16 bg-slate-900 text-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-3">
-                {config.neighborhood} Real Estate Market
-              </h2>
-              <p className="text-slate-400">Current data — updated regularly</p>
+      {/* Success Proof */}
+      <section className="py-16 px-4 bg-blue-50">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-8 text-gray-900">
+            Proven Results for Homes That Didn't Sell
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="text-5xl font-bold text-blue-600 mb-2">47</div>
+              <p className="text-xl text-gray-700">Expired Listings Sold in 2024</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {[
-                { value: "$450K", label: "Median Price", sub: "+4.2% YoY" },
-                { value: "28", label: "Avg Days on Market", sub: "" },
-                { value: "4,850", label: "Active Listings", sub: "" },
-                { value: "2.1", label: "Months Inventory", sub: "" },
-              ].map(({ value, label, sub }) => (
-                <div key={label} className="text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
-                  <div className="text-slate-300 text-sm">{label}</div>
-                  {sub && <div className="text-green-400 text-xs mt-1">{sub}</div>}
-                </div>
-              ))}
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="text-5xl font-bold text-blue-600 mb-2">32</div>
+              <p className="text-xl text-gray-700">Average Days to Sale</p>
             </div>
-            <div className="text-center mt-8">
-              <Link href="/market-report" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors">
-                Full Market Report
-              </Link>
-            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="text-5xl font-bold text-blue-600 mb-2">96%</div>
+              <p className="text-xl text-gray-700">Client Satisfaction Rate</p>
           </div>
-        </section>
+        </div>
+      </div>
+      </section>
 
-        <RealScoutListings />
-        <WhyChooseUs />
-        <ReviewsSection />
-        <FAQSection />
+      {/* Featured Neighborhoods */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+            Las Vegas Specialists
+          </h2>
+          <div className="grid md:grid-cols-4 gap-6">
+            <Link href="/neighborhoods/summerlin" className="group">
+              <div className="bg-gradient-to-br from-purple-500 to-blue-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+                <h3 className="text-2xl font-bold text-white">Summerlin</h3>
+              </div>
+            </Link>
+            <Link href="/neighborhoods/henderson" className="group">
+              <div className="bg-gradient-to-br from-green-500 to-teal-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+                <h3 className="text-2xl font-bold text-white">Henderson</h3>
+              </div>
+            </Link>
+            <Link href="/neighborhoods/downtown" className="group">
+              <div className="bg-gradient-to-br from-orange-500 to-red-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+                <h3 className="text-2xl font-bold text-white">Downtown</h3>
+              </div>
+            </Link>
+            <Link href="/neighborhoods/north-las-vegas" className="group">
+              <div className="bg-gradient-to-br from-pink-500 to-rose-500 h-64 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+                <h3 className="text-2xl font-bold text-white">North Las Vegas</h3>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
 
-        {/* Domain-Specific CTA */}
-        <section className="py-16 md:py-20 bg-blue-600 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {config.ctaHeadline}
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              {config.ctaSubheadline}
+      {/* Testimonial */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white p-12 rounded-lg shadow-xl">
+            <p className="text-2xl italic text-gray-700 mb-6">
+              "My listing had been on the market for 6 months with zero offers. Dr. Jan came in, adjusted the pricing strategy, got professional staging, and my home sold in 21 days - at asking price! I wish I had called her first."
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17022221964"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call 702-222-1964
-              </a>
-              <Link
-                href="/contact"
-                className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-              >
-                Send a Message
-              </Link>
+            <div className="flex items-center justify-center">
+              <div className="text-left">
+                <p className="font-bold text-gray-900">Mary Thompson</p>
+                <p className="text-gray-600">Summerlin Homeowner</p>
+              </div>
             </div>
-            <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  );
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Sell? Let's Talk Today
+          </h2>
+          <p className="text-xl mb-8">
+            Free consultation. No pressure. Just results.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a
+              href="tel:+17022221964"
+              className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Call Now: (702) 222-1964
+            </a>
+            <Link
+              href="/contact"
+              className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors"
+            >
+              Schedule Consultation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-4">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-xl font-bold mb-4">Dr. Janet Duffy</h3>
+            <p>Your trusted Las Vegas real estate expert</p>
+            <p className="mt-4">Office: Las Vegas, NV</p>
+            <p>Phone: (702) 222-1964</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><Link href="/" className="hover:underline">Home</Link></li>
+              <li><Link href="/about" className="hover:underline">About</Link></li>
+              <li><Link href="/contact" className="hover:underline">Contact</Link></li>
+              <li><Link href="/neighborhoods" className="hover:underline">Neighborhoods</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <ul className="space-y-2">
+              <li><Link href="/buy" className="hover:underline">Buy a Home</Link></li>
+              <li><Link href="/sell" className="hover:underline">Sell Your Home</Link></li>
+              <li><Link href="/expired-listings" className="hover:underline">Expired Listings</Link></li>
+              <li><Link href="/contact" className="hover:underline">Get Home Value</Link></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <p>&copy; 2025 Dr. Janet Duffy - Las Vegas Real Estate. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  )
 }
+

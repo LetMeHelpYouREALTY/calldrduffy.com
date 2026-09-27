@@ -1,244 +1,321 @@
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import Link from "next/link";
-import { MapPin, Phone, Home, Users, GraduationCap } from "lucide-react";
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Las Vegas Neighborhoods | Berkshire Hathaway HomeServices",
-  description:
-    "Explore Las Vegas and Henderson neighborhoods with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Summerlin, Henderson, The Ridges, Southern Highlands & more.",
-  keywords: [
-    "Las Vegas neighborhoods",
-    "Henderson communities",
-    "Summerlin real estate",
-    "best neighborhoods Las Vegas",
-    "where to live Las Vegas",
-  ],
-};
+import Link from 'next/link'
 
 const neighborhoods = [
-  {
-    name: "Summerlin",
-    slug: "summerlin",
-    medianPrice: "$625,000",
-    priceChange: "+6.8%",
-    description: "Premier master-planned community with parks, trails, and top-rated schools",
-    highlights: ["150+ Parks", "Top Schools", "Red Rock Views", "Downtown Summerlin"],
-    bestFor: "Families, professionals, outdoor enthusiasts",
+  { 
+    name: 'Summerlin', 
+    slug: 'summerlin',
+    path: '/neighborhoods/summerlin',
+    description: 'Master-planned community with golf courses, parks, and top-rated schools',
+    medianPrice: '$575,000',
+    activeListings: 234,
+    lifestyle: ['Family-Friendly', 'Golf', 'Upscale']
   },
-  {
-    name: "Henderson",
-    slug: "henderson",
-    medianPrice: "$485,000",
-    priceChange: "+5.1%",
-    description: "Nevada's second-largest city known for safety, schools, and family-friendly living",
-    highlights: ["Low Crime Rate", "Excellent Schools", "Lake Las Vegas", "Green Valley"],
-    bestFor: "Families, retirees, commuters",
+  { 
+    name: 'Henderson', 
+    slug: 'henderson',
+    path: '/neighborhoods/henderson',
+    description: 'Fast-growing city with great value and diverse housing options',
+    medianPrice: '$450,000',
+    activeListings: 189,
+    lifestyle: ['Family-Friendly', 'Affordable', 'Growing']
   },
-  {
-    name: "Green Valley",
-    slug: "green-valley",
-    medianPrice: "$520,000",
-    priceChange: "+4.8%",
-    description: "Established Henderson community with mature landscaping and excellent amenities",
-    highlights: ["Golf Courses", "Walking Trails", "The District", "Mature Trees"],
-    bestFor: "Established families, golfers, professionals",
+  { 
+    name: 'Downtown Las Vegas', 
+    slug: 'downtown-las-vegas',
+    path: '/downtown-las-vegas',
+    description: 'Urban living with condos, lofts, and entertainment district access',
+    medianPrice: '$325,000',
+    activeListings: 156,
+    lifestyle: ['Urban', 'Entertainment', 'Condos']
   },
-  {
-    name: "The Ridges",
-    slug: "the-ridges",
-    medianPrice: "$2,500,000",
-    priceChange: "+8.5%",
-    description: "Ultra-luxury guard-gated community with custom estates and celebrity residents",
-    highlights: ["Guard-Gated", "Custom Estates", "Bear's Best Golf", "Strip Views"],
-    bestFor: "Luxury buyers, celebrities, executives",
+  { 
+    name: 'Paradise', 
+    slug: 'paradise',
+    path: '/paradise',
+    description: 'Strip-adjacent with high-rises and luxury condominiums',
+    medianPrice: '$380,000',
+    activeListings: 201,
+    lifestyle: ['Luxury', 'Strip Views', 'High-Rise']
   },
-  {
-    name: "Southern Highlands",
-    slug: "southern-highlands",
-    medianPrice: "$750,000",
-    priceChange: "+7.2%",
-    description: "Master-planned luxury community with championship golf and mountain views",
-    highlights: ["Golf Community", "Guard-Gated", "Mountain Views", "Luxury Amenities"],
-    bestFor: "Golfers, luxury buyers, families",
+  { 
+    name: 'Enterprise', 
+    slug: 'enterprise',
+    path: '/enterprise',
+    description: 'West side value with new construction and established communities',
+    medianPrice: '$425,000',
+    activeListings: 167,
+    lifestyle: ['New Builds', 'Value', 'Growing']
   },
-  {
-    name: "North Las Vegas",
-    slug: "north-las-vegas",
-    medianPrice: "$385,000",
-    priceChange: "+3.2%",
-    description: "Rapidly growing area with affordable new construction and family-friendly communities",
-    highlights: ["New Construction", "Affordable", "Growing Area", "Family-Friendly"],
-    bestFor: "First-time buyers, young families, investors",
+  { 
+    name: 'Spring Valley', 
+    slug: 'spring-valley',
+    path: '/spring-valley',
+    description: 'Central location with established neighborhoods and good schools',
+    medianPrice: '$395,000',
+    activeListings: 143,
+    lifestyle: ['Established', 'Central', 'Family-Friendly']
   },
-  {
-    name: "Skye Canyon",
-    slug: "skye-canyon",
-    medianPrice: "$550,000",
-    priceChange: "+5.5%",
-    description: "Newer master-planned community in northwest Las Vegas with mountain views",
-    highlights: ["New Homes", "Mountain Views", "Skye Center", "Great Schools"],
-    bestFor: "Young families, outdoor enthusiasts, commuters",
+  { 
+    name: 'North Las Vegas', 
+    slug: 'north-las-vegas',
+    path: '/neighborhoods/north-las-vegas',
+    description: 'Affordable new construction with great family amenities',
+    medianPrice: '$385,000',
+    activeListings: 212,
+    lifestyle: ['New Builds', 'Affordable', 'Family-Friendly']
   },
-  {
-    name: "Centennial Hills",
-    slug: "centennial-hills",
-    medianPrice: "$495,000",
-    priceChange: "+4.8%",
-    description: "Northwest Las Vegas community with mountain proximity and family amenities",
-    highlights: ["Mountain Access", "Parks", "Shopping", "Family-Friendly"],
-    bestFor: "Families, outdoor lovers, professionals",
+  { 
+    name: 'Boulder City', 
+    slug: 'boulder-city',
+    path: '/boulder-city',
+    description: 'Small-town charm near Lake Mead with outdoor recreation access',
+    medianPrice: '$420,000',
+    activeListings: 98,
+    lifestyle: ['Outdoor Recreation', 'Lake Access', 'Small-Town']
   },
-  {
-    name: "Inspirada",
-    slug: "inspirada",
-    medianPrice: "$525,000",
-    priceChange: "+5.0%",
-    description: "Henderson master-planned community with resort-style living and modern homes",
-    highlights: ["Resort Pools", "Walking Trails", "New Construction", "Great Schools"],
-    bestFor: "Families, active adults, new home buyers",
+  { 
+    name: 'Winchester', 
+    slug: 'winchester',
+    path: '/winchester',
+    description: 'Diverse area with convenience and access near McCarran International',
+    medianPrice: '$360,000',
+    activeListings: 134,
+    lifestyle: ['Convenience', 'Airport Access', 'Diverse']
   },
-  {
-    name: "Mountains Edge",
-    slug: "mountains-edge",
-    medianPrice: "$475,000",
-    priceChange: "+4.5%",
-    description: "Southwest Las Vegas master-planned community with mountain views and parks",
-    highlights: ["Mountain Views", "Parks", "Growing Area", "Affordable Luxury"],
-    bestFor: "Families, commuters, value-seekers",
-  },
-];
+  { 
+    name: 'Whitney', 
+    slug: 'whitney',
+    path: '/whitney',
+    description: 'East Las Vegas family-friendly community with established neighborhoods',
+    medianPrice: '$370,000',
+    activeListings: 145,
+    lifestyle: ['Family-Friendly', 'Established', 'Safe']
+  }
+]
 
 export default function NeighborhoodsPage() {
   return (
-    <>
-      <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
+    <div className="min-h-screen bg-white">
+      {/* H1 - Only one H1 on the page */}
+      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Las Vegas Neighborhoods Guide: Find Your Perfect Community
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            Discover the best neighborhoods in Las Vegas. From master-planned communities to urban living, find the perfect area that matches your lifestyle and budget.
+          </p>
+        </div>
+      </section>
+
+      {/* H2 #1: Explore Las Vegas Communities */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+            Explore Las Vegas Communities
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Las Vegas offers diverse neighborhoods each with unique character, amenities, and lifestyle. Whether you're looking for master-planned communities with world-class golf courses, affordable family-friendly areas, or vibrant urban living, Las Vegas has something for everyone.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {neighborhoods.map((neighborhood) => (
+              <Link 
+                key={neighborhood.slug}
+                href={neighborhood.path}
+                className="group"
+              >
+                <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden h-full">
+                  <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <h3 className="text-3xl font-bold text-white text-center px-4">
+                      {neighborhood.name}
+                    </h3>
+                  </div>
+                  
+                  <div className="p-6">
+                    <p className="text-gray-600 mb-4 line-clamp-2">
+                      {neighborhood.description}
+                    </p>
+                    
+                    <div className="space-y-2 mb-4">
+                      <div className="flex justify-between">
+                        <span className="text-sm text-gray-500">Median Price</span>
+                        <span className="font-semibold text-blue-600">{neighborhood.medianPrice}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-sm text-gray-500">Active Listings</span>
+                        <span className="font-semibold">{neighborhood.activeListings}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {neighborhood.lifestyle.map((tag) => (
+                        <span 
+                          key={tag}
+                          className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center text-blue-600 group-hover:text-blue-800 font-semibold">
+                      Explore {neighborhood.name} →
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* H2 #2: Why Choose Las Vegas Neighborhoods */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+            Why Las Vegas Neighborhoods?
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+            Las Vegas real estate offers exceptional value, world-class amenities, and a diverse range of communities. From luxury master-planned developments to affordable new construction, here's what makes Las Vegas neighborhoods special.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="text-5xl mb-4">🏌️</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">Golf Course Communities</h3>
+              <p className="text-gray-600 mb-4">
+                Las Vegas is home to over 50 championship golf courses, many integrated into master-planned communities. Neighborhoods like Summerlin, Henderson, and Green Valley offer golf course living with stunning desert and mountain views.
+              </p>
+              <p className="text-gray-600">
+                Communities like TPC Summerlin, Reflection Bay, and DragonRidge provide exclusive golf course access, upscale amenities, and luxury homes. Golf course properties typically appreciate faster and offer a resort-style lifestyle year-round.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas & Henderson Neighborhoods
-            </h1>
-            <p className="text-xl text-slate-600">
-              Explore the best communities in Southern Nevada with Dr. Jan Duffy, your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> neighborhood expert
-            </p>
+            
+            <div className="text-center">
+              <div className="text-5xl mb-4">🎓</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">Top-Rated Schools</h3>
+              <p className="text-gray-600 mb-4">
+                Clark County School District includes many A-rated schools, especially in areas like Summerlin, Henderson, and Green Valley. School choice and quality are major factors in homebuying decisions.
+              </p>
+              <p className="text-gray-600">
+                Neighborhoods zoned to top schools like Palo Verde High School, Coronado High, and Advanced Technologies Academy often command premium prices and faster sales. Many families specifically search homes by school zone.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="text-5xl mb-4">💼</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">Growing Economy</h3>
+              <p className="text-gray-600 mb-4">
+                Las Vegas has a thriving economy with strong job growth in tourism, technology, healthcare, and finance. Major employers include casinos, hospitals, tech companies, and aerospace firms.
+              </p>
+              <p className="text-gray-600">
+                No state income tax, affordable cost of living, and diverse employment opportunities attract both new residents and businesses. The city's population has grown by over 10% in recent years, driving demand for housing.
+              </p>
+            </div>
           </div>
 
-          {/* Neighborhood Grid */}
-          <section className="mb-16 max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              {neighborhoods.map((neighborhood) => (
-                <Link
-                  key={neighborhood.slug}
-                  href={`/neighborhoods/${neighborhood.slug}`}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-all hover:border-blue-300 group"
-                >
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                        {neighborhood.name}
-                      </h2>
-                      <p className="text-sm text-slate-500">{neighborhood.bestFor}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="font-bold text-slate-900">{neighborhood.medianPrice}</div>
-                      <div className="text-sm text-green-600">{neighborhood.priceChange} YoY</div>
-                    </div>
-                  </div>
-                  <p className="text-slate-600 text-sm mb-4">{neighborhood.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {neighborhood.highlights.map((highlight) => (
-                      <span
-                        key={highlight}
-                        className="bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-                </Link>
-              ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Master-Planned Communities</h3>
+              <p className="text-gray-600 mb-3">
+                Las Vegas is renowned for master-planned communities that offer residents a complete lifestyle package. Summerlin, developed by The Howard Hughes Corporation, spans 22,500 acres with parks, trails, schools, shopping, and entertainment all within walking distance of many homes.
+              </p>
+              <p className="text-gray-600 mb-3">
+                These communities feature homeowners associations that maintain common areas, organize events, and provide security. The HOA amenities often include pools, fitness centers, playgrounds, and community parks that create a strong sense of community.
+              </p>
+              <p className="text-gray-600">
+                Buying in a master-planned community typically offers better resale value, stronger appreciation rates, and higher quality of life. The planning ensures proper infrastructure, traffic flow, and aesthetic standards that individual developments may lack.
+              </p>
             </div>
-          </section>
-
-          {/* Expert Quote */}
-          <section className="mb-16 max-w-4xl mx-auto">
-            <div className="bg-slate-50 rounded-lg p-8">
-              <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Every Las Vegas neighborhood has its own personality. Whether you want the
-                family-friendly parks of Summerlin, the established charm of Green Valley, or the
-                luxury of The Ridges, I'll help you find the community that matches your lifestyle.
-                That's the Berkshire Hathaway HomeServices difference—personalized guidance backed
-                by local expertise."
-              </blockquote>
-              <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties
-              </cite>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">New Construction vs Established Neighborhoods</h3>
+              <p className="text-gray-600 mb-3">
+                Las Vegas offers both brand-new construction and established neighborhoods, each with distinct advantages. New construction areas like Skye Canyon, Inspirada, and Cadence offer modern floor plans, energy-efficient features, and the latest in home design and technology.
+              </p>
+              <p className="text-gray-600 mb-3">
+                Established neighborhoods like Spring Valley, Paradise, and parts of Henderson offer mature landscaping, established amenities, and often larger lot sizes. These areas typically have lower HOA fees and more established tree canopies.
+              </p>
+              <p className="text-gray-600">
+                Your choice depends on priorities: new builds offer customization and latest features, while established neighborhoods offer character, lower costs, and proven appreciation. Many buyers find value in both options across Las Vegas's diverse market.
+              </p>
             </div>
-          </section>
-
-          {/* Neighborhood Services */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Neighborhood Services</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-blue-400 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Area Tours</h3>
-                <p className="text-slate-400 text-sm">
-                  Personalized neighborhood tours to help you experience each community firsthand
-                </p>
-              </div>
-              <div className="text-center">
-                <GraduationCap className="h-12 w-12 text-blue-400 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">School Research</h3>
-                <p className="text-slate-400 text-sm">
-                  Detailed school district information, ratings, and enrollment guidance
-                </p>
-              </div>
-              <div className="text-center">
-                <Home className="h-12 w-12 text-blue-400 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Home Matching</h3>
-                <p className="text-slate-400 text-sm">
-                  Find homes that match your criteria in the neighborhoods you love
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Need Help Choosing a Neighborhood?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy knows every Las Vegas community inside and out. Call for personalized
-              neighborhood recommendations.
-            </p>
-            <a
-              href="tel:+17025001942"
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
-            </a>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-          </section>
+          </div>
         </div>
+      </section>
 
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
-      </main>
-      <RealScoutListings />
-      <Footer />
-    </>
-  );
+      {/* H2 #3: Getting Expert Help */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
+            Find Your Perfect Las Vegas Neighborhood
+          </h2>
+          <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+            With so many neighborhoods and communities to choose from, having a local expert guide you makes all the difference. Dr. Janet Duffy specializes in helping buyers and sellers navigate Las Vegas real estate, focusing on understanding your lifestyle needs and matching you with the perfect community.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-blue-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Neighborhood Expertise</h3>
+              <p className="text-gray-700 mb-3">
+                Dr. Jan has deep knowledge of Las Vegas neighborhoods, including sub-communities, school zones, HOA details, and market trends. She can identify the best areas for your specific needs and budget.
+              </p>
+              <p className="text-gray-700">
+                Whether you're looking for Summerlin's master-planned lifestyle, Henderson's value, Downtown's urban energy, or one of Las Vegas's many unique communities, she provides insider knowledge that makes a real difference.
+              </p>
+            </div>
+            
+            <div className="bg-blue-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Market Intelligence</h3>
+              <p className="text-gray-700 mb-3">
+                Each Las Vegas neighborhood has its own market dynamics, price trends, and buyer competition. Understanding these nuances helps you make better decisions whether buying or selling.
+              </p>
+              <p className="text-gray-700">
+                Dr. Jan provides detailed neighborhood market reports showing recent sales, price appreciation, days on market, and inventory levels. This data helps you understand timing, pricing strategy, and buyer behavior in your target area.
+              </p>
+            </div>
+            
+            <div className="bg-blue-50 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Personalized Service</h3>
+              <p className="text-gray-700 mb-3">
+                Finding the right neighborhood is about more than just prices and amenities - it's about finding a community that fits your lifestyle, commute, family needs, and long-term goals.
+              </p>
+              <p className="text-gray-700">
+                Dr. Jan takes time to understand what matters to you: schools, commute times, recreational opportunities, resale value potential, and community culture. This personalized approach ensures you find not just a house, but a home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-blue-600 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Need Help Finding Your Perfect Neighborhood?
+          </h2>
+          <p className="text-lg mb-8 text-blue-100">
+            Tell us what you're looking for - your lifestyle, budget, and priorities - and we'll match you with Las Vegas neighborhoods that fit perfectly.
+          </p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a
+              href="tel:+17022221964"
+              className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              Call: (702) 222-1964
+            </a>
+            <Link
+              href="/contact"
+              className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors"
+            >
+              Get Neighborhood Match
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }

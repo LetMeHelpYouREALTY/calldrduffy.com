@@ -1,496 +1,211 @@
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import CalendlyWidget from "@/components/calendly/CalendlyWidget";
-import Link from "next/link";
-import { Phone, CheckCircle, Home, TrendingUp, MapPin, Calculator, Clock, DollarSign } from "lucide-react";
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
-  description:
-    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1942.",
-  keywords: [
-    "home valuation Las Vegas",
-    "what is my home worth Las Vegas",
-    "free home value estimate",
-    "CMA Las Vegas",
-    "Berkshire Hathaway home valuation",
-    "Summerlin home value",
-    "Henderson home value",
-  ],
-};
-
-// FAQ Schema for SEO
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How accurate are online home value estimates like Zillow's Zestimate?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Online estimates like Zillow's Zestimate can be off by 5-15% or more, especially in markets like Las Vegas where home features vary significantly. They cannot account for upgrades, condition, views, or lot characteristics. A professional CMA from a local expert provides far more accurate pricing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What factors affect my Las Vegas home's value?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Key factors include location (neighborhood, school zone, proximity to amenities), square footage, lot size, number of bedrooms and bathrooms, age of the home, upgrades (kitchen, bathrooms, flooring), pool, views, HOA fees, and current market conditions. In Las Vegas, features like solar panels, energy efficiency, and covered patios also significantly impact value.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How long does a home valuation take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Dr. Jan Duffy typically provides a comprehensive market analysis within 24-48 hours of receiving your property information. The analysis includes recent comparable sales, current competition, and a recommended price range.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is a home valuation the same as an appraisal?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. A home valuation or CMA (Comparative Market Analysis) is a real estate agent's estimate based on market data. An appraisal is a formal valuation by a licensed appraiser, typically required by lenders. CMAs are free and useful for listing decisions; appraisals cost $400-600 and are required for financing.",
-      },
-    },
-  ],
-};
+import { useState } from 'react'
+import Link from 'next/link'
+import AuthorBadge from '@/components/author-badge'
+import StructuredDataScript from '@/components/structured-data-script'
+import FAQSection from '@/components/faq-section'
+import Breadcrumbs from '@/components/breadcrumbs'
+import { getServiceSchemaForPage } from '@/lib/services'
+import { BASE_URL } from '@/lib/schema'
 
 export default function HomeValuationPage() {
+  const serviceSchema = getServiceSchemaForPage('HOME_VALUATION')
+  
+  const faqs = [
+    {
+      question: 'How accurate is Dr. Jan\'s home valuation?',
+      answer: 'Dr. Jan\'s valuations use comprehensive market analysis including recent comparable sales in your exact neighborhood, current competition, property-specific features, and market conditions. This analysis provides accurate pricing reflecting actual market value, not automated estimates.'
+    },
+    {
+      question: 'How long does it take to get a home valuation?',
+      answer: 'After you submit your property information, Dr. Jan conducts thorough research and typically provides your valuation analysis within 24-48 hours. The process includes comparable sales review, competition analysis, and strategic pricing recommendations.'
+    },
+    {
+      question: 'What information do I need for a home valuation?',
+      answer: 'Basic property information helps: address, square footage, bedrooms, bathrooms, year built, condition, and any unique features. The more details provided, the more accurate the valuation. Dr. Jan conducts additional research including comparable sales and market analysis.'
+    },
+    {
+      question: 'Is the home valuation really free with no obligation?',
+      answer: 'Yes, your free home valuation includes no obligation to list your property. Dr. Jan provides honest, accurate valuations because she believes informed sellers make better decisions, whether you\'re ready to sell now or planning for the future.'
+    },
+    {
+      question: 'How is this different from online automated estimates?',
+      answer: 'Automated estimates use algorithms that can\'t account for property condition, unique features, neighborhood nuances, or current market dynamics. Dr. Jan\'s professional valuation examines your specific property, recent comps, competition, and provides personalized pricing recommendations.'
+    },
+    {
+      question: 'What does the valuation include?',
+      answer: 'Your valuation includes comprehensive market analysis, comparable sales research, competition evaluation, and strategic price range recommendations based on different selling goals. This detailed information helps you make informed pricing and timing decisions.'
+    }
+  ]
+
+  const [formData, setFormData] = useState({
+    address: '',
+    name: '',
+    email: '',
+    phone: '',
+    bedrooms: '',
+    bathrooms: '',
+    squareFeet: '',
+    yearBuilt: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <div className="max-w-6xl mx-auto mb-6">
-            <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              {" / "}
-              <Link href="/sellers" className="hover:text-blue-600">Sellers</Link>
-              {" / "}
-              <span className="text-slate-900">Home Valuation</span>
-            </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              What's Your Las Vegas Home Worth?
-            </h1>
-            <p className="text-xl text-slate-600">
-              Get a free, no-obligation home valuation from Dr. Jan Duffy at{" "}
-              <strong>Berkshire Hathaway HomeServices</strong>. Accurate pricing backed by 17+ years
-              of Las Vegas market expertise and $127M+ in closed transactions.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
-            {/* Calendly Widget */}
-            <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
-              <div className="bg-blue-600 text-white p-4 text-center">
-                <h2 className="text-2xl font-bold">Schedule Your Free Valuation</h2>
-                <p className="text-blue-100 text-sm mt-1">
-                  Book a consultation with Dr. Jan Duffy
-                </p>
-              </div>
-              <CalendlyWidget url="showing" height="650px" />
-              <p className="text-xs text-slate-500 text-center p-4 border-t border-slate-200">
-                No obligation. No pressure. Just accurate information from Berkshire Hathaway
-                HomeServices.
-              </p>
-            </div>
-
-            {/* Value Prop */}
-            <div className="space-y-8">
-              <div className="bg-slate-900 text-white rounded-lg p-8">
-                <h2 className="text-2xl font-bold mb-4">Why Request a BHHS Valuation?</h2>
-                <p className="text-slate-300 mb-6">
-                  Online estimators like Zillow's "Zestimate" can be off by 10% or more—that's
-                  $45,000+ on a typical Las Vegas home. Dr. Jan Duffy provides a comprehensive
-                  market analysis using current MLS data, recent comparable sales, and her expertise
-                  serving Las Vegas since 2008. The result? Accurate pricing that helps you sell
-                  faster and for more money.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    "Accurate pricing based on actual market data",
-                    "Consideration of your home's unique features",
-                    "Current buyer demand analysis",
-                    "Neighborhood-specific insights",
-                    "No obligation or pressure to sell",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center">
-                      <CheckCircle className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Market Stats */}
-              <div className="bg-blue-50 rounded-lg p-8">
-                <h3 className="font-bold text-slate-900 mb-4">Las Vegas Market | January 2026</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">$450K</div>
-                    <div className="text-sm text-slate-600">Median Home Price</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">+4.2%</div>
-                    <div className="text-sm text-slate-600">YoY Appreciation</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">28 Days</div>
-                    <div className="text-sm text-slate-600">Avg. Days on Market</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">2.1 Mo</div>
-                    <div className="text-sm text-slate-600">Inventory</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Expert Quote */}
-              <div className="bg-slate-50 rounded-lg p-6">
-                <blockquote className="text-slate-700 italic mb-3">
-                  "Pricing your home correctly from day one is the single most important factor in
-                  getting top dollar. That's why I use comprehensive market analysis—not just
-                  algorithms—to determine your home's true value."
-                </blockquote>
-                <cite className="text-slate-900 font-semibold text-sm">
-                  — Dr. Jan Duffy, BHHS Nevada Properties
-                </cite>
-              </div>
-
-              {/* Call Option */}
-              <div className="text-center">
-                <p className="text-slate-600 mb-4">Prefer to talk? Call Dr. Jan directly:</p>
-                <a
-                  href="tel:+17025001942"
-                  className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold transition-colors"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  (702) 500-1942
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Why Online Estimates Fall Short */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Why Online Home Value Estimates Often Miss the Mark
-            </h2>
-            <div className="prose prose-lg max-w-none text-slate-700">
-              <p>
-                If you've checked Zillow, Redfin, or other online home value tools, you've likely
-                noticed the estimates can vary wildly—sometimes by $50,000 or more. That's because
-                these automated valuation models (AVMs) rely on algorithms that can't see inside
-                your home or understand the nuances of the Las Vegas market.
-              </p>
-              <p>
-                <strong>Berkshire Hathaway HomeServices</strong> agents like Dr. Jan Duffy provide
-                something these algorithms cannot: local expertise combined with a detailed
-                understanding of what makes your specific home valuable. A professional Comparative
-                Market Analysis (CMA) considers factors that online tools miss entirely.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                <h3 className="font-bold text-red-800 mb-4">What Online Estimates Miss</h3>
-                <ul className="space-y-2 text-red-700">
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Kitchen and bathroom upgrades
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Pool, spa, or outdoor living features
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Views (Strip, mountain, golf course)
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Lot size and position (corner, cul-de-sac)
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Solar panels and energy efficiency
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-red-500 mr-2">✗</span>
-                    Current condition and maintenance
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="font-bold text-green-800 mb-4">What a BHHS CMA Includes</h3>
-                <ul className="space-y-2 text-green-700">
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Recent comparable sales analysis
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Active competition review
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Feature-by-feature adjustments
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Neighborhood trend analysis
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Buyer demand assessment
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-2">✓</span>
-                    Strategic pricing recommendations
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Factors Affecting Value */}
-          <section className="max-w-5xl mx-auto mb-16 bg-slate-50 rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Key Factors That Affect Your Las Vegas Home's Value
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <MapPin className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Location & Neighborhood</h3>
-                <p className="text-slate-600 text-sm">
-                  Summerlin commands 20-40% premiums over comparable homes in other areas. School
-                  zones, HOA quality, and proximity to amenities significantly impact value.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <Home className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Size & Layout</h3>
-                <p className="text-slate-600 text-sm">
-                  Square footage, bedroom/bathroom count, and functional floor plans matter. Open
-                  concepts and first-floor master suites command premiums in today's market.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <TrendingUp className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Upgrades & Condition</h3>
-                <p className="text-slate-600 text-sm">
-                  Updated kitchens and bathrooms return 60-80% of investment. Flooring, paint,
-                  fixtures, and overall maintenance affect buyer perception and offers.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <DollarSign className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Market Conditions</h3>
-                <p className="text-slate-600 text-sm">
-                  Interest rates, inventory levels, and seasonal demand fluctuate. January 2026
-                  shows 2.1 months inventory—still a seller's market but more balanced than 2021-2022.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <Calculator className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Lot Characteristics</h3>
-                <p className="text-slate-600 text-sm">
-                  Lot size, views, privacy, and outdoor features like pools add 5-15% to value.
-                  Corner lots, cul-de-sacs, and premium positions command higher prices.
-                </p>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <Clock className="h-8 w-8 text-blue-600 mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Age & Systems</h3>
-                <p className="text-slate-600 text-sm">
-                  Newer homes (built 2015+) often sell for more per square foot. However, older
-                  homes with updated HVAC, roof, and electrical can compete effectively.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Neighborhood Values */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Las Vegas Neighborhood Home Values | January 2026
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full bg-white border border-slate-200 rounded-lg">
-                <thead className="bg-slate-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Neighborhood</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Median Price</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">YoY Change</th>
-                    <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Avg $/SqFt</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { area: "Summerlin", price: "$625,000", change: "+6.8%", sqft: "$285" },
-                    { area: "Henderson", price: "$485,000", change: "+5.1%", sqft: "$245" },
-                    { area: "Green Valley", price: "$520,000", change: "+4.5%", sqft: "$255" },
-                    { area: "Southern Highlands", price: "$750,000", change: "+5.5%", sqft: "$295" },
-                    { area: "North Las Vegas", price: "$385,000", change: "+3.2%", sqft: "$210" },
-                    { area: "Centennial Hills", price: "$495,000", change: "+4.8%", sqft: "$240" },
-                  ].map((row, index) => (
-                    <tr key={row.area} className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}>
-                      <td className="px-6 py-4 font-medium text-slate-900">{row.area}</td>
-                      <td className="px-6 py-4 text-slate-700">{row.price}</td>
-                      <td className="px-6 py-4 text-green-600 font-medium">{row.change}</td>
-                      <td className="px-6 py-4 text-slate-700">{row.sqft}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-center text-slate-500 text-sm mt-4">
-              Values represent single-family homes. Your specific home may vary based on features and condition.
-            </p>
-          </section>
-
-          {/* The Valuation Process */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              The BHHS Home Valuation Process
-            </h2>
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
-                <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Share Your Property Details</h3>
-                  <p className="text-slate-600">
-                    Schedule a consultation through the calendar above or call Dr. Jan directly.
-                    Provide your address, basic property information, and any recent upgrades or
-                    improvements you've made. Photos are helpful but not required initially.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
-                <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Comprehensive Market Analysis</h3>
-                  <p className="text-slate-600">
-                    Dr. Jan researches recent comparable sales, current active listings, and expired
-                    listings in your area. She analyzes price trends, days on market, and buyer
-                    demand specific to your neighborhood and property type.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
-                <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Feature Adjustments</h3>
-                  <p className="text-slate-600">
-                    Your home's unique features are factored in: upgrades, lot characteristics,
-                    views, pool, solar, and condition. These adjustments ensure the valuation
-                    reflects what buyers will actually pay for your specific property.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
-                <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Pricing Strategy Consultation</h3>
-                  <p className="text-slate-600">
-                    Within 24-48 hours, you'll receive a detailed CMA report with a recommended
-                    price range. Dr. Jan will walk you through the data, explain the methodology,
-                    and answer any questions—with absolutely no pressure to list.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About Home Valuations
-            </h2>
-            <div className="space-y-4">
-              {[
-                {
-                  q: "How accurate are online home value estimates like Zillow's Zestimate?",
-                  a: "Online estimates like Zillow's Zestimate can be off by 5-15% or more, especially in markets like Las Vegas where home features vary significantly. They cannot account for upgrades, condition, views, or lot characteristics. A professional CMA from a local expert provides far more accurate pricing.",
-                },
-                {
-                  q: "What factors affect my Las Vegas home's value?",
-                  a: "Key factors include location (neighborhood, school zone, proximity to amenities), square footage, lot size, number of bedrooms and bathrooms, age of the home, upgrades (kitchen, bathrooms, flooring), pool, views, HOA fees, and current market conditions. In Las Vegas, features like solar panels, energy efficiency, and covered patios also significantly impact value.",
-                },
-                {
-                  q: "How long does a home valuation take?",
-                  a: "Dr. Jan Duffy typically provides a comprehensive market analysis within 24-48 hours of receiving your property information. The analysis includes recent comparable sales, current competition, and a recommended price range.",
-                },
-                {
-                  q: "Is a home valuation the same as an appraisal?",
-                  a: "No. A home valuation or CMA (Comparative Market Analysis) is a real estate agent's estimate based on market data. An appraisal is a formal valuation by a licensed appraiser, typically required by lenders. CMAs are free and useful for listing decisions; appraisals cost $400-600 and are required for financing.",
-                },
-                {
-                  q: "Do I need to have my home ready to show for a valuation?",
-                  a: "Not necessarily. Dr. Jan can provide an initial valuation based on property records, MLS data, and information you provide. However, a brief walk-through helps identify features and upgrades that add value. There's no need to stage or prepare extensively.",
-                },
-              ].map((faq, index) => (
-                <div key={index} className="bg-white border border-slate-200 rounded-lg p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
-                  <p className="text-slate-600">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Know What Your Home Is Worth?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Get a free, no-obligation home valuation from Dr. Jan Duffy and Berkshire Hathaway
-              HomeServices Nevada Properties. Accurate pricing. Expert guidance. Zero pressure.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17025001942"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
-              </a>
-              <Link
-                href="/sellers"
-                className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
-              >
-                Learn About Selling
-              </Link>
-            </div>
-            <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-          </section>
+      <StructuredDataScript data={serviceSchema} id="service-schema" />
+      <Breadcrumbs />
+      <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-blue-800 to-cyan-700 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Free Home Value Analysis - Dr. Janet Duffy</h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">Get accurate home value analysis for Las Vegas properties. Expert valuation insights to help you price competitively and sell successfully.</p>
         </div>
+      </section>
 
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
-      </main>
-      <RealScoutListings />
-      <Footer />
+      {/* Author Badge */}
+      <section className="py-4 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <AuthorBadge />
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">Understanding Your Home's Current Market Value</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">Accurate home valuation is essential for successful selling. Understanding your property's market value helps you price competitively, attract buyers, and sell efficiently. Get expert analysis of what your home is worth in today's Las Vegas market.</p>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div><h3 className="text-2xl font-bold mb-4 text-gray-900">Comprehensive Market Analysis</h3><p className="text-gray-700 mb-3">Professional home valuation reviews recent comparable sales in your neighborhood, considers current market conditions, analyzes active competition, and evaluates your property's specific features and condition versus comparable properties.</p><p className="text-gray-700 mb-3">This comprehensive analysis goes beyond automated estimates to provide accurate pricing reflecting your specific home, neighborhood, condition, and current market dynamics in Las Vegas. Understanding accurate value informs smart selling decisions.</p><p className="text-gray-700">Dr. Jan's valuation approach examines recent sales of similar homes in your exact area, considers unique features affecting value, analyzes current competition you'll face, and provides price range reflecting multiple pricing strategies for successful sale.</p></div>
+            <div><h3 className="text-2xl font-bold mb-4 text-gray-900">Why Accurate Valuation Matters</h3><p className="text-gray-700 mb-3">Overpricing prevents sales while underpricing costs money. Accurate valuation positions your home competitively to attract buyers quickly while maximizing return. Understanding true market value enables informed pricing decisions.</p><p className="text-gray-700 mb-3">Properties priced too high sit unsold while correctly valued homes sell quickly. Properties priced too low attract quick offers but sacrifice thousands of dollars in lost equity. Professional valuation helps you find the pricing sweet spot.</p><p className="text-gray-700">Dr. Jan's valuation provides specific price range reflecting market reality, buyer psychology, competition analysis, and multiple pricing strategies. This informed approach helps you price competitively to sell efficiently at maximum value.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">What Your Free Home Valuation Includes</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">Your free home valuation analysis includes comprehensive market review, comparable sales research, competition analysis, and strategic pricing recommendations for your Las Vegas property.</p>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200"><h3 className="text-xl font-bold mb-4 text-gray-900">Comparable Sales Analysis</h3><p className="text-gray-700">Review of recent sales of similar homes in your neighborhood including size, condition, features, and final sale prices. This comparables research informs accurate pricing reflecting current market value.</p></div>
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200"><h3 className="text-xl font-bold mb-4 text-gray-900">Competition Evaluation</h3><p className="text-gray-700">Analysis of currently active listings competing with your home including pricing, features, condition, and marketing positioning. Understanding competition helps price your property advantageously.</p></div>
+            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200"><h3 className="text-xl font-bold mb-4 text-gray-900">Price Range Recommendation</h3><p className="text-gray-700">Professional recommendation for pricing range reflecting multiple strategies: quick sale pricing, competitive pricing, or premium positioning. This range helps you make informed pricing decisions.</p></div>
+          </div>
+          <div className="bg-white p-8 rounded-lg border border-gray-200"><h3 className="text-2xl font-bold mb-4 text-gray-900">Strategic Pricing for Your Goals</h3><p className="text-gray-700 mb-3">Your home valuation includes strategic pricing recommendations based on your specific goals: timeline, market conditions, competition, and desired outcome. This strategic approach maximizes results whether you need quick sale or maximum price.</p><p className="text-gray-700 mb-3">Dr. Jan's valuation considers your timeline: need to sell quickly for relocation, job change, or life circumstances? Premium pricing strategy works for flexible timelines. Understanding your goals informs recommended pricing strategy.</p><p className="text-gray-700">Her valuation analysis provides specific price recommendations with expected outcomes: timeline to sale, likely buyer interest, and anticipated sale price range. This informed approach helps you make pricing decisions aligned with your specific selling goals.</p></div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">Get Your Free Home Value Analysis</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">Professional home valuation helps you understand your property's true market value, price competitively, and make informed selling decisions. Get your free Las Vegas home value analysis from Dr. Janet Duffy today.</p>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div><h3 className="text-2xl font-bold mb-4 text-gray-900">Quick and Easy Process</h3><p className="text-gray-700 mb-3">Getting your free home valuation is simple: provide basic property information including address, square footage, bedrooms, bathrooms, condition, and any unique features. This information enables comprehensive market analysis for accurate valuation.</p><p className="text-gray-700 mb-3">Dr. Jan conducts thorough research including comparable sales, market trends, competition analysis, and neighborhood dynamics affecting your property value. This comprehensive approach provides accurate valuation reflecting current Las Vegas market.</p><p className="text-gray-700">Your valuation report includes specific price recommendations, comparable sales data, competition analysis, and strategic pricing strategies. This detailed information helps you make informed decisions about pricing, timing, and selling strategy for your home.</p></div>
+            <div><h3 className="text-2xl font-bold mb-4 text-gray-900">No Obligation Analysis</h3><p className="text-gray-700 mb-3">Your free home valuation comes with no obligation to list your property. This professional analysis helps you understand market value whether you're ready to sell now, planning to sell soon, or just curious about your property's worth.</p><p className="text-gray-700 mb-3">Many homeowners use free valuations to time their sale, plan improvements that add value, or simply understand equity for financial planning. This valuable information comes at no cost and with no pressure to hire services.</p><p className="text-gray-700">Dr. Jan provides honest, accurate valuations without obligation because she believes informed sellers make better decisions. Whether you're ready to list today or months away, understanding your property's true market value is valuable information worth having.</p></div>
+          </div>
+          <div className="bg-blue-50 p-8 rounded-lg"><h3 className="text-2xl font-bold mb-4 text-gray-900">Why Professional Valuation Matters</h3><p className="text-gray-700 mb-3">Automated home value estimates use algorithms that can't account for property condition, unique features, neighborhood nuances, or current market dynamics affecting your specific home. Professional valuation provides accurate pricing reflecting actual market value.</p><p className="text-gray-700 mb-3">Dr. Jan's valuation examines your property specifically: condition, updates, unique features, lot characteristics, and location advantages that affect value. This personalized analysis provides accurate pricing unavailable from automated estimates.</p><p className="text-gray-700">Her comprehensive approach reviews comparable sales in your specific area, analyzes current competition you'll face, and provides pricing recommendations based on market reality rather than generic algorithms. This accuracy helps you price competitively for successful sale.</p></div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900 text-center">Get Your Free Home Value Today</h2>
+          <p className="text-xl mb-8 text-gray-700 text-center">Provide your property details for an accurate Las Vegas market analysis.</p>
+          
+          <form onSubmit={async (e) => {
+            e.preventDefault()
+            setIsSubmitting(true)
+            setSubmitStatus('idle')
+
+            try {
+              const response = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  ...formData,
+                  message: `Home Valuation Request: ${formData.bedrooms}BR/${formData.bathrooms}BA, ${formData.squareFeet} sq ft, Built ${formData.yearBuilt}`,
+                  source: 'Home Valuation Page'
+                })
+              })
+
+              if (response.ok) {
+                setSubmitStatus('success')
+                setFormData({ address: '', name: '', email: '', phone: '', bedrooms: '', bathrooms: '', squareFeet: '', yearBuilt: '' })
+              } else {
+                setSubmitStatus('error')
+              }
+            } catch (error) {
+              setSubmitStatus('error')
+            } finally {
+              setIsSubmitting(false)
+            }
+          }} className="space-y-6 bg-gray-50 p-8 rounded-lg">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="val-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address *</label>
+                <input id="val-address" type="text" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              </div>
+              <div>
+                <label htmlFor="val-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name *</label>
+                <input id="val-name" type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              </div>
+              <div>
+                <label htmlFor="val-email" className="block text-sm font-semibold mb-2 text-gray-900">Email *</label>
+                <input id="val-email" type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              </div>
+              <div>
+                <label htmlFor="val-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone *</label>
+                <input id="val-phone" type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
+              </div>
+              <div>
+                <label htmlFor="val-bedrooms" className="block text-sm font-semibold mb-2 text-gray-900">Bedrooms</label>
+                <input id="val-bedrooms" type="number" min="1" max="10" value={formData.bedrooms} onChange={(e) => setFormData({...formData, bedrooms: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="val-bathrooms" className="block text-sm font-semibold mb-2 text-gray-900">Bathrooms</label>
+                <input id="val-bathrooms" type="number" min="1" max="10" step="0.5" value={formData.bathrooms} onChange={(e) => setFormData({...formData, bathrooms: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="val-sqft" className="block text-sm font-semibold mb-2 text-gray-900">Square Feet</label>
+                <input id="val-sqft" type="number" min="100" value={formData.squareFeet} onChange={(e) => setFormData({...formData, squareFeet: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div>
+                <label htmlFor="val-year" className="block text-sm font-semibold mb-2 text-gray-900">Year Built</label>
+                <input id="val-year" type="number" min="1900" max={new Date().getFullYear()} value={formData.yearBuilt} onChange={(e) => setFormData({...formData, yearBuilt: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+              </div>
+            </div>
+
+            {submitStatus === 'success' && (
+              <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
+                <p className="font-semibold">Thank you! Dr. Jan will analyze your property and contact you with your home value estimate.</p>
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
+                <p className="font-semibold">Error submitting request. Please call (702) 222-1964.</p>
+              </div>
+            )}
+
+            <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors">
+              {isSubmitting ? 'Submitting...' : 'Get My Free Home Valuation'}
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gradient-to-r from-blue-800 to-cyan-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xl mb-8 text-blue-100">Or call directly for immediate assistance</p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="tel:+17022221964" className="bg-white text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Contact Form</Link>
+          </div>
+        </div>
+      </section>
+      
+      <FAQSection faqs={faqs} />
+      </div>
     </>
-  );
+  )
 }
+

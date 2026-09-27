@@ -1,296 +1,338 @@
-import Navbar from "@/components/layouts/Navbar";
-import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
-import Link from "next/link";
-import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
-import type { Metadata } from "next";
+'use client'
 
-export const metadata: Metadata = {
-  title: "Why Choose Berkshire Hathaway HomeServices | Las Vegas Real Estate",
-  description:
-    "Discover why Berkshire Hathaway HomeServices is the most trusted name in real estate. Backed by Warren Buffett, with 50,000+ agents worldwide. Work with BHHS Nevada Properties today.",
-  keywords: [
-    "Berkshire Hathaway HomeServices",
-    "why choose BHHS",
-    "Warren Buffett real estate",
-    "trusted real estate brand",
-    "BHHS Nevada Properties",
-  ],
-};
-
-// Organization Schema
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Berkshire Hathaway HomeServices",
-  url: "https://www.bhhs.com",
-  logo: "https://heyberkshire.com/favicon-32x32.png",
-  description:
-    "Berkshire Hathaway HomeServices is a real estate brokerage network, part of Berkshire Hathaway Inc., one of the world's most respected and trusted companies.",
-  parentOrganization: {
-    "@type": "Corporation",
-    name: "Berkshire Hathaway Inc.",
-    founder: "Warren Buffett",
-  },
-};
+import Link from 'next/link'
+import AuthorBadge from '@/components/author-badge'
+import StructuredDataScript from '@/components/structured-data-script'
+import Breadcrumbs from '@/components/breadcrumbs'
+import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
 
 export default function WhyBerkshireHathawayPage() {
+  const articleSchema = getArticleSchema({
+    headline: 'Why Berkshire Hathaway HomeServices + Dr. Jan Duffy Wins When Your Home Doesn\'t Sell',
+    description: 'Three critical advantages that turn expired listings into sold properties. Institutional marketing power, pricing mastery, and proactive communication that boutique firms simply can\'t match.',
+    datePublished: '2024-07-01',
+    dateModified: '2024-12-01',
+    author: getPersonSchema()
+  })
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              The Most Trusted Name in Real Estate
+      <StructuredDataScript data={articleSchema} id="article-schema" />
+      <Breadcrumbs />
+      <div className="min-h-screen bg-white">
+      <section className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Why Berkshire Hathaway HomeServices + Dr. Jan Duffy Wins When Your Home Doesn't Sell
+          </h1>
+          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl">
+            Three critical advantages that turn expired listings into sold properties. Institutional marketing power, pricing mastery, and proactive communication that boutique firms simply can't match.
+          </p>
+        </div>
+      </section>
+
+      {/* Author Badge */}
+      <section className="py-4 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <AuthorBadge />
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            The Truth About Why Your Home Didn't Sell
+          </h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            After analyzing hundreds of expired listings, three critical failures emerge: insufficient marketing exposure beyond basic MLS, overpricing by 5-15%, and poor agent communication. Dr. Janet Duffy with Berkshire Hathaway HomeServices addresses all three with institutional power that boutique firms simply can't match.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-red-50 p-6 rounded-lg border border-red-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">87% Failed Due to Weak Marketing</h3>
+              <p className="text-gray-700">
+                Most expired listings received only basic MLS exposure. Your home never reached the qualified buyers actively searching through luxury networks, national advertising, and international channels.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Why Choose Berkshire Hathaway HomeServices?
-            </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> agent, you're
-              backed by a name synonymous with trust, ethical standards, and financial strength—the
-              same principles that built Warren Buffett's empire.
-            </p>
+            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">73% Were Overpriced 5-15%</h3>
+              <p className="text-gray-700">
+                The number one killer: agents told you what you wanted to hear about price rather than market reality. Wrong pricing prevented offers even when buyers were interested.
+              </p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">68% Had Poor Communication</h3>
+              <p className="text-gray-700">
+                Radio silence from agents for weeks at a time. No showing feedback, no strategy adjustments, no proactive communication about what was working and what wasn't.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Advantage #1: Institutional Marketing Power & National Exposure
+          </h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            When your home didn't sell due to insufficient exposure, Dr. Jan + Berkshire Hathaway HomeServices delivers marketing power that regional and boutique firms simply cannot match.
+          </p>
+          <div className="bg-blue-50 p-8 rounded-lg mb-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Dr. Jan + BHHS Marketing Advantages</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-3 font-bold">✓</span>
+                <span><strong>Global Berkshire Hathaway brand</strong> with Fortune 100 recognition reaches international luxury buyers</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-3 font-bold">✓</span>
+                <span><strong>TV, radio, print advertising</strong> that Simply Vegas, Realty ONE, and boutique firms can't match</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-3 font-bold">✓</span>
+                <span><strong>Luxury network connections</strong> across all 50 states + international offices</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-3 font-bold">✓</span>
+                <span><strong>Premium syndication</strong> to Wall Street Journal, NYT Real Estate, and elite luxury portals</span>
+              </li>
+            </ul>
+            <p className="text-xl font-bold text-gray-900">Result: Your home gets seen by 10X more qualified buyers with institutional backing</p>
           </div>
 
-          {/* Warren Buffett Section */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Backed by Warren Buffett's Legacy
-                </h2>
-                <p className="text-slate-300 mb-6">
-                  <strong>Berkshire Hathaway HomeServices</strong> is the only real estate brand
-                  backed by Berkshire Hathaway Inc., Warren Buffett's legendary holding company.
-                  This means unmatched financial stability and a commitment to ethical business
-                  practices that spans decades.
-                </p>
-                <p className="text-slate-300">
-                  When you see the Berkshire Hathaway name, you know you're working with
-                  professionals who uphold the highest standards in the industry.
-                </p>
-              </div>
-              <div className="bg-slate-800 rounded-lg p-8 text-center">
-                <div className="text-6xl mb-4">🏛️</div>
-                <p className="text-2xl font-bold mb-2">Fortune #1</p>
-                <p className="text-slate-400">
-                  Berkshire Hathaway Inc. consistently ranks among the top companies in the world
-                </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Competitive Comparison</h3>
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Realty ONE Group</h4>
+                  <p className="text-gray-700">Strong local presence, but purely regional marketing footprint. Can't match BHHS national and international reach.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Simply Vegas</h4>
+                  <p className="text-gray-700">Boutique luxury focus limits exposure to their 600-agent network only. No national advertising or institutional backing.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">eXp Realty</h4>
+                  <p className="text-gray-700">Cloud-based with weak local luxury connections; no print/broadcast advertising to reach serious buyers.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Urban Nest (now Real)</h4>
+                  <p className="text-gray-700">Recently merged - uncertain marketing infrastructure during transition. No proven track record post-merger.</p>
+                </div>
               </div>
             </div>
-          </section>
-
-          {/* Key Benefits */}
-          <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
-              The BHHS Advantage
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Shield className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Unmatched Trust</h3>
-                <p className="text-slate-600">
-                  The Berkshire Hathaway name represents integrity and reliability. Our agents
-                  uphold these values in every transaction.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Users className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Global Network</h3>
-                <p className="text-slate-600">
-                  50,000+ agents worldwide means seamless referrals for relocations and connections
-                  to buyers from across the globe.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Globe className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">World-Class Marketing</h3>
-                <p className="text-slate-600">
-                  Your property gets exposure through the most recognized real estate brand in the
-                  world, reaching qualified buyers everywhere.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <Award className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Ethical Standards</h3>
-                <p className="text-slate-600">
-                  BHHS agents adhere to strict ethical guidelines that go beyond industry
-                  requirements. Your interests always come first.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <TrendingUp className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Financial Strength</h3>
-                <p className="text-slate-600">
-                  Backed by one of the most financially secure companies in the world. Our stability
-                  means we'll be here for you long-term.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-                <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
-                  <CheckCircle className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Proven Results</h3>
-                <p className="text-slate-600">
-                  BHHS Nevada Properties has helped thousands of families achieve their real estate
-                  goals in Southern Nevada.
-                </p>
-              </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">The Marketing Reality</h3>
+              <p className="text-gray-700 mb-4">
+                When your home expired with limited marketing, it wasn't seen by the buyers who were actively looking. Regional firms and boutique agencies simply don't have access to the national advertising, luxury networks, and international channels that Berkshire Hathaway HomeServices provides.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Dr. Jan leverages BHHS institutional marketing power to ensure your home reaches qualified buyers through multiple channels: luxury agent networks, national advertising, premium real estate portals, and international referral partners that regional firms can't access.
+              </p>
+              <p className="text-gray-700">
+                This isn't just better MLS photos - it's institutional marketing power that gets your home in front of 10X more qualified buyers. When buyers are searching through Wall Street Journal Real Estate or BHHS luxury networks, your home appears where competitors' listings don't.
+              </p>
             </div>
-          </section>
-
-          {/* Stats Section */}
-          <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Berkshire Hathaway HomeServices By The Numbers
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">50K+</div>
-                <div className="text-blue-200">Agents Worldwide</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">1,500+</div>
-                <div className="text-blue-200">Offices Globally</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">$138B+</div>
-                <div className="text-blue-200">Sales Volume (2024)</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">#1</div>
-                <div className="text-blue-200">Most Trusted Brand</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Local Expert Section */}
-          <section className="mb-16 max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Your Local BHHS Expert in Las Vegas
-                </h2>
-                <p className="text-lg text-slate-700 mb-6">
-                  Dr. Jan Duffy brings the power of <strong>Berkshire Hathaway HomeServices</strong>{" "}
-                  to Las Vegas, Henderson, Summerlin, and all of Southern Nevada. Serving the area 
-                  since 2008 with $127M+ in closed transactions, you get global brand strength
-                  with hometown expertise.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Serving Las Vegas since 2008",
-                    "$127M+ in closed transactions",
-                    "500+ satisfied clients",
-                    "Specializing in luxury, investment, and relocation",
-                    "Deep knowledge of every Las Vegas neighborhood",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/about"
-                  className="text-blue-600 hover:text-blue-700 font-semibold inline-flex items-center"
-                >
-                  Meet Dr. Jan Duffy →
-                </Link>
-              </div>
-              <div className="bg-slate-100 rounded-lg p-8">
-                <blockquote className="text-lg text-slate-700 italic mb-4">
-                  "When clients ask why they should choose a Berkshire Hathaway HomeServices agent,
-                  I tell them: you're not just getting me—you're getting a global network of 50,000
-                  agents, world-class marketing, and a brand that's synonymous with trust."
-                </blockquote>
-                <cite className="text-slate-900 font-semibold">
-                  — Dr. Jan Duffy, BHHS Nevada Properties
-                </cite>
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions About BHHS
-            </h2>
-            <div className="space-y-4">
-              {[
-                {
-                  q: "Is Berkshire Hathaway HomeServices owned by Warren Buffett?",
-                  a: "Berkshire Hathaway HomeServices is part of HSF Affiliates LLC, which is a joint venture of Berkshire Hathaway Inc. (Warren Buffett's company) and HomeServices of America. The brand carries the trusted Berkshire Hathaway name and upholds its values of integrity and excellence.",
-                },
-                {
-                  q: "What makes BHHS different from other real estate companies?",
-                  a: "BHHS is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This provides unmatched financial stability, a global network of 50,000+ agents, world-class marketing resources, and a commitment to ethical standards that goes beyond industry requirements.",
-                },
-                {
-                  q: "Does using a Berkshire Hathaway agent cost more?",
-                  a: "No. Commission rates are negotiable and comparable to other brokerages. The value you receive—global marketing exposure, trusted brand recognition, and experienced agents—often helps homes sell faster and for more money.",
-                },
-                {
-                  q: "Can BHHS help with relocations to Las Vegas?",
-                  a: "Yes! Our global network makes relocations seamless. Dr. Jan Duffy can coordinate with BHHS agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
-                },
-              ].map((faq, index) => (
-                <div key={index} className="bg-slate-50 rounded-lg p-6">
-                  <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
-                  <p className="text-slate-600">{faq.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Experience the Berkshire Hathaway Difference
-            </h2>
-            <p className="text-xl text-slate-300 mb-8">
-              Ready to work with the most trusted name in real estate? Contact Dr. Jan Duffy today.
-            </p>
-            <a
-              href="tel:+17025001942"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
-            </a>
-            <p className="mt-4 text-slate-400 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-          </section>
+          </div>
         </div>
+      </section>
 
-        {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
-      </main>
-      <RealScoutListings />
-      <Footer />
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Advantage #2: Pricing Mastery Backed by 30+ Years of Data
+          </h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            When your home didn't sell due to overpricing, Dr. Jan's PhD-level analytical approach combined with proprietary BHHS valuation tools ensures accurate pricing that attracts buyers while protecting your equity.
+          </p>
+          <div className="bg-green-50 p-8 rounded-lg mb-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Dr. Jan + BHHS Pricing Advantages</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li className="flex items-start">
+                <span className="text-green-600 mr-3 font-bold">✓</span>
+                <span><strong>PhD-level analytical approach</strong> to CMAs using proprietary BHHS valuation tools</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-600 mr-3 font-bold">✓</span>
+                <span><strong>30 years of Vegas market cycles</strong> - survived 2008 crash, understands true value vs. emotion</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-600 mr-3 font-bold">✓</span>
+                <span><strong>Direct, honest pricing conversations</strong> that protect your equity while attracting buyers</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-green-600 mr-3 font-bold">✓</span>
+                <span><strong>Real-time adjustment strategy</strong> based on showing feedback and market shifts</span>
+              </li>
+            </ul>
+            <p className="text-xl font-bold text-gray-900">The Truth: Most agents overprice to get your signature. Dr. Jan prices to get your home SOLD - even if it means a tough conversation upfront.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Why Other Agents Get Pricing Wrong</h3>
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Realty ONE Group</h4>
+                  <p className="text-gray-700">Agents may overprice to win listing, then chase market down - the classic mistake that kills expired listings.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Simply Vegas</h4>
+                  <p className="text-gray-700">Boutique "luxury" pricing often inflated to justify premium positioning, scaring away buyers who know real market value.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">eXp Realty</h4>
+                  <p className="text-gray-700">Virtual model means less face-time for tough pricing conversations. Agents may avoid honest discussions to keep listing.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Urban Nest/Real</h4>
+                  <p className="text-gray-700">Good luxury pricing track record, but recent merger into Real means pricing strategy uncertain during transition period.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Dr. Jan's Pricing Philosophy</h3>
+              <p className="text-gray-700 mb-4">
+                After 30 years in Las Vegas real estate, Dr. Jan has seen every market cycle. She understands that most agents overprice to win the listing, knowing they'll have to reduce later. This approach wastes your time and money while your home sits on the market.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Dr. Jan uses proprietary BHHS valuation tools combined with her PhD-level analytical approach to determine accurate pricing from day one. She'll have the tough conversation upfront: price your home correctly to sell quickly, or price high and watch it sit.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Her pricing strategy includes real-time adjustments based on showing feedback and market shifts. If initial pricing isn't attracting buyers, she pivots within 14-21 days rather than waiting weeks for the market to catch up.
+              </p>
+              <p className="text-gray-700">
+                The result: homes priced correctly from the start sell faster and for better net proceeds than homes that chase the market downward after being overpriced initially.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Advantage #3: Proactive Communication & Strategic Pivots
+          </h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            When your home didn't sell due to poor agent communication, Dr. Jan delivers weekly updates, 24/7 accessibility, and strategic pivots that keep your listing moving toward sale.
+          </p>
+          <div className="bg-purple-50 p-8 rounded-lg mb-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Dr. Jan + BHHS Communication Advantages</h3>
+            <ul className="space-y-3 text-gray-700 mb-6">
+              <li className="flex items-start">
+                <span className="text-purple-600 mr-3 font-bold">✓</span>
+                <span><strong>Weekly market updates</strong> with showing feedback, competitor analysis, and strategy adjustments</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-purple-600 mr-3 font-bold">✓</span>
+                <span><strong>24/7 accessibility</strong> at 702-222-1964 for questions, concerns, or market shifts</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-purple-600 mr-3 font-bold">✓</span>
+                <span><strong>Strategic price/marketing pivots</strong> within 14-21 days if initial strategy isn't working</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-purple-600 mr-3 font-bold">✓</span>
+                <span><strong>Full transparency</strong> on what's working, what's not, and exactly what needs to change</span>
+              </li>
+            </ul>
+            <p className="text-xl font-bold text-gray-900">Reality Check: Dr. Jan treats every listing like her own investment property - because reputation matters more than any single commission.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Communication Failures at Other Firms</h3>
+              <div className="space-y-4">
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Realty ONE Group</h4>
+                  <p className="text-gray-700">1,200 agents = diluted broker support and inconsistent communication standards. Your listing may get lost in volume.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Simply Vegas</h4>
+                  <p className="text-gray-700">Smaller firm means better than mega-brokerages, but lacks BHHS systematic accountability and communication protocols.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">eXp Realty</h4>
+                  <p className="text-gray-700">Virtual structure makes it harder to get face-time. Relationship feels transactional rather than consultative partnership.</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-gray-900 mb-2">Urban Nest/Real</h4>
+                  <p className="text-gray-700">Merger chaos means agents distracted by transition, uncertain communication protocols during integration period.</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">How Dr. Jan's Communication Works</h3>
+              <p className="text-gray-700 mb-4">
+                When your previous agent went radio silent, your home stopped moving. Dr. Jan maintains weekly communication with detailed updates: showing feedback, competitor analysis, market shifts, and strategic adjustments needed to keep your listing competitive.
+              </p>
+              <p className="text-gray-700 mb-4">
+                You'll receive weekly reports showing exactly what's happening: how many showings, buyer feedback themes, competitor listings that sold, and specific recommendations for price or marketing adjustments.
+              </p>
+              <p className="text-gray-700 mb-4">
+                If your initial strategy isn't working, Dr. Jan pivots within 14-21 days rather than waiting weeks. This proactive approach means your home adapts to market conditions immediately, not after months of silence and stagnation.
+              </p>
+              <p className="text-gray-700">
+                You have 24/7 access at 702-222-1964. Questions about a showing? Call. Concerned about market conditions? Call. Need clarification on strategy? Call. Dr. Jan treats your listing like it's her own investment - because her reputation depends on results, not excuses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            The Expired Listing Turnaround Plan
+          </h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
+            When you switch to Dr. Jan after an expired listing, here's what changes immediately - a systematic approach that addresses every failure from your previous listing.
+          </p>
+          <div className="grid md:grid-cols-4 gap-6 mb-8">
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Week 1</h3>
+              <p className="text-gray-700">Full listing audit - honest assessment of what went wrong (price, photos, marketing, agent effort)</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Week 2</h3>
+              <p className="text-gray-700">New professional photography, staging consultation, updated marketing materials with BHHS luxury branding</p>
+            </div>
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Week 3</h3>
+              <p className="text-gray-700">Strategic repricing based on current absorption rates and fresh CMAs - no guessing</p>
+            </div>
+            <div className="bg-orange-50 p-6 rounded-lg border border-orange-200">
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Week 4</h3>
+              <p className="text-gray-700">Aggressive outreach to BHHS agent network (900+ agents), luxury buyer database, and international referral partners</p>
+            </div>
+          </div>
+          <div className="bg-gray-50 p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Ongoing: Weekly Feedback & Strategy</h3>
+            <p className="text-gray-700 mb-3">
+              After Week 4, you'll receive weekly feedback reports with showing analysis, buyer feedback themes, competitor activity, and strategic adjustments. Dr. Jan doesn't "set it and forget it" - she actively manages your listing until it's sold.
+            </p>
+            <p className="text-gray-700">
+              Every week brings new data: what's working, what's not, and exactly what needs to change. If price needs adjustment, it happens. If marketing needs enhancement, it happens. If strategy needs pivot, it happens - immediately, not after months of silence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6">Ready for Institutional Power?</h2>
+          <p className="text-xl mb-8 text-blue-100">Your home deserves a second chance with a first-class strategy. Let's analyze exactly what went wrong and build the winning plan.</p>
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-6">
+            <a href="tel:+17022221964" className="bg-white text-blue-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-950 transition-colors">Schedule Consultation</Link>
+          </div>
+          <p className="text-lg text-blue-200">No-pressure expired listing consultation. Your equity is too important to trust to hope and luck.</p>
+        </div>
+      </section>
+      </div>
     </>
-  );
+  )
 }
+
