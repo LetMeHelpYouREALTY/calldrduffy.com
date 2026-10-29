@@ -104,7 +104,7 @@ for (const file of walk(appDir)) {
     subtitle ||
     (route === '/'
       ? 'Sell a tenant-occupied rental in Las Vegas or Henderson. Dr. Jan Duffy helps landlords navigate NRS 118A notices, showings, and investor-ready marketing.'
-      : `${stripBhhs(h1 || humanizeRoute(route))}. Las Vegas rental property sales guidance from Dr. Jan Duffy. Call (702) 222-1964.`)
+      : `${stripBhhs(h1 || humanizeRoute(route))}. Las Vegas rental property sales guidance from Dr. Jan Duffy. Call (702) 500-1955.`)
 
   routes[route] = {
     title: stripBhhs(title),

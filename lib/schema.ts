@@ -7,7 +7,7 @@ export const BASE_URL = SITE_URL
 export const DR_JAN_INFO = {
   name: 'Dr. Jan Duffy',
   fullTitle: 'Dr. Jan Duffy, REALTOR®',
-  telephone: '+17022221964',
+  telephone: '+17025001955',
   email: 'HomeSales@CallDrDuffy.com',
   licenseNumber: 'S.0197614.LLC',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',

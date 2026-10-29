@@ -282,7 +282,7 @@ export default function NorthLasVegasPage() {
               href="tel:+17025667890"
               className="bg-white text-pink-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

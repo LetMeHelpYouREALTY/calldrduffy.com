@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     } catch (error) {
       console.error('Lead capture FUB error:', error)
       return NextResponse.json(
-        { error: 'Unable to submit your request right now. Please call (702) 222-1964.' },
+        { error: 'Unable to submit your request right now. Please call (702) 500-1955.' },
         { status: 502 },
       )
     }
