@@ -40,8 +40,8 @@ export default function SuccessStoriesPage() {
       before: { days: 150, offers: 0 },
       after: { days: 28, price: 'Asking price' },
       issue: 'Competing with new construction',
-      solution: 'Highlighted established neighborhood advantages and strategic pricing',
-      quote: 'New construction nearby made our home feel outdated. Dr. Jan showed us how to highlight our home\'s advantages - mature landscaping, proven quality, and established neighborhood. Sold in under a month!'
+      solution: 'Highlighted older neighborhood advantages and strategic pricing',
+      quote: 'New construction nearby made our home feel outdated. Dr. Jan showed us how to highlight our home\'s advantages - mature landscaping, proven quality, and older neighborhood. Sold in under a month!'
     }
   ]
 

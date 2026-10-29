@@ -53,17 +53,17 @@ export default function BestNeighborhoodsLasVegasPage() {
                 <strong>Best for:</strong> Master-planned living, golf, upscale families
               </p>
               <p className="text-gray-700 mb-3">
-                Summerlin represents Las Vegas's premier master-planned community: golf courses, top-rated schools, Red Rock Canyon proximity, and cohesive neighborhood design. Premium positioning with established quality.
+                Summerlin represents Las Vegas's premier master-planned community: golf courses, nearby public schools, Red Rock Canyon proximity, and cohesive neighborhood design. Premium positioning with established quality.
               </p>
               <Link href="/neighborhoods/summerlin" className="text-purple-600 hover:text-purple-800 font-semibold">Explore Summerlin →</Link>
             </div>
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Henderson</h3>
               <p className="text-gray-700 mb-3">
-                <strong>Best for:</strong> Value, family-friendly, growing communities
+                <strong>Best for:</strong> Value, growing communities
               </p>
               <p className="text-gray-700 mb-3">
-                Henderson offers exceptional value with quality schools, family-friendly communities, and diverse housing options. Fast-growing city with great amenities and affordable pricing compared to premium areas.
+                Henderson offers exceptional value with nearby schools, master-planned communities, and diverse housing options. Fast-growing city with great amenities and affordable pricing compared to premium areas.
               </p>
               <Link href="/neighborhoods/henderson" className="text-green-600 hover:text-green-800 font-semibold">Explore Henderson →</Link>
             </div>
@@ -120,7 +120,7 @@ export default function BestNeighborhoodsLasVegasPage() {
             Best Neighborhoods for Value and Affordability
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Las Vegas offers excellent value in established neighborhoods and growing communities with new construction. These areas provide quality living at affordable prices compared to premium Las Vegas neighborhoods.
+            Las Vegas offers excellent value in older neighborhoods and growing communities with new construction. These areas provide quality living at affordable prices compared to premium Las Vegas neighborhoods.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
@@ -136,7 +136,7 @@ export default function BestNeighborhoodsLasVegasPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-rose-600 mr-3 font-bold">•</span>
-                  <span><strong>Spring Valley:</strong> Central location, established neighborhoods</span>
+                  <span><strong>Spring Valley:</strong> Central location, older neighborhoods</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-rose-600 mr-3 font-bold">•</span>
@@ -147,10 +147,10 @@ export default function BestNeighborhoodsLasVegasPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Why These Neighborhoods Offer Value</h3>
               <p className="text-gray-700 mb-3">
-                Value-focused Las Vegas neighborhoods provide quality living at affordable prices: new construction with modern features, established neighborhoods with proven quality, family-friendly amenities, and growing communities with future appreciation potential.
+                Value-focused Las Vegas neighborhoods provide quality living at affordable prices: new construction with modern features, neighborhoods with proven quality, amenities, and growing communities with future appreciation potential.
               </p>
               <p className="text-gray-700 mb-3">
-                These areas offer Las Vegas lifestyle without premium pricing: good schools, family amenities, convenient location, and quality housing options that provide excellent value for first-time buyers and families.
+                These areas offer Las Vegas lifestyle without premium pricing: nearby schools, parks, convenient location, and quality housing options that provide excellent value for first-time and move-up buyers.
               </p>
               <Link href="/neighborhoods" className="text-rose-600 hover:text-rose-800 font-semibold">Explore All Neighborhoods →</Link>
             </div>
