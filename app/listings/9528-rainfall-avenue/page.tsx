@@ -41,7 +41,7 @@ export default function FeaturedListingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <FeaturedListingPageBody phone="(702) 500-0453" phoneHref="tel:+17025000453" siteHost="calldrduffy.com" />
+      <FeaturedListingPageBody phone="(702) 500-1955" phoneHref="tel:+17025001955" siteHost="calldrduffy.com" />
     </>
   );
 }
