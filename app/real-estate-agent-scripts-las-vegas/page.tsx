@@ -175,7 +175,7 @@ export default function RealEstateScriptsLasVegasPage() {
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Summerlin Scripts</h3>
               <p className="text-gray-700 mb-3">
-                Summerlin scripts emphasize master-planned benefits, luxury positioning, and Red Rock proximity. Market positioning focuses on premium value and established community advantages.
+                Summerlin scripts emphasize master-planned benefits, luxury positioning, and Red Rock proximity. Market positioning focuses on premium value and community advantages.
               </p>
               <p className="text-gray-700">
                 Key phrases: "master-planned community," "Red Rock views," "established Summerlin neighborhoods," "proven quality."
@@ -184,10 +184,10 @@ export default function RealEstateScriptsLasVegasPage() {
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Henderson Scripts</h3>
               <p className="text-gray-700 mb-3">
-                Henderson scripts emphasize value, family-friendly communities, and growing amenities. Focus on affordability with quality positioning versus newer areas.
+                Henderson scripts emphasize value, communities, and growing amenities. Focus on affordability with quality positioning versus newer areas.
               </p>
               <p className="text-gray-700">
-                Key phrases: "exceptional value," "established Henderson neighborhoods," "family-friendly communities," "proven quality."
+                Key phrases: "exceptional value," "established Henderson neighborhoods," "communities," "proven quality."
               </p>
             </div>
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">

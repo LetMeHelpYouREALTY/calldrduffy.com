@@ -124,7 +124,7 @@ export default function RealtorLasVegasPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 font-bold">•</span>
-                  <span><strong>Henderson:</strong> Value communities, family-friendly neighborhoods, growing amenities</span>
+                  <span><strong>Henderson:</strong> Value communities, neighborhoods, growing amenities</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-3 font-bold">•</span>
