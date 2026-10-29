@@ -41,7 +41,7 @@ export default function Homepage() {
       }
     } catch (error) {
       console.error('Form submission error:', error)
-      alert('There was an error. Please try again or call (702) 222-1964.')
+      alert('There was an error. Please try again or call (702) 500-1955.')
     } finally {
       setIsSubmitting(false)
     }
@@ -241,10 +241,10 @@ export default function Homepage() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001955"
               className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call Now: (702) 222-1964
+              Call Now: (702) 500-1955
             </a>
             <Link
               href="/contact"
