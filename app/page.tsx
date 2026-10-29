@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import FeaturedListing from '@/components/sections/FeaturedListing'
 
 export default function Homepage() {
   const [address, setAddress] = useState('')
@@ -129,6 +130,12 @@ export default function Homepage() {
           </form>
         </div>
       </section>
+
+      <FeaturedListing
+        phone="(702) 500-0453"
+        phoneHref="tel:+17025000453"
+        siteHost="calldrduffy.com"
+      />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
