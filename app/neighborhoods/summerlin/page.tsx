@@ -10,7 +10,7 @@ import { getPlaceSchema, getCitySchema } from '@/lib/hyperlocal-schema'
 export default function SummerlinPage() {
   const articleSchema = getArticleSchema({
     headline: 'Summerlin Las Vegas: Master-Planned Living at Its Finest',
-    description: 'Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to top-rated schools and master-planned communities, find everything you need to know about living in Summerlin.',
+    description: 'Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to nearby public schools and master-planned communities, find everything you need to know about living in Summerlin.',
     datePublished: '2024-03-01',
     dateModified: '2024-12-01',
     author: getPersonSchema()
@@ -33,7 +33,7 @@ export default function SummerlinPage() {
             Summerlin Las Vegas: Master-Planned Living at Its Finest
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl">
-            Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to top-rated schools and master-planned communities, find everything you need to know about living in Summerlin.
+            Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to nearby public schools and master-planned communities, find everything you need to know about living in Summerlin.
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function SummerlinPage() {
           </h2>
           
           <p className="text-lg text-gray-700 mb-8">
-            Living in Summerlin means enjoying master-planned community benefits: well-maintained infrastructure, abundant amenities, safe neighborhoods, and strong community identity. Residents consistently rate quality of life highly, citing everything from the trail system to school quality to property value stability.
+            Living in Summerlin means enjoying master-planned community benefits: well-maintained infrastructure, abundant amenities, and strong community identity. Residents consistently rate quality of life highly, citing everything from the trail system to nearby schools to property value stability.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -218,7 +218,7 @@ export default function SummerlinPage() {
           <div className="bg-gray-50 p-8 rounded-lg mb-8">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Schools and Education</h3>
             <p className="text-gray-700 mb-3">
-              Summerlin is home to many of Clark County's top-rated schools. Elementary schools like Givens and Garehime consistently receive A ratings, while Palo Verde High School is one of Nevada's highest-ranked high schools. Many families specifically choose Summerlin for the schools.
+              Summerlin is home to many of Clark County's nearby public schools. Elementary schools like Givens and Garehime consistently receive A ratings, while Palo Verde High School is one of Nevada's highest-ranked high schools. Many families specifically choose Summerlin for the schools.
             </p>
             <p className="text-gray-700 mb-3">
               The community also hosts several charter schools and private schools, providing educational options. Schools are integrated into neighborhood planning, meaning most Summerlin children can walk to elementary school. This convenience and safety add significant value for families.
@@ -232,7 +232,7 @@ export default function SummerlinPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Safety and Security</h3>
               <p className="text-gray-700 mb-3">
-                Summerlin consistently reports lower crime rates than other Las Vegas neighborhoods. The master-planned nature, active HOAs, well-lit streets, and neighborhood watch programs all contribute to safety. Metropolitan Police Department presence is strong throughout the community.
+                Summerlin is master-planned, with active HOAs, well-lit streets, and neighborhood watch programs. LVMPD publishes crime data online at opendata-lvmpd.hub.arcgis.com for any address.
               </p>
               <p className="text-gray-700 mb-3">
                 Many Summerlin gated communities add an additional security layer. Security personnel monitor access, which not only prevents crime but also reduces solicitation and unwanted visitors. Gated communities typically see even better property values and appreciation.
@@ -326,7 +326,7 @@ export default function SummerlinPage() {
               href="tel:+17025667890"
               className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

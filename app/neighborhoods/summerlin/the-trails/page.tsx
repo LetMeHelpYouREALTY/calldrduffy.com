@@ -60,9 +60,9 @@ export default function TheTrailsPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Established Neighborhood Character</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Older Neighborhood Character</h3>
               <p className="text-gray-700 mb-3">
-                The Trails features mature landscaping, established community amenities, and proven neighborhood quality that newer Summerlin areas haven't developed yet. This established character attracts buyers seeking proven Summerlin investment.
+                The Trails features mature landscaping, community amenities, and proven neighborhood quality that newer Summerlin areas haven't developed yet. This established character attracts buyers seeking proven Summerlin investment.
               </p>
               <p className="text-gray-700 mb-3">
                 Your expired listing likely competed against newer Summerlin construction without highlighting The Trails' established advantages: mature trees, proven community character, and settled neighborhood atmosphere.
@@ -106,10 +106,10 @@ export default function TheTrailsPage() {
           <div className="bg-white p-8 rounded-lg border border-gray-200">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">The Trails Positioning Challenge</h3>
             <p className="text-gray-700 mb-3">
-              The Trails homes that didn't sell often failed to communicate trail access advantages and established neighborhood character that define this sub-community's value within Summerlin.
+              The Trails homes that didn't sell often failed to communicate trail access advantages and older neighborhood character that define this sub-community's value within Summerlin.
             </p>
             <p className="text-gray-700 mb-3">
-              Dr. Jan specializes in The Trails Summerlin real estate and understands how to position trail-accessible homes to highlight active lifestyle advantages and established community benefits that The Trails buyers specifically seek.
+              Dr. Jan specializes in The Trails Summerlin real estate and understands how to position trail-accessible homes to highlight active lifestyle advantages and community benefits that The Trails buyers specifically seek.
             </p>
             <p className="text-gray-700">
               Her marketing targets The Trails buyers specifically: active lifestyle enthusiasts seeking trail access, nature lovers wanting Red Rock proximity, and buyers valuing established Summerlin neighborhoods with proven character.
@@ -142,10 +142,10 @@ export default function TheTrailsPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Highlighting The Trails Advantages</h3>
               <p className="text-gray-700 mb-3">
-                Your The Trails home offers advantages other Summerlin areas can't replicate: direct trail access, active lifestyle positioning, and established neighborhood character. Generic listings don't communicate these The Trails-specific benefits effectively.
+                Your The Trails home offers advantages other Summerlin areas can't replicate: direct trail access, active lifestyle positioning, and older neighborhood character. Generic listings don't communicate these The Trails-specific benefits effectively.
               </p>
               <p className="text-gray-700 mb-3">
-                Dr. Jan's marketing showcases The Trails advantages with professional photography highlighting trail connectivity, active lifestyle amenities, and established community character that The Trails buyers specifically appreciate.
+                Dr. Jan's marketing showcases The Trails advantages with professional photography highlighting trail connectivity, active lifestyle amenities, and community character that The Trails buyers specifically appreciate.
               </p>
               <p className="text-gray-700">
                 Her approach positions your property against other Summerlin areas by emphasizing benefits only The Trails offers: direct trail access, Red Rock proximity, and active lifestyle positioning that active buyers value in The Trails specifically.
@@ -155,7 +155,7 @@ export default function TheTrailsPage() {
           <div className="bg-purple-50 p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Success with The Trails Homes That Didn't Sell</h3>
             <p className="text-gray-700 mb-3">
-              Dr. Jan's The Trails focus means she's sold multiple The Trails properties that previous agents couldn't move. Her understanding of trail access premium, active lifestyle positioning, and established community marketing creates results where generic approaches failed.
+              Dr. Jan's The Trails focus means she's sold multiple The Trails properties that previous agents couldn't move. Her understanding of trail access premium, active lifestyle positioning, and community marketing creates results where generic approaches failed.
             </p>
             <p className="text-gray-700 mb-3">
               Typical turnaround for The Trails expired listings working with Dr. Jan is 30-45 days with strategic pricing and trail-focused marketing. Her The Trails expertise identifies issues generic agents miss and creates solutions tailored to The Trails' unique market.
@@ -172,7 +172,7 @@ export default function TheTrailsPage() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your The Trails Home?</h2>
           <p className="text-xl mb-8 text-blue-100">Expert help for The Trails homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-purple-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-purple-900 transition-colors">Get Free The Trails Analysis</Link>
           </div>
         </div>

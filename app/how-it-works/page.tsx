@@ -38,7 +38,7 @@ export default function HowItWorksPage() {
     },
     {
       question: 'What kind of communication can I expect?',
-      answer: 'Dr. Jan provides weekly updates via email and phone, instant access at 702-222-1964 for questions or concerns, proactive communication about showings and feedback, and strategic pivots when market conditions change. Your listing receives personal attention.'
+      answer: 'Dr. Jan provides weekly updates via email and phone, instant access at 702-500-1955 for questions or concerns, proactive communication about showings and feedback, and strategic pivots when market conditions change. Your listing receives personal attention.'
     },
     {
       question: 'What results can I realistically expect?',
@@ -236,7 +236,7 @@ export default function HowItWorksPage() {
               These reports identify patterns and trigger strategic adjustments: price changes if needed, marketing enhancements if required, or positioning shifts if necessary - all within 14-21 days, not after weeks of stagnation.
             </p>
             <p className="text-gray-700">
-              You have 24/7 access at 702-222-1964. Questions? Call. Concerns? Call. Dr. Jan treats your listing like her own investment - because reputation matters more than any single commission.
+              You have 24/7 access at 702-500-1955. Questions? Call. Concerns? Call. Dr. Jan treats your listing like her own investment - because reputation matters more than any single commission.
             </p>
           </div>
         </div>
@@ -247,7 +247,7 @@ export default function HowItWorksPage() {
           <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8 text-blue-100">See how Dr. Jan's proven process turns expired listings into sold properties.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Schedule Consultation</Link>
           </div>
         </div>

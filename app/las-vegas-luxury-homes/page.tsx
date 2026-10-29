@@ -44,7 +44,7 @@ export default function LasVegasLuxuryHomesPage() {
             Understanding Las Vegas Luxury Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Las Vegas luxury homes represent some of the most desirable properties in Southern Nevada: master-planned communities like Summerlin, exclusive neighborhoods like The Summit Club and Ascaya, custom estates, and high-rise condominiums with Strip views. For luxury homeowners whose properties didn't sell, specialized expertise makes the difference.
+            Las Vegas luxury homes represent some of the most desirable properties in Southern Nevada: master-planned communities like Summerlin, luxury neighborhoods like The Summit Club and Ascaya, custom estates, and high-rise condominiums with Strip views. For luxury homeowners whose properties didn't sell, specialized expertise makes the difference.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
@@ -56,7 +56,7 @@ export default function LasVegasLuxuryHomesPage() {
                 Each luxury community offers distinct advantages: master-planned amenities, gated security, golf course access, mountain views, or Strip proximity. Luxury home buyers and sellers need agents who understand these community distinctions and can position properties effectively.
               </p>
               <p className="text-gray-700">
-                Dr. Jan specializes in Las Vegas luxury real estate, understanding Summerlin master-planned benefits, Henderson exclusive communities, and high-rise luxury positioning. Her expertise helps luxury homeowners whose properties didn't sell achieve successful sales through strategic positioning.
+                Dr. Jan specializes in Las Vegas luxury real estate, understanding Summerlin master-planned benefits, Henderson communities, and high-rise luxury positioning. Her expertise helps luxury homeowners whose properties didn't sell achieve successful sales through strategic positioning.
               </p>
             </div>
             <div>
@@ -115,7 +115,7 @@ export default function LasVegasLuxuryHomesPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Summerlin Luxury Properties</h3>
               <p className="text-gray-700 mb-3">
-                Summerlin offers luxury master-planned living with golf courses, Red Rock Canyon views, top-rated schools, and premium amenities. Luxury Summerlin homes command premium prices for master-planned benefits and established community quality.
+                Summerlin offers luxury master-planned living with golf courses, Red Rock Canyon views, nearby public and private schools, and premium amenities. Luxury Summerlin homes command premium prices for master-planned benefits and community quality.
               </p>
               <p className="text-gray-700 mb-3">
                 Dr. Jan specializes in Summerlin luxury real estate, understanding master-planned positioning, golf course premiums, mountain view value, and upscale community marketing that reaches qualified Summerlin luxury buyers.
@@ -141,7 +141,7 @@ export default function LasVegasLuxuryHomesPage() {
           <h2 className="text-4xl font-bold mb-6">Luxury Home Selling Expertise</h2>
           <p className="text-xl mb-8 text-amber-100">Specialized help for Las Vegas luxury homes that didn't sell. Premium positioning and luxury marketing channels.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-amber-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-amber-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-amber-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-amber-900 transition-colors">Luxury Home Consultation</Link>
           </div>
         </div>

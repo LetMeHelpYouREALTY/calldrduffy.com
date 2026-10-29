@@ -7,10 +7,10 @@ const neighborhoods = [
     name: 'Summerlin', 
     slug: 'summerlin',
     path: '/neighborhoods/summerlin',
-    description: 'Master-planned community with golf courses, parks, and top-rated schools',
+    description: 'Master-planned community with golf courses, parks, and nearby public schools',
     medianPrice: '$575,000',
     activeListings: 234,
-    lifestyle: ['Family-Friendly', 'Golf', 'Upscale']
+    lifestyle: ['Parks', 'Golf', 'Upscale']
   },
   { 
     name: 'Henderson', 
@@ -19,7 +19,7 @@ const neighborhoods = [
     description: 'Fast-growing city with great value and diverse housing options',
     medianPrice: '$450,000',
     activeListings: 189,
-    lifestyle: ['Family-Friendly', 'Affordable', 'Growing']
+    lifestyle: ['Parks', 'Affordable', 'Growing']
   },
   { 
     name: 'Downtown Las Vegas', 
@@ -43,7 +43,7 @@ const neighborhoods = [
     name: 'Enterprise', 
     slug: 'enterprise',
     path: '/enterprise',
-    description: 'West side value with new construction and established communities',
+    description: 'West side value with new construction and older communities',
     medianPrice: '$425,000',
     activeListings: 167,
     lifestyle: ['New Builds', 'Value', 'Growing']
@@ -52,10 +52,10 @@ const neighborhoods = [
     name: 'Spring Valley', 
     slug: 'spring-valley',
     path: '/spring-valley',
-    description: 'Central location with established neighborhoods and good schools',
+    description: 'Central location with neighborhoods and nearby public schools',
     medianPrice: '$395,000',
     activeListings: 143,
-    lifestyle: ['Established', 'Central', 'Family-Friendly']
+    lifestyle: ['Mature landscaping', 'Central', 'Parks']
   },
   { 
     name: 'North Las Vegas', 
@@ -64,7 +64,7 @@ const neighborhoods = [
     description: 'Affordable new construction with great family amenities',
     medianPrice: '$385,000',
     activeListings: 212,
-    lifestyle: ['New Builds', 'Affordable', 'Family-Friendly']
+    lifestyle: ['New Builds', 'Affordable', 'Parks']
   },
   { 
     name: 'Boulder City', 
@@ -88,10 +88,10 @@ const neighborhoods = [
     name: 'Whitney', 
     slug: 'whitney',
     path: '/whitney',
-    description: 'East Las Vegas family-friendly community with established neighborhoods',
+    description: 'East Las Vegas community with older neighborhoods and parks',
     medianPrice: '$370,000',
     activeListings: 145,
-    lifestyle: ['Family-Friendly', 'Established', 'Safe']
+    lifestyle: ['Parks', 'Mature landscaping']
   }
 ]
 
@@ -117,7 +117,7 @@ export default function NeighborhoodsPage() {
             Explore Las Vegas Communities
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Las Vegas offers diverse neighborhoods each with unique character, amenities, and lifestyle. Whether you're looking for master-planned communities with world-class golf courses, affordable family-friendly areas, or vibrant urban living, Las Vegas has something for everyone.
+            Las Vegas offers diverse neighborhoods each with unique character, amenities, and lifestyle. Whether you're looking for master-planned communities with world-class golf courses, affordable areas, or vibrant urban living, Las Vegas has something for everyone.
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -196,12 +196,12 @@ export default function NeighborhoodsPage() {
             
             <div className="text-center">
               <div className="text-5xl mb-4">🎓</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Top-Rated Schools</h3>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">Nearby Public Schools</h3>
               <p className="text-gray-600 mb-4">
                 Clark County School District includes many A-rated schools, especially in areas like Summerlin, Henderson, and Green Valley. School choice and quality are major factors in homebuying decisions.
               </p>
               <p className="text-gray-600">
-                Neighborhoods zoned to top schools like Palo Verde High School, Coronado High, and Advanced Technologies Academy often command premium prices and faster sales. Many families specifically search homes by school zone.
+                Neighborhoods zoned to nearby public schools like Palo Verde High School, Coronado High, and Advanced Technologies Academy often command premium prices and faster sales. Many families specifically search homes by school zone.
               </p>
             </div>
             
@@ -232,15 +232,15 @@ export default function NeighborhoodsPage() {
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">New Construction vs Established Neighborhoods</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">New Construction vs Older Neighborhoods</h3>
               <p className="text-gray-600 mb-3">
-                Las Vegas offers both brand-new construction and established neighborhoods, each with distinct advantages. New construction areas like Skye Canyon, Inspirada, and Cadence offer modern floor plans, energy-efficient features, and the latest in home design and technology.
+                Las Vegas offers both brand-new construction and older neighborhoods, each with distinct advantages. New construction areas like Skye Canyon, Inspirada, and Cadence offer modern floor plans, energy-efficient features, and the latest in home design and technology.
               </p>
               <p className="text-gray-600 mb-3">
-                Established neighborhoods like Spring Valley, Paradise, and parts of Henderson offer mature landscaping, established amenities, and often larger lot sizes. These areas typically have lower HOA fees and more established tree canopies.
+                Older neighborhoods like Spring Valley, Paradise, and parts of Henderson offer mature landscaping, established amenities, and often larger lot sizes. These areas typically have lower HOA fees and more established tree canopies.
               </p>
               <p className="text-gray-600">
-                Your choice depends on priorities: new builds offer customization and latest features, while established neighborhoods offer character, lower costs, and proven appreciation. Many buyers find value in both options across Las Vegas's diverse market.
+                Your choice depends on priorities: new builds offer customization and latest features, while older neighborhoods offer character, lower costs, and proven appreciation. Many buyers find value in both options across Las Vegas's diverse market.
               </p>
             </div>
           </div>
@@ -302,10 +302,10 @@ export default function NeighborhoodsPage() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001955"
               className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

@@ -40,8 +40,8 @@ export default function SuccessStoriesPage() {
       before: { days: 150, offers: 0 },
       after: { days: 28, price: 'Asking price' },
       issue: 'Competing with new construction',
-      solution: 'Highlighted established neighborhood advantages and strategic pricing',
-      quote: 'New construction nearby made our home feel outdated. Dr. Jan showed us how to highlight our home\'s advantages - mature landscaping, proven quality, and established neighborhood. Sold in under a month!'
+      solution: 'Highlighted older neighborhood advantages and strategic pricing',
+      quote: 'New construction nearby made our home feel outdated. Dr. Jan showed us how to highlight our home\'s advantages - mature landscaping, proven quality, and older neighborhood. Sold in under a month!'
     }
   ]
 
@@ -265,10 +265,10 @@ export default function SuccessStoriesPage() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001955"
               className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

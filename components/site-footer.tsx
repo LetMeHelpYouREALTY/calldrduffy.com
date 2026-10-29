@@ -38,7 +38,7 @@ export default function SiteFooter() {
             {/* Hidden schema metadata */}
             <meta itemProp="priceRange" content="$$" />
             <meta itemProp="image" content="https://www.calldrduffy.com/og-image.png" />
-            <meta itemProp="telephone" content="+17022221964" />
+            <meta itemProp="telephone" content="+17025001955" />
             <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
               <meta itemProp="addressLocality" content="Las Vegas" />
               <meta itemProp="addressRegion" content="NV" />
@@ -87,8 +87,8 @@ export default function SiteFooter() {
             <h3 className="text-lg font-bold mb-4">Get In Touch</h3>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="tel:+17022221964" className="hover:text-white transition-colors">
-                  Phone: (702) 222-1964
+                <a href="tel:+17025001955" className="hover:text-white transition-colors">
+                  Phone: (702) 500-1955
                 </a>
               </li>
               <li>

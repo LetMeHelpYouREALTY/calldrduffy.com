@@ -27,7 +27,7 @@ export default function NorthLasVegasPage() {
             North Las Vegas: Affordable New Construction and Growing Communities
           </h1>
           <p className="text-xl md:text-2xl text-rose-100 max-w-3xl">
-            North Las Vegas offers exceptional value with new construction, affordable housing, and rapidly developing master-planned communities ideal for families and first-time buyers.
+            North Las Vegas offers exceptional value with new construction, affordable housing, and rapidly developing master-planned communities for first-time and move-up buyers.
           </p>
         </div>
       </section>
@@ -100,7 +100,7 @@ export default function NorthLasVegasPage() {
           </h2>
           
           <p className="text-lg text-gray-700 mb-8">
-            North Las Vegas real estate offers Las Vegas Valley's best affordability for new construction and master-planned community living. Properties here typically cost significantly less than Summerlin while still offering quality schools, amenities, and modern home features that buyers seek.
+            North Las Vegas real estate offers Las Vegas Valley's best affordability for new construction and master-planned community living. Properties here typically cost significantly less than Summerlin while still offering nearby public schools, amenities, and modern home features that buyers seek.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -140,23 +140,23 @@ export default function NorthLasVegasPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Buying in North Las Vegas</h3>
               <p className="text-gray-700 mb-3">
-                North Las Vegas buyers enjoy choices ranging from new construction to established neighborhoods. Skye Canyon offers mountain views and resort-style amenities. Tule Springs features new homes near planned commercial development. Aliante provides established community with mature amenities.
+                North Las Vegas buyers enjoy choices ranging from new construction to neighborhoods. Skye Canyon offers mountain views and resort-style amenities. Tule Springs features new homes near planned commercial development. Aliante provides community with mature amenities.
               </p>
               <p className="text-gray-700 mb-3">
                 Property types include single-family homes, townhomes, and condos across various price points from $250k to $600k. The abundance of new construction means buyers can choose move-in ready homes or customize during the building process with new communities regularly adding phases.
               </p>
               <p className="text-gray-700">
-                Working with a North Las Vegas specialist helps navigate new construction contracts, understand builder reputations, identify established neighborhoods with value, and ensure you're getting maximum value for your budget. Dr. Janet Duffy provides this expertise.
+                Working with a North Las Vegas specialist helps navigate new construction contracts, understand builder reputations, identify older neighborhoods with value, and ensure you're getting maximum value for your budget. Dr. Janet Duffy provides this expertise.
               </p>
             </div>
             
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Selling in North Las Vegas</h3>
               <p className="text-gray-700 mb-3">
-                North Las Vegas sellers compete with new construction inventory, requiring strategic positioning. Well-maintained homes in established communities near new developments can offer better value than brand-new homes while providing mature landscaping and proven neighborhood character.
+                North Las Vegas sellers compete with new construction inventory, requiring strategic positioning. Well-maintained homes in communities near new developments can offer better value than brand-new homes while providing mature landscaping and proven neighborhood character.
               </p>
               <p className="text-gray-700 mb-3">
-                Understanding buyer motivations in North Las Vegas - seeking value, new construction alternatives, family-friendly neighborhoods - helps sellers position properties effectively. Pricing competitively relative to new homes, highlighting improvements, and emphasizing neighborhood maturity all matter.
+                Understanding buyer motivations in North Las Vegas - seeking value, new construction alternatives, neighborhoods - helps sellers position properties effectively. Pricing competitively relative to new homes, highlighting improvements, and emphasizing neighborhood maturity all matter.
               </p>
               <p className="text-gray-700">
                 Dr. Janet Duffy's expertise with expired listings includes understanding why North Las Vegas homes don't sell initially and how to reposition them for success. Her systematic approach addresses pricing relative to new construction, professional presentation, and targeted marketing to value-seeking buyers.
@@ -174,7 +174,7 @@ export default function NorthLasVegasPage() {
           </h2>
           
           <p className="text-lg text-gray-700 mb-8">
-            Living in North Las Vegas means enjoying newly developed infrastructure, modern amenities, and community focus on families. The area combines affordability with quality schools, parks, shopping, and easy access to entire Las Vegas Valley employment centers.
+            Living in North Las Vegas means enjoying newly developed infrastructure, modern amenities, and community focus on families. The area combines affordability with nearby public schools, parks, shopping, and easy access to entire Las Vegas Valley employment centers.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -240,7 +240,7 @@ export default function NorthLasVegasPage() {
               Presentation becomes crucial since new construction has inherent appeal. Existing homes need professional staging and photography demonstrating move-in ready quality, modern updates, or potential for customization. Marketing must reach buyers actively comparing new vs existing options.
             </p>
             <p className="text-gray-700">
-              Dr. Janet Duffy's approach understands these dynamics. She positions North Las Vegas properties to compete effectively by emphasizing value advantages: established neighborhoods, mature landscaping, proven construction quality, and often lower purchase prices with potential for improvements that add equity.
+              Dr. Janet Duffy's approach understands these dynamics. She positions North Las Vegas properties to compete effectively by emphasizing value advantages: older neighborhoods, mature landscaping, proven construction quality, and often lower purchase prices with potential for improvements that add equity.
             </p>
           </div>
 
@@ -282,7 +282,7 @@ export default function NorthLasVegasPage() {
               href="tel:+17025667890"
               className="bg-white text-pink-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

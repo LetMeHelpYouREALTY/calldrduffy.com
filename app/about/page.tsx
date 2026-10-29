@@ -163,7 +163,7 @@ export default function AboutPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Neighborhood Expertise</h3>
               <p className="text-gray-700 mb-3">
-                Dr. Jan knows Las Vegas neighborhoods intimately: Summerlin's master-planned luxury, Henderson's family-friendly value, downtown's urban appeal, Paradise's strip-adjacent living, and dozens of other communities.
+                Dr. Jan knows Las Vegas neighborhoods intimately: Summerlin's master-planned luxury, Henderson's value, downtown's urban appeal, Paradise's strip-adjacent living, and dozens of other communities.
               </p>
               <p className="text-gray-700 mb-3">
                 This knowledge means she understands what makes each neighborhood special, what buyers are looking for there, and how to position properties for success in that specific market. She knows school zones, HOA cultures, local amenities, and market dynamics.
@@ -253,7 +253,7 @@ export default function AboutPage() {
               href="tel:+17025667890"
               className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Call: (702) 222-1964
+              Call: (702) 500-1955
             </a>
             <Link
               href="/contact"

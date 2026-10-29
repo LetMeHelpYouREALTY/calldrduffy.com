@@ -44,13 +44,13 @@ export default function Zip89052Page() {
             Understanding Zip Code 89052 Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Zip code 89052 encompasses Boulder City, offering small-town charm, outdoor recreation access, and proximity to Lake Mead and Hoover Dam. This zip code includes established neighborhoods, newer subdivisions, and unique properties with mountain views. For homeowners whose properties didn't sell, understanding 89052's small-town positioning is essential for successful relisting.
+            Zip code 89052 encompasses Boulder City, offering small-town charm, outdoor recreation access, and proximity to Lake Mead and Hoover Dam. This zip code includes older neighborhoods, newer subdivisions, and unique properties with mountain views. For homeowners whose properties didn't sell, understanding 89052's small-town positioning is essential for successful relisting.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Small-Town Community Benefits</h3>
               <p className="text-gray-700 mb-3">
-                Much of zip code 89052 falls within Boulder City, offering small-town community benefits: low crime, community character, and proximity to Lake Mead and outdoor recreation that creates unique value.
+                Much of zip code 89052 falls within Boulder City, offering small-town community benefits: community character and proximity to Lake Mead and outdoor recreation that creates unique value.
               </p>
               <p className="text-gray-700 mb-3">
                 Many expired listings in 89052 failed to communicate small-town advantages effectively. Properties positioned generically miss community benefits that define 89052 market value.
@@ -172,7 +172,7 @@ export default function Zip89052Page() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your Zip Code 89052 Home?</h2>
           <p className="text-xl mb-8 text-blue-100">Expert help for 89052 homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-blue-950 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Get Free 89052 Analysis</Link>
           </div>
         </div>

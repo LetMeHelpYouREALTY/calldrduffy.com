@@ -44,31 +44,31 @@ export default function Zip89074Page() {
             Understanding Zip Code 89074 Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Zip code 89074 encompasses much of Green Valley, Henderson's premier master-planned community, along with adjacent areas. This zip code includes established neighborhoods, family-friendly communities, and quality schools. For homeowners whose properties didn't sell, understanding 89074's market dynamics is essential for successful relisting.
+            Zip code 89074 encompasses much of Green Valley, Southern Nevada's first master-planned community (1978), along with adjacent areas. This zip code includes older neighborhoods, parks, and nearby schools. For homeowners whose properties didn't sell, understanding 89074's market dynamics is essential for successful relisting.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Green Valley Master-Planned Community</h3>
               <p className="text-gray-700 mb-3">
-                Much of zip code 89074 falls within Green Valley, offering master-planned benefits: quality schools, parks, recreational amenities, and cohesive neighborhood design that maintains property values better than non-planned areas.
+                Much of zip code 89074 falls within Green Valley, offering master-planned benefits: nearby public schools, parks, recreational amenities, and cohesive neighborhood design that maintains property values better than non-planned areas.
               </p>
               <p className="text-gray-700 mb-3">
                 Many expired listings in 89074 failed to communicate Green Valley master-planned advantages effectively. Properties positioned generically miss community benefits that define 89074 market value.
               </p>
               <p className="text-gray-700">
-                Dr. Jan helps you showcase 89074 Green Valley benefits: master-planned community amenities, quality schools, and family-friendly positioning that 89074 buyers specifically value within Henderson.
+                Dr. Jan helps you showcase 89074 Green Valley benefits: master-planned community amenities, nearby schools, and mature landscaping that 89074 buyers specifically value within Henderson.
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Family-Friendly Positioning</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Positioning</h3>
               <p className="text-gray-700 mb-3">
-                Zip code 89074 attracts families seeking quality schools, safe neighborhoods, and community amenities. This family-focused market requires positioning emphasizing safety, schools, and family benefits.
+                Zip code 89074 buyers look closely at nearby schools, parks, and community amenities. This market requires positioning that shows named schools, parks, and floor plans.
               </p>
               <p className="text-gray-700 mb-3">
-                Your expired listing likely positioned 89074 properties generically without highlighting Green Valley benefits, family-friendly advantages, or master-planned community character that define 89074 market.
+                Your expired listing likely positioned 89074 properties generically without highlighting Green Valley benefits, advantages, or master-planned community character that define 89074 market.
               </p>
               <p className="text-gray-700">
-                Her marketing strategy emphasizes 89074 Green Valley benefits: master-planned community, quality schools, family-friendly positioning, and community amenities that families seeking Henderson specifically value.
+                Her marketing strategy emphasizes 89074 Green Valley benefits: master-planned community, nearby schools, mature landscaping, and community amenities that Henderson buyers specifically value.
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function Zip89074Page() {
             <div className="bg-red-50 p-6 rounded-lg border border-red-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Missing Green Valley Benefits</h3>
               <p className="text-gray-700">
-                89074's biggest advantage is Green Valley master-planned benefits. Listings that don't highlight community amenities, quality schools, and master-planned advantages miss value that defines 89074 appeal.
+                89074's biggest advantage is Green Valley master-planned benefits. Listings that don't highlight community amenities, nearby public schools, and master-planned advantages miss value that defines 89074 appeal.
               </p>
             </div>
             <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
@@ -99,20 +99,20 @@ export default function Zip89074Page() {
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Wrong Buyer Targeting</h3>
               <p className="text-gray-700">
-                89074 attracts families seeking quality schools and community amenities. Marketing to generic Henderson buyers who don't value master-planned benefits wastes advertising while missing interested families.
+                89074 attracts families seeking nearby public schools and community amenities. Marketing to generic Henderson buyers who don't value master-planned benefits wastes advertising while missing interested families.
               </p>
             </div>
           </div>
           <div className="bg-white p-8 rounded-lg border border-gray-200">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">89074 Positioning Challenge</h3>
             <p className="text-gray-700 mb-3">
-              89074 homes that didn't sell often failed to communicate Green Valley master-planned benefits and family-friendly advantages that define this zip code's value within Henderson.
+              89074 homes that didn't sell often failed to communicate Green Valley master-planned benefits and advantages that define this zip code's value within Henderson.
             </p>
             <p className="text-gray-700 mb-3">
               Dr. Jan specializes in zip code 89074 real estate and understands how to position Green Valley homes to highlight master-planned benefits and family advantages that 89074 buyers specifically seek.
             </p>
             <p className="text-gray-700">
-              Her marketing targets 89074 buyers specifically: Green Valley seekers wanting master-planned benefits, families seeking quality schools, and those valuing community amenities that 89074 uniquely offers within Henderson.
+              Her marketing targets 89074 buyers specifically: Green Valley seekers wanting master-planned benefits, families seeking nearby public schools, and those valuing community amenities that 89074 uniquely offers within Henderson.
             </p>
           </div>
         </div>
@@ -130,25 +130,25 @@ export default function Zip89074Page() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">89074 Green Valley Expertise</h3>
               <p className="text-gray-700 mb-3">
-                Dr. Jan understands 89074 unique value: Green Valley master-planned benefits, quality schools, and family positioning that community properties command. She creates marketing emphasizing these 89074 advantages buyers specifically seek.
+                Dr. Jan understands 89074 unique value: Green Valley master-planned benefits, nearby public schools, and family positioning that community properties command. She creates marketing emphasizing these 89074 advantages buyers specifically seek.
               </p>
               <p className="text-gray-700 mb-3">
                 She tracks 89074 comps specifically, watching how Green Valley properties, master-planned homes, and family positioning perform against generic Henderson listings. This 89074-specific expertise ensures accurate pricing.
               </p>
               <p className="text-gray-700">
-                Her marketing strategy targets 89074 buyers specifically: Green Valley seekers wanting master-planned benefits, families seeking quality schools, and those valuing community amenities that 89074 uniquely offers.
+                Her marketing strategy targets 89074 buyers specifically: Green Valley seekers wanting master-planned benefits, families seeking nearby public schools, and those valuing community amenities that 89074 uniquely offers.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Highlighting 89074 Advantages</h3>
               <p className="text-gray-700 mb-3">
-                Your 89074 home offers advantages other Henderson areas can't replicate: Green Valley master-planned benefits, quality schools, and family-friendly positioning. Generic listings don't communicate these 89074-specific benefits effectively.
+                Your 89074 home offers advantages other Henderson areas can't replicate: Green Valley master-planned benefits, nearby schools, and mature landscaping. Generic listings don't communicate these 89074-specific benefits effectively.
               </p>
               <p className="text-gray-700 mb-3">
                 Dr. Jan's marketing showcases 89074 advantages with professional photography highlighting Green Valley amenities, schools, parks, and community features that 89074 buyers specifically appreciate.
               </p>
               <p className="text-gray-700">
-                Her approach positions your property against other Henderson areas by emphasizing benefits only 89074 offers: Green Valley master-planned community, quality schools, and family-friendly positioning that buyers value in 89074 specifically.
+                Her approach positions your property against other Henderson areas by emphasizing benefits only 89074 offers: Green Valley master-planned community, nearby schools, and mature landscaping that buyers value in 89074 specifically.
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function Zip89074Page() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your Zip Code 89074 Home?</h2>
           <p className="text-xl mb-8 text-teal-100">Expert help for 89074 homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-green-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-900 transition-colors">Get Free 89074 Analysis</Link>
           </div>
         </div>

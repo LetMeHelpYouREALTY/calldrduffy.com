@@ -44,13 +44,13 @@ export default function Zip89139Page() {
             Understanding Zip Code 89139 Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Zip code 89139 covers Enterprise South, featuring newer construction, growing master-planned communities, and excellent value for Southwest Las Vegas buyers. This zip code includes new subdivisions, established neighborhoods, and developing residential areas. For homeowners whose properties didn't sell, understanding 89139's market dynamics is essential for successful relisting.
+            Zip code 89139 covers Enterprise South, featuring newer construction, growing master-planned communities, and excellent value for Southwest Las Vegas buyers. This zip code includes new subdivisions, older neighborhoods, and developing residential areas. For homeowners whose properties didn't sell, understanding 89139's market dynamics is essential for successful relisting.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Enterprise South Growing Market</h3>
               <p className="text-gray-700 mb-3">
-                Zip code 89139 represents Enterprise South, featuring newer construction projects, master-planned communities, and good value for Southwest Las Vegas buyers seeking newer homes with established amenities. This area offers newer properties, growing communities, and family-friendly development.
+                Zip code 89139 represents Enterprise South, featuring newer construction projects, master-planned communities, and good value for Southwest Las Vegas buyers seeking newer homes with established amenities. This area offers newer properties, growing communities, and development.
               </p>
               <p className="text-gray-700 mb-3">
                 Many expired listings in 89139 failed due to competing against active new construction without establishing value advantages, missing newer construction premium positioning, or insufficient marketing to Southwest Las Vegas buyers seeking Enterprise South growth area.
@@ -68,7 +68,7 @@ export default function Zip89139Page() {
                 Your expired listing likely competed against new construction without positioning 89139's established benefits: immediate availability, proven builder quality, mature amenities, and value pricing that defines this growing area's appeal.
               </p>
               <p className="text-gray-700">
-                Dr. Jan's diagnostic approach identifies 89139-specific issues: positioning against new construction, highlighting immediate availability and proven quality, and marketing to families seeking Enterprise South growth area with established neighborhood benefits.
+                Dr. Jan's diagnostic approach identifies 89139-specific issues: positioning against new construction, highlighting immediate availability and proven quality, and marketing to families seeking Enterprise South growth area with older neighborhood benefits.
               </p>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function Zip89139Page() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your Zip Code 89139 Home?</h2>
           <p className="text-xl mb-8 text-red-100">Expert help for 89139 homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-orange-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-orange-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-orange-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-orange-900 transition-colors">Get Free 89139 Analysis</Link>
           </div>
         </div>

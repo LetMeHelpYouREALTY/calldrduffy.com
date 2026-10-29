@@ -116,11 +116,11 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/neighborhoods/henderson": {
     "title": "Henderson Las Vegas: Affordability, Amenities, and Great Value | Dr. Jan Duffy",
-    "description": "Henderson offers Las Vegas residents exceptional value with quality schools, family-friendly communities, and more affordable housing than many other Vegas area"
+    "description": "Henderson offers Las Vegas residents exceptional value with nearby schools, master-planned communities, and more affordable housing than many other Vegas area"
   },
   "/neighborhoods/north-las-vegas": {
     "title": "North Las Vegas: Affordable New Construction and Growing Communities | Dr. Jan Duffy",
-    "description": "North Las Vegas offers exceptional value with new construction, affordable housing, and rapidly developing master-planned communities ideal for families and fir"
+    "description": "North Las Vegas offers exceptional value with new construction, affordable housing, and rapidly developing master-planned communities for first-time and move-up buyers"
   },
   "/neighborhoods/north-las-vegas/skye-canyon": {
     "title": "Skye Canyon North Las Vegas: New Construction Homes Expert Help | Dr. Jan Duffy",
@@ -132,7 +132,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/neighborhoods/summerlin": {
     "title": "Summerlin Las Vegas: Master-Planned Living at Its Finest | Dr. Jan Duffy",
-    "description": "Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to top-rated schools and master-planned communiti"
+    "description": "Discover why Summerlin is considered one of the best neighborhoods in Las Vegas. From world-class golf courses to nearby public schools and master-planned communiti"
   },
   "/neighborhoods/summerlin/sun-city": {
     "title": "Sun City Summerlin: Active Adult Homes Expert Help | Dr. Jan Duffy",

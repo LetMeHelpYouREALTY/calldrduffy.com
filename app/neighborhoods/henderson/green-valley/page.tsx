@@ -44,31 +44,31 @@ export default function GreenValleyPage() {
             Understanding Green Valley Henderson Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Green Valley represents Henderson's premier master-planned community, offering established neighborhoods, quality schools, and excellent value within the Las Vegas Valley. For homeowners whose properties didn't sell, understanding Green Valley's market positioning is essential for successful relisting.
+            Green Valley represents Henderson's premier master-planned community, offering older neighborhoods, nearby public schools, and excellent value within the Las Vegas Valley. For homeowners whose properties didn't sell, understanding Green Valley's market positioning is essential for successful relisting.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Master-Planned Community Benefits</h3>
               <p className="text-gray-700 mb-3">
-                Green Valley offers master-planned community benefits: quality schools, parks, recreational amenities, and cohesive neighborhood design that maintains property values better than non-planned areas.
+                Green Valley offers master-planned community benefits: nearby public schools, parks, recreational amenities, and cohesive neighborhood design that maintains property values better than non-planned areas.
               </p>
               <p className="text-gray-700 mb-3">
                 Many expired listings in Green Valley failed to communicate master-planned advantages effectively. Properties positioned generically miss community benefits that define Green Valley market value.
               </p>
               <p className="text-gray-700">
-                Dr. Jan helps you showcase Green Valley master-planned benefits: quality schools, community amenities, and neighborhood cohesion that Green Valley buyers specifically value within Henderson.
+                Dr. Jan helps you showcase Green Valley master-planned benefits: nearby public schools, community amenities, and neighborhood cohesion that Green Valley buyers specifically value within Henderson.
               </p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Family-Friendly Positioning</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Positioning</h3>
               <p className="text-gray-700 mb-3">
-                Green Valley attracts families seeking quality schools, safe neighborhoods, and community amenities. This family-focused market requires positioning emphasizing safety, schools, and family benefits.
+                Green Valley buyers look closely at nearby schools, parks, and community amenities. This market requires positioning that shows named schools, parks, and floor plans.
               </p>
               <p className="text-gray-700 mb-3">
                 Your expired listing likely used generic Henderson marketing that didn't specifically target families seeking Green Valley advantages. Dr. Jan's approach targets families specifically with Green Valley messaging.
               </p>
               <p className="text-gray-700">
-                Her marketing strategy emphasizes Green Valley family benefits: quality schools, parks, safety, and community atmosphere that families seeking Henderson suburbs specifically want.
+                Her marketing strategy emphasizes Green Valley family benefits: nearby public schools, parks, safety, and community atmosphere that families seeking Henderson suburbs specifically want.
               </p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function GreenValleyPage() {
             <div className="bg-red-50 p-6 rounded-lg border border-red-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Missing Community Benefits</h3>
               <p className="text-gray-700">
-                Green Valley's biggest advantage is master-planned community benefits. Listings that don't highlight quality schools, community amenities, and neighborhood cohesion miss value that defines Green Valley appeal.
+                Green Valley's biggest advantage is master-planned community benefits. Listings that don't highlight nearby public schools, community amenities, and neighborhood cohesion miss value that defines Green Valley appeal.
               </p>
             </div>
             <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
@@ -99,20 +99,20 @@ export default function GreenValleyPage() {
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Wrong Buyer Targeting</h3>
               <p className="text-gray-700">
-                Green Valley attracts families seeking quality schools and community amenities. Marketing to generic Henderson buyers who don't value master-planned benefits wastes advertising while missing interested families.
+                Green Valley attracts families seeking nearby public schools and community amenities. Marketing to generic Henderson buyers who don't value master-planned benefits wastes advertising while missing interested families.
               </p>
             </div>
           </div>
           <div className="bg-white p-8 rounded-lg border border-gray-200">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Green Valley Positioning Challenge</h3>
             <p className="text-gray-700 mb-3">
-              Green Valley homes that didn't sell often failed to communicate master-planned community benefits and family-friendly advantages that define this sub-community's value within Henderson.
+              Green Valley homes that didn't sell often failed to communicate master-planned community benefits and advantages that define this sub-community's value within Henderson.
             </p>
             <p className="text-gray-700 mb-3">
               Dr. Jan specializes in Green Valley Henderson real estate and understands how to position master-planned homes to highlight community benefits and family advantages that Green Valley buyers specifically seek.
             </p>
             <p className="text-gray-700">
-              Her marketing targets Green Valley buyers specifically: families seeking quality schools, buyers wanting master-planned benefits, and those valuing community amenities that Green Valley uniquely offers within Henderson.
+              Her marketing targets Green Valley buyers specifically: families seeking nearby public schools, buyers wanting master-planned benefits, and those valuing community amenities that Green Valley uniquely offers within Henderson.
             </p>
           </div>
         </div>
@@ -130,25 +130,25 @@ export default function GreenValleyPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Green Valley Community Expertise</h3>
               <p className="text-gray-700 mb-3">
-                Dr. Jan understands Green Valley unique value: master-planned benefits, quality schools, and family positioning that community properties command. She creates marketing emphasizing these Green Valley advantages buyers specifically seek.
+                Dr. Jan understands Green Valley unique value: master-planned benefits, nearby public schools, and family positioning that community properties command. She creates marketing emphasizing these Green Valley advantages buyers specifically seek.
               </p>
               <p className="text-gray-700 mb-3">
                 She tracks Green Valley comps specifically, watching how master-planned properties, school-zone homes, and family positioning perform against generic Henderson listings. This Green Valley-specific expertise ensures accurate pricing.
               </p>
               <p className="text-gray-700">
-                Her marketing strategy targets Green Valley buyers specifically: families seeking quality schools, buyers wanting master-planned benefits, and those valuing community amenities that Green Valley uniquely offers.
+                Her marketing strategy targets Green Valley buyers specifically: families seeking nearby public schools, buyers wanting master-planned benefits, and those valuing community amenities that Green Valley uniquely offers.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Highlighting Green Valley Advantages</h3>
               <p className="text-gray-700 mb-3">
-                Your Green Valley home offers advantages other Henderson areas can't replicate: master-planned community benefits, quality schools, and family-friendly positioning. Generic listings don't communicate these Green Valley-specific benefits effectively.
+                Your Green Valley home offers advantages other Henderson areas can't replicate: master-planned community benefits, nearby schools, and mature landscaping. Generic listings don't communicate these Green Valley-specific benefits effectively.
               </p>
               <p className="text-gray-700 mb-3">
                 Dr. Jan's marketing showcases Green Valley advantages with professional photography highlighting community amenities, schools, parks, and family benefits that Green Valley buyers specifically appreciate.
               </p>
               <p className="text-gray-700">
-                Her approach positions your property against other Henderson areas by emphasizing benefits only Green Valley offers: master-planned cohesion, quality schools, and community amenities that family buyers value in Green Valley specifically.
+                Her approach positions your property against other Henderson areas by emphasizing benefits only Green Valley offers: master-planned cohesion, nearby public schools, and community amenities that family buyers value in Green Valley specifically.
               </p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function GreenValleyPage() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your Green Valley Home?</h2>
           <p className="text-xl mb-8 text-teal-100">Expert help for Green Valley homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-green-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-900 transition-colors">Get Free Green Valley Analysis</Link>
           </div>
         </div>

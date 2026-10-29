@@ -44,13 +44,13 @@ export default function LasVegasHomesPage() {
             Las Vegas Homes Market Overview
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Las Vegas homes offer diverse options: master-planned communities, new construction, established neighborhoods, luxury properties, and value-focused areas. For Las Vegas homes that didn't sell, understanding market dynamics and neighborhood positioning is essential for successful sales.
+            Las Vegas homes offer diverse options: master-planned communities, new construction, older neighborhoods, luxury properties, and value-focused areas. For Las Vegas homes that didn't sell, understanding market dynamics and neighborhood positioning is essential for successful sales.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Diverse Las Vegas Housing Market</h3>
               <p className="text-gray-700 mb-3">
-                Las Vegas homes span wide range of options: Summerlin master-planned excellence with golf courses and Red Rock views, Henderson value communities with family-friendly features, North Las Vegas new construction and affordability, Downtown urban living, and luxury estates across the valley.
+                Las Vegas homes span wide range of options: Summerlin master-planned excellence with golf courses and Red Rock views, Henderson value communities with features, North Las Vegas new construction and affordability, Downtown urban living, and luxury estates across the valley.
               </p>
               <p className="text-gray-700 mb-3">
                 Each category of Las Vegas homes serves different buyers and requires specific marketing approaches: master-planned benefits, value positioning, new construction advantages, urban lifestyle, or luxury premium pricing.
@@ -148,7 +148,7 @@ export default function LasVegasHomesPage() {
           <h2 className="text-4xl font-bold mb-6">Sell Your Las Vegas Home</h2>
           <p className="text-xl mb-8 text-orange-100">Expert guidance for Las Vegas homes for sale and homes that didn't sell.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-orange-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-orange-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-orange-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-orange-900 transition-colors">Get Started</Link>
           </div>
         </div>

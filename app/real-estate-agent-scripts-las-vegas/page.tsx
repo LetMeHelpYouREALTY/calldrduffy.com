@@ -175,7 +175,7 @@ export default function RealEstateScriptsLasVegasPage() {
             <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Summerlin Scripts</h3>
               <p className="text-gray-700 mb-3">
-                Summerlin scripts emphasize master-planned benefits, luxury positioning, and Red Rock proximity. Market positioning focuses on premium value and established community advantages.
+                Summerlin scripts emphasize master-planned benefits, luxury positioning, and Red Rock proximity. Market positioning focuses on premium value and community advantages.
               </p>
               <p className="text-gray-700">
                 Key phrases: "master-planned community," "Red Rock views," "established Summerlin neighborhoods," "proven quality."
@@ -184,10 +184,10 @@ export default function RealEstateScriptsLasVegasPage() {
             <div className="bg-green-50 p-6 rounded-lg border border-green-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Henderson Scripts</h3>
               <p className="text-gray-700 mb-3">
-                Henderson scripts emphasize value, family-friendly communities, and growing amenities. Focus on affordability with quality positioning versus newer areas.
+                Henderson scripts emphasize value, communities, and growing amenities. Focus on affordability with quality positioning versus newer areas.
               </p>
               <p className="text-gray-700">
-                Key phrases: "exceptional value," "established Henderson neighborhoods," "family-friendly communities," "proven quality."
+                Key phrases: "exceptional value," "established Henderson neighborhoods," "communities," "proven quality."
               </p>
             </div>
             <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
@@ -208,7 +208,7 @@ export default function RealEstateScriptsLasVegasPage() {
           <h2 className="text-4xl font-bold mb-6">Need Help with Las Vegas Expired Listings?</h2>
           <p className="text-xl mb-8 text-blue-100">Dr. Janet Duffy specializes in helping Las Vegas homes that didn't sell get sold successfully.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Schedule Consultation</Link>
           </div>
         </div>

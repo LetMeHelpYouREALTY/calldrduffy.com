@@ -62,7 +62,7 @@ export default function MacDonaldRanchPage() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Master-Planned Golf Community</h3>
               <p className="text-gray-700 mb-3">
-                MacDonald Ranch features master-planned community benefits combined with golf course living: quality schools, parks, and recreational amenities within golf-focused neighborhood design.
+                MacDonald Ranch features master-planned community benefits combined with golf course living: nearby public schools, parks, and recreational amenities within golf-focused neighborhood design.
               </p>
               <p className="text-gray-700 mb-3">
                 Your expired listing likely positioned MacDonald Ranch homes generically without highlighting golf course benefits, course views, or master-planned advantages that define MacDonald Ranch market.
@@ -172,7 +172,7 @@ export default function MacDonaldRanchPage() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your MacDonald Ranch Home?</h2>
           <p className="text-xl mb-8 text-teal-100">Expert help for MacDonald Ranch homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-green-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-green-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-900 transition-colors">Get Free MacDonald Ranch Analysis</Link>
           </div>
         </div>

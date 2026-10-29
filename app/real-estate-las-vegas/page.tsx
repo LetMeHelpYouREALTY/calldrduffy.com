@@ -44,7 +44,7 @@ export default function RealEstateLasVegasPage() {
             Las Vegas Real Estate Market Overview
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Las Vegas real estate market offers diverse opportunities: master-planned communities, new construction, established neighborhoods, luxury properties, and value-focused areas. Understanding Las Vegas real estate market dynamics helps buyers and sellers make informed decisions.
+            Las Vegas real estate market offers diverse opportunities: master-planned communities, new construction, older neighborhoods, luxury properties, and value-focused areas. Understanding Las Vegas real estate market dynamics helps buyers and sellers make informed decisions.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
@@ -124,7 +124,7 @@ export default function RealEstateLasVegasPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-slate-600 mr-3 font-bold">•</span>
-                  <span><strong>Henderson:</strong> Value communities, family-friendly neighborhoods, growing amenities</span>
+                  <span><strong>Henderson:</strong> Value communities, neighborhoods, growing amenities</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-slate-600 mr-3 font-bold">•</span>
@@ -155,7 +155,7 @@ export default function RealEstateLasVegasPage() {
           <h2 className="text-4xl font-bold mb-6">Las Vegas Real Estate Expertise</h2>
           <p className="text-xl mb-8 text-slate-100">Comprehensive real estate services for Las Vegas buyers and sellers.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-slate-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-slate-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-slate-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-slate-900 transition-colors">Schedule Consultation</Link>
           </div>
         </div>

@@ -44,13 +44,13 @@ export default function Zip89134Page() {
             Understanding Zip Code 89134 Real Estate Market
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Zip code 89134 covers Southwest Las Vegas, featuring diverse housing options, established neighborhoods, and growing residential areas. This zip code includes single-family homes, townhomes, and newer subdivisions with good value and convenient location. For homeowners whose properties didn't sell, understanding 89134's market dynamics is essential for successful relisting.
+            Zip code 89134 covers Southwest Las Vegas, featuring diverse housing options, older neighborhoods, and growing residential areas. This zip code includes single-family homes, townhomes, and newer subdivisions with good value and convenient location. For homeowners whose properties didn't sell, understanding 89134's market dynamics is essential for successful relisting.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Southwest Las Vegas Diverse Market</h3>
               <p className="text-gray-700 mb-3">
-                Zip code 89134 represents Southwest Las Vegas, featuring diverse housing types, established neighborhoods, and growing areas with good value and convenient Las Vegas access. This area offers affordable options, established quality, and family-friendly communities.
+                Zip code 89134 represents Southwest Las Vegas, featuring diverse housing types, older neighborhoods, and growing areas with good value and convenient Las Vegas access. This area offers affordable options and proven quality.
               </p>
               <p className="text-gray-700 mb-3">
                 Many expired listings in 89134 failed due to missing value positioning for Southwest Las Vegas buyers, competing against newer construction without highlighting established advantages, or insufficient marketing to families seeking Southwest Las Vegas convenience and value.
@@ -65,10 +65,10 @@ export default function Zip89134Page() {
                 89134 real estate has specific characteristics that challenge sellers who don't understand Southwest Las Vegas market positioning. Common issues include missing value messaging for diverse buyers, competing against newer areas without highlighting established benefits, or insufficient marketing targeting Southwest Las Vegas families.
               </p>
               <p className="text-gray-700 mb-3">
-                Your expired listing likely missed 89134's key advantages: established neighborhood value, Southwest Las Vegas convenience, diverse housing options, and affordable pricing that defines this area's appeal.
+                Your expired listing likely missed 89134's key advantages: older neighborhood value, Southwest Las Vegas convenience, diverse housing options, and affordable pricing that defines this area's appeal.
               </p>
               <p className="text-gray-700">
-                Dr. Jan's diagnostic approach identifies 89134-specific issues: value positioning, highlighting Southwest Las Vegas convenience, and marketing to diverse buyers seeking established neighborhoods with good value in this area.
+                Dr. Jan's diagnostic approach identifies 89134-specific issues: value positioning, highlighting Southwest Las Vegas convenience, and marketing to diverse buyers seeking older neighborhoods with good value in this area.
               </p>
             </div>
           </div>
@@ -87,22 +87,22 @@ export default function Zip89134Page() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Southwest Las Vegas Expertise</h3>
               <p className="text-gray-700 mb-3">
-                Dr. Jan understands 89134's unique value: Southwest Las Vegas convenience, diverse housing options, established neighborhoods with proven quality, and affordable pricing. She creates marketing emphasizing these 89134 advantages buyers specifically seek.
+                Dr. Jan understands 89134's unique value: Southwest Las Vegas convenience, diverse housing options, older neighborhoods with proven quality, and affordable pricing. She creates marketing emphasizing these 89134 advantages buyers specifically seek.
               </p>
               <p className="text-gray-700 mb-3">
-                She tracks 89134 comps specifically, watching how diverse property types, established neighborhoods, and value positioning perform in Southwest Las Vegas market. This 89134-specific expertise ensures accurate pricing and effective marketing.
+                She tracks 89134 comps specifically, watching how diverse property types, older neighborhoods, and value positioning perform in Southwest Las Vegas market. This 89134-specific expertise ensures accurate pricing and effective marketing.
               </p>
               <p className="text-gray-700">
-                Her marketing strategy targets 89134 buyers specifically: families seeking Southwest Las Vegas value, buyers wanting diverse housing options, and those valuing established neighborhood quality with convenient Las Vegas access.
+                Her marketing strategy targets 89134 buyers specifically: families seeking Southwest Las Vegas value, buyers wanting diverse housing options, and those valuing older neighborhood quality with convenient Las Vegas access.
               </p>
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Highlighting 89134 Advantages</h3>
               <p className="text-gray-700 mb-3">
-                Your 89134 home offers advantages: Southwest Las Vegas convenience, established neighborhood value, diverse property options, and affordable pricing. Generic listings don't communicate these 89134-specific benefits effectively.
+                Your 89134 home offers advantages: Southwest Las Vegas convenience, older neighborhood value, diverse property options, and affordable pricing. Generic listings don't communicate these 89134-specific benefits effectively.
               </p>
               <p className="text-gray-700 mb-3">
-                Dr. Jan's marketing showcases 89134 advantages with professional photography highlighting Southwest Las Vegas location, established neighborhood features, and value positioning that 89134 buyers specifically appreciate.
+                Dr. Jan's marketing showcases 89134 advantages with professional photography highlighting Southwest Las Vegas location, older neighborhood features, and value positioning that 89134 buyers specifically appreciate.
               </p>
               <p className="text-gray-700">
                 Her approach positions your property by emphasizing benefits 89134 offers: convenient Southwest Las Vegas location, established quality, diverse options, and value pricing that families and buyers seeking this area specifically value.
@@ -112,13 +112,13 @@ export default function Zip89134Page() {
           <div className="bg-emerald-50 p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Success with 89134 Homes That Didn't Sell</h3>
             <p className="text-gray-700 mb-3">
-              Dr. Jan's 89134 focus means she's sold multiple 89134 properties that previous agents couldn't move. Her understanding of Southwest Las Vegas value positioning, diverse buyer marketing, and established neighborhood advantages creates results where generic approaches failed.
+              Dr. Jan's 89134 focus means she's sold multiple 89134 properties that previous agents couldn't move. Her understanding of Southwest Las Vegas value positioning, diverse buyer marketing, and older neighborhood advantages creates results where generic approaches failed.
             </p>
             <p className="text-gray-700 mb-3">
               Typical turnaround for 89134 expired listings working with Dr. Jan is 30-45 days with strategic pricing and value-focused marketing. Her 89134 expertise identifies issues generic agents miss in diverse Southwest Las Vegas markets.
             </p>
             <p className="text-gray-700">
-              If your 89134 home didn't sell initially, likely issues included marketing that didn't highlight value advantages, positioning that didn't target Southwest Las Vegas buyers effectively, or pricing that didn't reflect 89134's established neighborhood value. Dr. Jan addresses each systematically.
+              If your 89134 home didn't sell initially, likely issues included marketing that didn't highlight value advantages, positioning that didn't target Southwest Las Vegas buyers effectively, or pricing that didn't reflect 89134's older neighborhood value. Dr. Jan addresses each systematically.
             </p>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function Zip89134Page() {
           <h2 className="text-4xl font-bold mb-6">Ready to Sell Your Zip Code 89134 Home?</h2>
           <p className="text-xl mb-8 text-teal-100">Expert help for 89134 homes that didn't sell. Get your free analysis today.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="tel:+17022221964" className="bg-white text-emerald-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 222-1964</a>
+            <a href="tel:+17025001955" className="bg-white text-emerald-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
             <Link href="/contact" className="bg-emerald-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-emerald-900 transition-colors">Get Free 89134 Analysis</Link>
           </div>
         </div>
