@@ -68,7 +68,7 @@ export default function LasVegasLuxuryHomesPage() {
                 Common issues with Las Vegas luxury homes that didn't sell: pricing above luxury market comparables, insufficient marketing reach to qualified buyers, poor positioning relative to luxury competition, or missing unique value propositions that define luxury properties.
               </p>
               <p className="text-gray-700">
-                Dr. Jan's luxury real estate approach addresses these specific challenges: comprehensive luxury market analysis, strategic premium positioning, Berkshire Hathaway HomeServices luxury marketing channels, and expertise in Las Vegas luxury communities.
+                Dr. Jan's luxury real estate approach addresses these specific challenges: comprehensive luxury market analysis, strategic premium positioning, national brokerage luxury marketing channels, and expertise in Las Vegas luxury communities.
               </p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function LasVegasLuxuryHomesPage() {
             <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
               <h3 className="text-xl font-bold mb-4 text-gray-900">Luxury Marketing Channels</h3>
               <p className="text-gray-700">
-                Berkshire Hathaway HomeServices luxury marketing: Wall Street Journal Real Estate, NYT Real Estate sections, luxury portals, international exposure, and premium channels that reach qualified luxury buyers effectively.
+                Her brokerage's luxury marketing: Wall Street Journal Real Estate, NYT Real Estate sections, luxury portals, international exposure, and premium channels that reach qualified luxury buyers effectively.
               </p>
             </div>
           </div>

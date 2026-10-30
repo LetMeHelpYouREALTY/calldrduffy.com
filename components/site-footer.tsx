@@ -23,16 +23,10 @@ export default function SiteFooter() {
               <span itemProp="addressRegion">NV</span>{' '}
               <span itemProp="postalCode">89134</span>
             </p>
-            <p className="text-gray-300 mb-2">
-              NV RE License #<span itemProp="licenseNumber">S.0197614.LLC</span>
-            </p>
             <p className="text-gray-300 mt-2">
               © {currentYear}{' '}
               <span itemProp="description">Sell a tenant-occupied rental in Las Vegas</span>. All rights
               reserved.
-            </p>
-            <p className="text-gray-300 mt-2">
-              Berkshire Hathaway HomeServices Nevada Properties
             </p>
             
             {/* Hidden schema metadata */}
@@ -107,7 +101,7 @@ export default function SiteFooter() {
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
           <p>
-            Dr. Jan Duffy is a licensed Nevada real estate agent (S.0197614.LLC).
+            Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC
           </p>
         </div>
       </div>

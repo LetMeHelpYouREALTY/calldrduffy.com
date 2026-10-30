@@ -11,13 +11,13 @@ export const SERVICES = {
   },
   HOME_VALUATION: {
     name: 'Home Valuation Service',
-    description: 'Accurate home valuation using 30+ years of Las Vegas market data. Get a professional assessment of your home\'s value to help price it right the first time.',
+    description: 'Accurate home valuation backed by 35 years in Las Vegas. Get a professional assessment of your home\'s value to help price it right the first time.',
     serviceType: 'Property Valuation Service',
     areaServed: 'Las Vegas, NV'
   },
   REAL_ESTATE_MARKETING: {
     name: 'Real Estate Marketing Service',
-    description: 'Professional marketing services including photography, virtual tours, digital advertising, and institutional marketing power through Berkshire Hathaway HomeServices.',
+    description: 'Professional marketing services including photography, virtual tours, digital advertising, and institutional marketing power through her national brokerage.',
     serviceType: 'Real Estate Marketing Service',
     areaServed: 'Las Vegas, NV'
   },

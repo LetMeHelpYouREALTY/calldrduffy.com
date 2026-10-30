@@ -133,7 +133,7 @@ export default function LasVegasCondosForSalePage() {
                 Her condo marketing emphasizes unique advantages: high-rise views, resort amenities, Downtown proximity, or luxury community benefits. This targeted approach attracts buyers seeking specific condo lifestyle features.
               </p>
               <p className="text-gray-700">
-                Berkshire Hathaway HomeServices provides luxury condo marketing channels: Wall Street Journal Real Estate, NYT Real Estate sections, luxury portals, and international exposure that reaches second-home and luxury buyers.
+                Her national brokerage provides luxury condo marketing channels: Wall Street Journal Real Estate, NYT Real Estate sections, luxury portals, and international exposure that reaches second-home and luxury buyers.
               </p>
             </div>
           </div>
