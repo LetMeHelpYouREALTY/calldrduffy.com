@@ -176,10 +176,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-mono;
+    @apply bg-background text-foreground font-sans;
   }
   html {
-    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 }
 
@@ -212,4 +212,86 @@
   .mobile-deploy-buttons {
     flex-direction: column !important;
   }
+}
+
+/* ── Luxury owner-leasing design system ─────────────────────────────── */
+:root {
+  --lux-ink: #1c1b19;
+  --lux-charcoal: #24221f;
+  --lux-ivory: #f7f4ee;
+  --lux-paper: #fbf9f5;
+  --lux-gold: #a8874b;
+  --lux-gold-soft: #d8c39a;
+  --lux-muted: #5f5a52;
+  --lux-line: #e4ddd0;
+}
+
+@theme inline {
+  --font-serif: var(--font-cormorant);
+}
+
+.lux-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lux-gold);
+  font-weight: 600;
+}
+
+.lux-h1 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.lux-h2 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--lux-ink);
+}
+
+.lux-h3 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--lux-ink);
+}
+
+.lux-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.lux-btn-gold {
+  background: var(--lux-gold);
+  color: #fff;
+}
+.lux-btn-gold:hover {
+  background: #8f7240;
+}
+
+.lux-btn-ghost {
+  border: 1px solid currentColor;
+}
+.lux-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lux-hero {
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(168, 135, 75, 0.22), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(216, 195, 154, 0.12), transparent 50%),
+    linear-gradient(160deg, #2a2723 0%, #1c1b19 60%, #141311 100%);
 }

@@ -1,117 +1,74 @@
 import Link from 'next/link'
+import { LUXURY_AREAS } from '@/lib/luxury-areas'
+import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer 
-      itemScope 
-      itemType="https://schema.org/LocalBusiness"
-      className="bg-gray-900 text-white py-12 px-4"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Business Info */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Dr. Jan Duffy</h3>
-            <p className="text-gray-300 mb-2">
-              <span itemProp="name">Dr. Jan Duffy</span>, REALTOR®
+    <footer className="bg-[var(--lux-ink)] text-[#cfc8bb]" itemScope itemType="https://schema.org/RealEstateAgent">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-1">
+            <p itemProp="name" className="font-[family-name:var(--font-cormorant)] text-2xl text-white">
+              Dr. Jan Duffy
             </p>
-            <p className="text-gray-300 mb-2" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-              <span itemProp="streetAddress">9406 W Lake Mead Blvd, Suite 100</span>,{' '}
-              <span itemProp="addressLocality">Las Vegas</span>,{' '}
-              <span itemProp="addressRegion">NV</span>{' '}
-              <span itemProp="postalCode">89134</span>
+            <p className="mt-2 text-sm leading-relaxed" itemProp="description">
+              Leasing and sales strategy for owners of luxury homes in Las Vegas and Henderson.
             </p>
-            <p className="text-gray-300 mb-2">
-              NV RE License #<span itemProp="licenseNumber">S.0197614.LLC</span>
-            </p>
-            <p className="text-gray-300 mt-2">
-              © {currentYear}{' '}
-              <span itemProp="description">Sell a tenant-occupied rental in Las Vegas</span>. All rights
-              reserved.
-            </p>
-            <p className="text-gray-300 mt-2">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-            
-            {/* Hidden schema metadata */}
-            <meta itemProp="priceRange" content="$$" />
-            <meta itemProp="image" content="https://www.calldrduffy.com/og-image.png" />
             <meta itemProp="telephone" content="+17025001955" />
+            <meta itemProp="image" content="https://www.calldrduffy.com/og-image.png" />
             <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
+              <meta itemProp="streetAddress" content="9406 W Lake Mead Blvd, Suite 100" />
               <meta itemProp="addressLocality" content="Las Vegas" />
               <meta itemProp="addressRegion" content="NV" />
               <meta itemProp="postalCode" content="89134" />
-              <meta itemProp="streetAddress" content="9406 W Lake Mead Blvd, Suite 100" />
               <meta itemProp="addressCountry" content="US" />
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              </li>
-              <li>
-                <Link href="/didnt-sell" className="hover:text-white transition-colors">Why Didn&apos;t My Home Sell?</Link>
-              </li>
-              <li>
-                <Link href="/success-stories" className="hover:text-white transition-colors">Success Stories</Link>
-              </li>
-              <li>
-                <Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white transition-colors">About Dr. Jan</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              </li>
-              <li>
-                <a
-                  href="https://www.justcalldrjan.com"
-                  className="hover:text-white transition-colors"
-                  rel="noopener noreferrer"
-                >
-                  Las Vegas expired listing help
-                </a>
-              </li>
+          <div className="md:col-span-2">
+            <p className="lux-eyebrow">Areas</p>
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+              {LUXURY_AREAS.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/areas/${a.slug}`} className="transition-colors hover:text-white">
+                    {a.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Get In Touch</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>
-                <a href="tel:+17025001955" className="hover:text-white transition-colors">
-                  Phone: (702) 500-1955
-                </a>
+            <p className="lux-eyebrow">Owners</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><Link href="/lease-your-luxury-home" className="hover:text-white">Leasing plan</Link></li>
+              <li><Link href="/rent-vs-sell" className="hover:text-white">Rent vs. sell</Link></li>
+              <li><Link href="/las-vegas-property-tax" className="hover:text-white">Property tax</Link></li>
+              <li><Link href="/about" className="hover:text-white">About Dr. Jan</Link></li>
+              <li><Link href="/#consult" className="hover:text-white">Book a consultation</Link></li>
+              <li className="pt-2">
+                <a href={SITE_PHONE_HREF} className="text-white">{SITE_PHONE}</a>
               </li>
               <li>
-                <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white transition-colors">
-                  Email: HomeSales@CallDrDuffy.com
-                </a>
-              </li>
-              <li className="mt-4">
-                <p className="text-sm text-gray-400">
-                  Serving all of Las Vegas, Henderson, Summerlin, and surrounding areas
-                </p>
+                <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white">HomeSales@CallDrDuffy.com</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+        <div className="mt-14 border-t border-white/10 pt-8 text-xs leading-relaxed text-[#9c968b]">
           <p>
-            Dr. Jan Duffy is a licensed Nevada real estate agent (S.0197614.LLC).
+            © {currentYear} Dr. Jan Duffy, REALTOR® · Nevada License S.0197614.LLC · Berkshire Hathaway HomeServices
+            Nevada Properties · Equal Housing Opportunity
+          </p>
+          <p className="mt-2">
+            Market figures are cited with their source and date. Rules summarized here are general information, not
+            legal or tax advice. Confirm your HOA documents and tax status before leasing.
           </p>
         </div>
       </div>
     </footer>
   )
 }
-

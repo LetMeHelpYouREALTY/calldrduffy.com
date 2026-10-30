@@ -1,226 +1,35 @@
-'use client'
+import type { Metadata } from 'next'
+import ConsultSection from '@/components/luxury/ConsultSection'
+import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
+import { SITE_URL } from '@/lib/site-url'
 
-import { useState } from 'react'
-import Link from 'next/link'
+export const metadata: Metadata = {
+  title: { absolute: 'Contact Dr. Jan Duffy | Luxury Home Leasing, Las Vegas' },
+  description: `Book a private owner consultation or call ${SITE_PHONE}. Leasing and sales strategy for luxury homes in Las Vegas and Henderson.`,
+  alternates: { canonical: `${SITE_URL}/contact` },
+}
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          website: '',
-          source: 'Contact Page',
-        })
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', address: '', message: '' })
-      } else {
-        setSubmitStatus('error')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero with H1 */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Contact Dr. Janet Duffy: Let's Talk About Selling Your Home
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100 max-w-3xl">
-            Your home didn't sell? Let's change that. Reach out today for a free consultation.
+    <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
+      <section className="lux-hero px-4 pb-16 pt-20 text-white sm:pt-24">
+        <div className="mx-auto max-w-5xl">
+          <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Contact</p>
+          <h1 className="lux-h1 mt-4">Talk about your home</h1>
+          <p className="mt-6 max-w-2xl text-lg text-[#ddd5c6]">
+            Pick a time below, call{' '}
+            <a href={SITE_PHONE_HREF} className="text-white underline decoration-[var(--lux-gold)] underline-offset-4">
+              {SITE_PHONE}
+            </a>
+            , or email{' '}
+            <a href="mailto:HomeSales@CallDrDuffy.com" className="text-white underline decoration-[var(--lux-gold)] underline-offset-4">
+              HomeSales@CallDrDuffy.com
+            </a>
+            .
           </p>
         </div>
       </section>
-
-      {/* Contact Form Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Get In Touch Today
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Fill out the form or call directly. Dr. Janet Duffy responds quickly to help homeowners whose properties didn't sell successfully.
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="contact-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name</label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-email" className="block text-sm font-semibold mb-2 text-gray-900">Email Address</label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone Number</label>
-                <input
-                  id="contact-phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address</label>
-                <input
-                  id="contact-address"
-                  type="text"
-                  value={formData.address}
-                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="123 Main St, Las Vegas, NV"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-message" className="block text-sm font-semibold mb-2 text-gray-900">Message</label>
-                <textarea
-                  id="contact-message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="Tell us about your situation..."
-                />
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
-                  <p className="font-semibold">Thank you! Dr. Jan will contact you soon.</p>
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
-                  <p className="font-semibold">There was an error sending your message. Please try again or call (702) 500-1955.</p>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Contact Information
-            </h2>
-            
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start">
-                <div className="text-blue-600 mr-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Phone</h3>
-                  <a href="tel:+17025001955" className="text-blue-600 hover:text-blue-800">
-                    (702) 500-1955
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="text-blue-600 mr-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Email</h3>
-                  <a href="mailto:HomeSales@CallDrDuffy.com" className="text-blue-600 hover:text-blue-800">
-                    HomeSales@CallDrDuffy.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="text-blue-600 mr-4">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Office</h3>
-                  <p className="text-gray-600">Las Vegas, NV</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Prefer to Text?</h3>
-              <p className="text-gray-700 mb-4">
-                Send a quick text to (702) 500-1955 and we'll respond right away.
-              </p>
-              <a
-                href="sms:+17025001955"
-                className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Text Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ConsultSection heading="Pick a time" />
     </div>
   )
 }
-

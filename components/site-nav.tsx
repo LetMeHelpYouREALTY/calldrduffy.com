@@ -2,138 +2,91 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
+
+const LINKS = [
+  { href: '/areas', label: 'Areas' },
+  { href: '/lease-your-luxury-home', label: 'Leasing Plan' },
+  { href: '/rent-vs-sell', label: 'Rent vs. Sell' },
+  { href: '/about', label: 'About' },
+]
 
 export default function SiteNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <>
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-blue-600">Dr. Jan Duffy</span>
-              <span className="hidden md:inline text-sm text-gray-600">| Tenant-Occupied Rental Sales</span>
-            </Link>
+    <nav className="sticky top-0 z-50 border-b border-[var(--lux-line)] bg-[var(--lux-paper)]/95 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-baseline gap-3">
+          <span className="font-[family-name:var(--font-cormorant)] text-2xl font-semibold tracking-wide text-[var(--lux-ink)]">
+            Dr. Jan Duffy
+          </span>
+          <span className="hidden text-[0.7rem] uppercase tracking-[0.2em] text-[var(--lux-gold)] lg:inline">
+            Luxury Home Leasing
+          </span>
+        </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/neighborhoods" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Neighborhoods
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                About
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Contact
-              </Link>
-              <Link href="/didnt-sell" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Didn't Sell?
-              </Link>
-              <Link href="/expired-listing-help" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Expired Listing Help
-              </Link>
-              <Link href="/home-valuation" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Home Value
-              </Link>
-              <a
-                href="tel:+17025001955"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center gap-2"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                (702) 500-1955
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-gray-700 p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <div className="hidden items-center gap-7 md:flex">
+          {LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="text-sm text-[var(--lux-muted)] transition-colors hover:text-[var(--lux-ink)]"
             >
-              {isMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
+              {l.label}
+            </Link>
+          ))}
+          <a href={SITE_PHONE_HREF} className="text-sm font-medium text-[var(--lux-ink)]">
+            {SITE_PHONE}
+          </a>
+          <Link href="/#consult" className="lux-btn lux-btn-gold !px-5 !py-2.5">
+            Book
+          </Link>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+        <button
+          type="button"
+          className="p-2 text-[var(--lux-ink)] md:hidden"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <div className="border-t border-[var(--lux-line)] bg-[var(--lux-paper)] md:hidden">
+          <div className="space-y-1 px-4 py-4">
+            {LINKS.map((l) => (
               <Link
-                href="/"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
+                key={l.href}
+                href={l.href}
+                className="block py-2 text-[var(--lux-ink)]"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {l.label}
               </Link>
-              <Link
-                href="/neighborhoods"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Neighborhoods
-              </Link>
-              <Link
-                href="/about"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/didnt-sell"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Didn't Sell?
-              </Link>
-              <Link
-                href="/expired-listing-help"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Expired Listing Help
-              </Link>
-              <Link
-                href="/home-valuation"
-                className="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home Value
-              </Link>
-              <a
-                href="tel:+17025001955"
-                className="block px-3 py-2 bg-blue-600 text-white rounded-md font-semibold text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Call (702) 500-1955
-              </a>
-            </div>
+            ))}
+            <a href={SITE_PHONE_HREF} className="block py-2 font-medium text-[var(--lux-ink)]">
+              Call {SITE_PHONE}
+            </a>
+            <Link
+              href="/#consult"
+              className="lux-btn lux-btn-gold mt-2 w-full"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Book a consultation
+            </Link>
           </div>
-        )}
-      </nav>
-    </>
+        </div>
+      )}
+    </nav>
   )
 }
-

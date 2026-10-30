@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Cormorant_Garamond } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import DeployBanner from '../components/deploy-banner'
 import SiteNavigation from '../components/site-nav'
@@ -27,6 +27,13 @@ const geistSans = Geist({
   preload: true,
 })
 
+const cormorant = Cormorant_Garamond({
+  variable: '--font-cormorant',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+})
+
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
@@ -39,11 +46,11 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(SITE_URL),
     ...getMetadataForPath(pathname),
     keywords: [
-      'sell a tenant-occupied rental Las Vegas',
-      'sell rental property with tenants Nevada',
-      'NRS 118A tenant notice when selling',
-      'Las Vegas investor rental sale',
-      'sell a rented condo Las Vegas',
+      'lease my luxury home Las Vegas',
+      'luxury home leasing Summerlin',
+      'The Ridges home for lease owner',
+      'MacDonald Highlands lease my home',
+      'rent or sell luxury home Las Vegas',
     ],
   }
 }
@@ -64,16 +71,16 @@ export default function RootLayout({
                 <StructuredData data={getMultiLocationBusinessSchema()} id="multi-location-business-schema" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
           storageKey="theme"
         >
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg">
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--lux-ink)] focus:text-white focus:rounded-lg">
             Skip to main content
           </a>
           <DeployBanner />

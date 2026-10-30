@@ -117,8 +117,7 @@ export function getMultiLocationBusinessSchema() {
     areaServed: [
       { '@type': 'City', name: 'Las Vegas' },
       { '@type': 'City', name: 'Henderson' },
-      { '@type': 'City', name: 'Summerlin' },
-      { '@type': 'City', name: 'North Las Vegas' }
+      { '@type': 'Place', name: 'Summerlin' }
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -128,16 +127,16 @@ export function getMultiLocationBusinessSchema() {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Expired Listing Assistance',
-            description: 'Expert help for homes that didn\'t sell'
+            name: 'Luxury Home Leasing Strategy',
+            description: 'Closed-lease pricing, presentation and lease setup for luxury home owners'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Home Valuation',
-            description: 'Professional home value analysis'
+            name: 'Rent vs. Sell Analysis',
+            description: 'Side-by-side lease cash flow and sale proceeds for owners'
           }
         },
         {

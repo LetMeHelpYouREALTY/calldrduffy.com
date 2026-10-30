@@ -29,7 +29,7 @@ export function getLocalBusinessSchema() {
     '@id': `${BASE_URL}#realestateagent`,
     name: DR_JAN_INFO.name,
     description:
-      'Las Vegas rental property sales with tenants in place — NRS 118A notice, showings, and investor-focused marketing.',
+      'Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson.',
     url: BASE_URL,
     telephone: DR_JAN_INFO.telephone,
     email: DR_JAN_INFO.email,
@@ -126,12 +126,11 @@ export function getRealEstateAgentSchema() {
       }
     },
     knowsAbout: [
-      'Las Vegas Real Estate',
-      'Expired Listings',
-      'Home Selling',
-      'Property Valuation',
-      'Real Estate Marketing',
-      'Homes That Didn\'t Sell'
+      'Luxury Home Leasing',
+      'Las Vegas Luxury Real Estate',
+      'Residential Lease Pricing',
+      'Nevada Landlord-Tenant Law',
+      'Home Selling'
     ]
   }
 }
@@ -140,16 +139,8 @@ export function getWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Just Call Dr. Jan',
-    url: BASE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/search?q={search_term_string}`
-      },
-      'query-input': 'required name=search_term_string'
-    }
+    name: 'Call Dr. Duffy',
+    url: BASE_URL
   }
 }
 
@@ -170,10 +161,9 @@ export function getPersonSchema() {
       name: DR_JAN_INFO.brokerage
     },
     knowsAbout: [
-      'Las Vegas Real Estate',
-      'Expired Listings',
-      'Home Selling',
-      'Property Valuation'
+      'Luxury Home Leasing',
+      'Las Vegas Luxury Real Estate',
+      'Home Selling'
     ]
   }
 }

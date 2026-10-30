@@ -73,7 +73,7 @@ function titleForRoute(route, h1) {
     return TITLE_OVERRIDES[route]
   }
   if (route === '/') {
-    return 'Selling a Las Vegas Rental with Tenants | Dr. Jan Duffy'
+    return 'Lease or Sell Your Luxury Las Vegas Home | Dr. Jan Duffy'
   }
   if (h1 && /30 days/i.test(h1)) {
     h1 = h1.replace(/From Failed to Sold in 30 Days/gi, 'From Failed to Sold — A Structured Relisting Plan')
@@ -97,14 +97,16 @@ const routes = {}
 for (const file of walk(appDir)) {
   const content = fs.readFileSync(file, 'utf8')
   const route = routeFromFile(file)
+  // Dynamic routes set their own metadata.
+  if (route.includes('[')) continue
   const h1 = extractH1(content)
   const subtitle = extractSubtitle(content)
   const title = titleForRoute(route, h1)
   const description =
     subtitle ||
     (route === '/'
-      ? 'Sell a tenant-occupied rental in Las Vegas or Henderson. Dr. Jan Duffy helps landlords navigate NRS 118A notices, showings, and investor-ready marketing.'
-      : `${stripBhhs(h1 || humanizeRoute(route))}. Las Vegas rental property sales guidance from Dr. Jan Duffy. Call (702) 500-1955.`)
+      ? 'Owner-side leasing strategy for luxury homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and Las Vegas’s other top-rent areas.'
+      : `${stripBhhs(h1 || humanizeRoute(route))}. Luxury home leasing guidance from Dr. Jan Duffy. Call (702) 500-1955.`)
 
   routes[route] = {
     title: stripBhhs(title),

@@ -1,260 +1,172 @@
-'use client'
-
-import { useState } from 'react'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import FeaturedListing from '@/components/sections/FeaturedListing'
+import ConsultSection from '@/components/luxury/ConsultSection'
+import { LUXURY_AREAS, LUXURY_LEASE_BENCHMARKS } from '@/lib/luxury-areas'
+import { LEASING_PACE, OWNER_RULES } from '@/lib/owner-site'
+
+export const metadata: Metadata = {
+  title: { absolute: 'Lease or Sell Your Luxury Las Vegas Home | Dr. Jan Duffy' },
+  description:
+    'Owner-side leasing strategy for luxury homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and Las Vegas’s other top-rent areas. Closed lease comps, not estimates.',
+}
+
+const STEPS = [
+  {
+    n: '01',
+    title: 'Price from closed leases',
+    body: 'Asking rents tell you what owners hope for. Closed leases in your community tell you what the home will actually rent for.',
+  },
+  {
+    n: '02',
+    title: 'Present it like a sale',
+    body: 'Listing-grade photography, a floor plan and a 3D tour. A home at this level should never be marketed with phone photos.',
+  },
+  {
+    n: '03',
+    title: 'Screen by written standards',
+    body: 'One written set of criteria for income, credit and rental history, applied to every applicant the same way.',
+  },
+  {
+    n: '04',
+    title: 'Decide at every renewal',
+    body: 'Re-lease, adjust rent, or sell. You get the numbers for each path before the lease term ends.',
+  },
+]
 
 export default function Homepage() {
-  const [address, setAddress] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          address,
-          website: '',
-          source: 'Rental sale consultation — homepage',
-        }),
-      })
-
-      if (response.ok) {
-        alert('Thank you! Dr. Jan will contact you soon.')
-        setAddress('')
-        setName('')
-        setEmail('')
-        setPhone('')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      alert('There was an error. Please try again or call (702) 500-1955.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Selling a Las Vegas Rental Property with Tenants? Let&apos;s Plan It
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Landlord-focused listing strategy — leases, NRS 118A notice, and showings while tenants
-            remain in place
+    <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
+      {/* Hero */}
+      <section className="lux-hero px-4 pb-24 pt-24 text-white sm:pb-32 sm:pt-32">
+        <div className="mx-auto max-w-6xl">
+          <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Luxury home leasing · Las Vegas &amp; Henderson</p>
+          <h1 className="lux-h1 mt-6 max-w-4xl">Your luxury home, leased right — or sold right.</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#ddd5c6]">
+            Owner-side strategy for homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and the
+            valley’s other top-rent addresses. One clear plan, built on closed leases.
           </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link href="#consult" className="lux-btn lux-btn-gold">
+              Book a private consultation
+            </Link>
+            <Link href="/rent-vs-sell" className="lux-btn lux-btn-ghost text-white">
+              Run rent vs. sell
+            </Link>
+          </div>
+        </div>
+      </section>
 
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Request a Rental Sale Consultation</h2>
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="home-address" className="sr-only">Rental property address</label>
-                <input
-                  id="home-address"
-                  type="text"
-                  placeholder="Rental property address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
-                  aria-label="Rental property address"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="home-name" className="sr-only">Your Name</label>
-                  <input
-                    id="home-name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
-                    required
-                    aria-label="Your Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="home-email" className="sr-only">Email Address</label>
-                  <input
-                    id="home-email"
-                    type="email"
-                    placeholder="Email Address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
-                    required
-                    aria-label="Email Address"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="home-phone" className="sr-only">Phone Number</label>
-                <input
-                  id="home-phone"
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                  aria-label="Phone Number"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
+      {/* Benchmarks */}
+      <section className="border-b border-[var(--lux-line)] px-4 py-14">
+        <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
+          {LUXURY_LEASE_BENCHMARKS.map((b) => (
+            <div key={b.label}>
+              <p className="font-[family-name:var(--font-cormorant)] text-5xl text-[var(--lux-ink)]">{b.value}</p>
+              <p className="mt-2 text-sm leading-snug text-[var(--lux-muted)]">{b.label}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mx-auto mt-8 max-w-6xl text-xs text-[var(--lux-muted)]">
+          Source: {LUXURY_LEASE_BENCHMARKS[0].source}, {LUXURY_LEASE_BENCHMARKS[0].asOf}. Asking rents; closed rents vary
+          by home.
+        </p>
+      </section>
+
+      {/* Areas */}
+      <section className="px-4 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="lux-eyebrow">Where luxury rents run highest</p>
+          <h2 className="lux-h2 mt-3 max-w-3xl">Ten communities, each with its own rules</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--lux-muted)]">
+            Gate access, HOA lease approval and short-stay bans change from one community to the next. Pick yours.
+          </p>
+          <div className="mt-12 grid gap-px overflow-hidden border border-[var(--lux-line)] bg-[var(--lux-line)] sm:grid-cols-2 lg:grid-cols-3">
+            {LUXURY_AREAS.map((a) => (
+              <Link
+                key={a.slug}
+                href={`/areas/${a.slug}`}
+                className="group bg-[var(--lux-paper)] p-7 transition-colors hover:bg-white"
               >
-                {isSubmitting ? 'Submitting...' : 'Start the Conversation'}
-              </button>
-            </div>
-            <p className="text-sm text-gray-600 mt-4 text-center">
-              By submitting, you agree to be contacted about your rental property sale
-            </p>
-          </form>
-        </div>
-      </section>
-
-      <FeaturedListing
-        phone="(702) 500-1955"
-        phoneHref="tel:+17025001955"
-        siteHost="calldrduffy.com"
-      />
-
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
-            What Makes a Tenant-Occupied Sale Different
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
-              <div className="text-red-600 text-5xl mb-4">📋</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">NRS 118A Notice</h3>
-              <p className="text-gray-700">
-                Nevada law sets how and when you notify tenants about a sale. We align your timeline
-                with proper notice before marketing begins.
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--lux-gold)]">
+                  {a.region} · {a.zip}
+                </p>
+                <p className="lux-h3 mt-2 group-hover:underline group-hover:decoration-[var(--lux-gold)] group-hover:underline-offset-4">
+                  {a.name}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--lux-muted)]">{a.tagline}</p>
+              </Link>
+            ))}
+            <Link href="#consult" className="flex flex-col justify-between bg-[var(--lux-ivory)] p-7 sm:col-span-2 lg:col-span-2">
+              <p className="lux-h3">Your community isn’t listed?</p>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--lux-muted)]">
+                The same plan works for any high-end home in the valley. Book a call for closed lease comps on your street.
               </p>
-            </div>
-
-            <div className="bg-yellow-50 p-8 rounded-lg border border-yellow-200">
-              <div className="text-yellow-600 text-5xl mb-4">🔑</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Showings With Tenants In Place</h3>
-              <p className="text-gray-700">
-                Access rules, appointment blocks, and buyer expectations are planned up front so
-                showings stay predictable for you and your renters.
-              </p>
-            </div>
-
-            <div className="bg-blue-50 p-8 rounded-lg border border-blue-200">
-              <div className="text-blue-600 text-5xl mb-4">📊</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Investor-Ready Pricing</h3>
-              <p className="text-gray-700">
-                Rent roll, lease terms, and cap-rate buyers matter. We position your rental against
-                recent investor sales — not just owner-occupant comps.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-blue-50">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            Rental-Heavy Las Vegas ZIP Codes We Track
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-            Investor inventory clusters across central Las Vegas. We monitor rental turnover and
-            sales activity in ZIP codes including 89103, 89119, 89169, and 89109 — verify current
-            Census ACS rental share before you list.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
-            <Link
-              href="/zipcodes/89103"
-              className="bg-white py-3 px-6 rounded-lg shadow-md font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
-            >
-              ZIP 89103 guide
+              <span className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--lux-gold)]">Book a consultation →</span>
             </Link>
-            <span className="py-3 px-4 text-gray-600 text-sm md:text-base">
-              Also tracking 89119, 89169, and 89109 rental inventory
-            </span>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-8 text-gray-900">
-            Condos, Duplexes, and Single-Family Rentals
-          </h2>
-          <p className="text-lg text-gray-700 text-center mb-6">
-            Whether you own a rented condo near the Strip corridor or a long-term lease on a
-            single-family home in Henderson, the process starts with lease review and buyer
-            targeting — not a generic MLS launch.
-          </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
-            <li>Sell rental property with tenants in Nevada</li>
-            <li>Coordinate buyer due diligence around existing leases</li>
-            <li>Market to Las Vegas investor buyers and 1031 exchangers</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white p-12 rounded-lg shadow-xl">
-            <p className="text-2xl italic text-gray-700 mb-6">
-              &quot;I needed to sell a duplex with both units leased. Dr. Jan mapped the NRS notice
-              timeline, kept showings organized, and we closed with the buyer assuming both
-              leases.&quot;
-            </p>
-            <div className="flex items-center justify-center">
-              <div className="text-left">
-                <p className="font-bold text-gray-900">Las Vegas landlord</p>
-                <p className="text-gray-600">Two-unit rental — ZIP 89103</p>
+      {/* Plan */}
+      <section className="bg-[var(--lux-ivory)] px-4 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="lux-eyebrow">The owner’s plan</p>
+          <h2 className="lux-h2 mt-3">Four steps from vacant to leased</h2>
+          <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {STEPS.map((s) => (
+              <div key={s.n} className="border-t border-[var(--lux-gold)] pt-6">
+                <p className="text-sm text-[var(--lux-gold)]">{s.n}</p>
+                <p className="lux-h3 mt-2">{s.title}</p>
+                <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{s.body}</p>
               </div>
-            </div>
+            ))}
+          </div>
+          <p className="mt-12 max-w-3xl text-[var(--lux-muted)]">
+            <span className="font-medium text-[var(--lux-ink)]">Pace check:</span> {LEASING_PACE.detail}{' '}
+            <span className="text-xs">
+              ({LEASING_PACE.source}, {LEASING_PACE.asOf})
+            </span>
+          </p>
+          <Link href="/lease-your-luxury-home" className="mt-8 inline-block text-sm font-semibold uppercase tracking-[0.16em] text-[var(--lux-ink)] underline decoration-[var(--lux-gold)] underline-offset-8">
+            See the full leasing plan
+          </Link>
+        </div>
+      </section>
+
+      {/* Rules */}
+      <section className="px-4 py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="lux-eyebrow">Before you sign a lease</p>
+          <h2 className="lux-h2 mt-3">Four Nevada rules owners learn the hard way</h2>
+          <div className="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
+            {OWNER_RULES.map((r) => (
+              <div key={r.title}>
+                <p className="lux-h3">{r.title}</p>
+                <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{r.body}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--lux-gold)]">{r.cite}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Talk Through Your Rental Sale</h2>
-          <p className="text-xl mb-8">
-            Free consultation. Clear next steps on notice, marketing, and timing.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a
-              href="tel:+17025001955"
-              className="bg-white text-blue-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Call Now: (702) 500-1955
-            </a>
-            <Link
-              href="/contact"
-              className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors"
-            >
-              Schedule Consultation
-            </Link>
+      {/* Rent vs sell */}
+      <section className="lux-hero px-4 py-20 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Rent or sell?</p>
+            <h2 className="lux-h2 mt-3 !text-white">Put both paths side by side</h2>
+            <p className="mt-4 text-lg text-[#ddd5c6]">
+              Enter your rent, carrying costs and loan. See monthly cash flow next to what you would net from a sale today.
+            </p>
           </div>
+          <Link href="/rent-vs-sell" className="lux-btn lux-btn-gold shrink-0">
+            Open the calculator
+          </Link>
         </div>
       </section>
+
+      <ConsultSection />
     </div>
   )
 }
