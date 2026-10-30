@@ -65,7 +65,7 @@ export default function LasVegasMLSPage() {
                 Simply listing on Las Vegas MLS doesn't guarantee sale. Successful Las Vegas MLS listings require professional presentation: quality photography, compelling descriptions, accurate pricing, and strategic positioning that attracts buyers effectively.
               </p>
               <p className="text-gray-700 mb-3">
-                Professional Las Vegas agents like Dr. Jan use MLS as starting point while adding comprehensive marketing beyond MLS: professional photography, virtual tours, digital advertising, social media promotion, and Berkshire Hathaway HomeServices luxury channels.
+                Professional Las Vegas agents like Dr. Jan use MLS as starting point while adding comprehensive marketing beyond MLS: professional photography, virtual tours, digital advertising, social media promotion, and national brokerage luxury channels.
               </p>
               <p className="text-gray-700">
                 For expired listings, MLS listing likely existed before - but previous marketing may have been insufficient. Dr. Jan's approach ensures MLS listing is professionally presented while adding marketing channels that previous agents may not have utilized effectively.
@@ -142,7 +142,7 @@ export default function LasVegasMLSPage() {
                 Dr. Jan ensures Las Vegas MLS listings include professional photography, compelling descriptions, accurate data, and strategic positioning. Then she adds marketing channels beyond MLS that reach qualified buyers effectively.
               </p>
               <p className="text-gray-700 mb-3">
-                Berkshire Hathaway HomeServices provides institutional marketing power: luxury portals, Wall Street Journal Real Estate, NYT Real Estate sections, and channels that reach buyers beyond standard MLS exposure.
+                Her national brokerage provides institutional marketing power: luxury portals, Wall Street Journal Real Estate, NYT Real Estate sections, and channels that reach buyers beyond standard MLS exposure.
               </p>
               <p className="text-gray-700">
                 This comprehensive approach ensures Las Vegas MLS listings receive maximum exposure while adding professional marketing that positions Las Vegas properties effectively to qualified buyers.

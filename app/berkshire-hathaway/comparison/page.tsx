@@ -9,7 +9,7 @@ import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
 export default function ComparisonPage() {
   const articleSchema = getArticleSchema({
     headline: 'How My Brokerage Compares for Las Vegas Rental Sales',
-    description: 'Side-by-side comparison of what each major Las Vegas brokerage delivers - and why Berkshire Hathaway HomeServices with Dr. Jan Duffy is the clear choice for expired listings.',
+    description: 'Side-by-side comparison of what each major Las Vegas brokerage delivers - and why Dr. Jan Duffy is the clear choice for expired listings.',
     datePublished: '2024-06-25',
     dateModified: '2024-12-01',
     author: getPersonSchema()
@@ -26,7 +26,7 @@ export default function ComparisonPage() {
             How My Brokerage Compares
           </h1>
           <p className="text-xl md:text-2xl text-indigo-100 max-w-3xl">
-            Side-by-side comparison of what each major Las Vegas brokerage delivers - and why Berkshire Hathaway HomeServices with Dr. Jan Duffy is the clear choice for expired listings.
+            Side-by-side comparison of what each major Las Vegas brokerage delivers - and why Dr. Jan Duffy is the clear choice for expired listings.
           </p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function ComparisonPage() {
               <thead>
                 <tr className="bg-gray-100">
                   <th className="border border-gray-300 px-4 py-3 text-left font-bold text-gray-900">Factor</th>
-                  <th className="border border-gray-300 px-4 py-3 text-center font-bold text-gray-900 bg-blue-50">BHHS + Dr. Jan</th>
+                  <th className="border border-gray-300 px-4 py-3 text-center font-bold text-gray-900 bg-blue-50">Dr. Jan</th>
                   <th className="border border-gray-300 px-4 py-3 text-center font-bold text-gray-900">Realty ONE</th>
                   <th className="border border-gray-300 px-4 py-3 text-center font-bold text-gray-900">Simply Vegas</th>
                   <th className="border border-gray-300 px-4 py-3 text-center font-bold text-gray-900">eXp Realty</th>
@@ -66,7 +66,7 @@ export default function ComparisonPage() {
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-3 font-semibold text-gray-900">Pricing Expertise</td>
-                  <td className="border border-gray-300 px-4 py-3 text-center bg-green-50">✅ PhD + 30 yrs</td>
+                  <td className="border border-gray-300 px-4 py-3 text-center bg-green-50">✅ Ph.D. + 35 years in Las Vegas</td>
                   <td className="border border-gray-300 px-4 py-3 text-center">⚠️ Varies by agent</td>
                   <td className="border border-gray-300 px-4 py-3 text-center">⚠️ Luxury inflated</td>
                   <td className="border border-gray-300 px-4 py-3 text-center">⚠️ Inconsistent</td>
@@ -133,7 +133,7 @@ export default function ComparisonPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-xl font-bold mb-3 text-gray-900">Simply Vegas</h3>
               <p className="text-gray-700 mb-3"><strong>Strength:</strong> Boutique luxury focus, better communication than big firms</p>
-              <p className="text-gray-700 mb-3"><strong>Weakness for Expired:</strong> No national marketing, limited to 600-agent network, luxury pricing often inflated. Can't match BHHS institutional reach.</p>
+              <p className="text-gray-700 mb-3"><strong>Weakness for Expired:</strong> No national marketing, limited to 600-agent network, luxury pricing often inflated. Can't match her brokerage's institutional reach.</p>
               <p className="text-gray-700">Good for local luxury, but lacks national/international marketing that turns expired listings around.</p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
@@ -155,12 +155,12 @@ export default function ComparisonPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            Why BHHS + Dr. Jan Wins for Expired Listings
+            Why Dr. Jan Wins for Expired Listings
           </h2>
           <div className="bg-indigo-50 p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">The Complete Package</h3>
             <p className="text-gray-700 mb-4">
-              Berkshire Hathaway HomeServices with Dr. Jan Duffy delivers what expired listings need most: institutional marketing power, pricing mastery, and proactive communication that no single competitor can match.
+              Dr. Jan Duffy delivers what expired listings need most: institutional marketing power, pricing mastery, and proactive communication that no single competitor can match.
             </p>
             <ul className="space-y-3 text-gray-700 mb-4">
               <li className="flex items-start">
@@ -169,7 +169,7 @@ export default function ComparisonPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3 font-bold">✓</span>
-                <span><strong>Pricing expertise:</strong> PhD-level analysis + 30 years Vegas experience ensures accurate pricing from day one</span>
+                <span><strong>Pricing expertise:</strong> PhD-level analysis + 35 years in Las Vegas ensures accurate pricing from day one</span>
               </li>
               <li className="flex items-start">
                 <span className="text-indigo-600 mr-3 font-bold">✓</span>
@@ -185,7 +185,7 @@ export default function ComparisonPage() {
               </li>
             </ul>
             <p className="text-gray-700 font-semibold">
-              While competitors excel in one area, BHHS + Dr. Jan delivers all three critical advantages that expired listings need to succeed.
+              While competitors excel in one area, Dr. Jan delivers all three critical advantages that expired listings need to succeed.
             </p>
           </div>
         </div>

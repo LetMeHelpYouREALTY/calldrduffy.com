@@ -24,7 +24,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/berkshire-hathaway/pricing-mastery": {
     "title": "Pricing Mastery: Why 73% of Expired Listings Were Overpriced | Dr. Jan Duffy",
-    "description": "Your home didn't sell because it was priced 5-15% too high. Dr. Jan's PhD-level pricing approach backed by 30 years of Vegas market data ensures accurate pricin"
+    "description": "Your home didn't sell because it was priced 5-15% too high. Dr. Jan's PhD-level pricing approach backed by 35 years in Las Vegas ensures accurate pricin"
   },
   "/berkshire-hathaway/turnaround-plan": {
     "title": "The Expired Listing Turnaround Plan: From Failed to Sold — A Structured Relisting Plan | Dr. Jan Duffy",

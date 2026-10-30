@@ -126,7 +126,7 @@ export default function HowItWorksPage() {
             Step 2: Strategic Repricing & Market Analysis
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Dr. Jan conducts fresh market analysis using current data and proprietary Berkshire Hathaway HomeServices valuation tools to determine optimal pricing strategy that attracts buyers while protecting your equity.
+            Dr. Jan conducts fresh market analysis using current data and proprietary brokerage valuation tools to determine optimal pricing strategy that attracts buyers while protecting your equity.
           </p>
           <div className="bg-blue-50 p-8 rounded-lg mb-8">
             <h3 className="text-2xl font-bold mb-4 text-gray-900">Data-Driven Pricing Process</h3>
@@ -146,7 +146,7 @@ export default function HowItWorksPage() {
             </div>
           </div>
           <p className="text-lg text-gray-700 mb-4">
-            Pricing isn't guesswork - it's science. Dr. Jan combines her PhD-level analytical approach with 30 years of Vegas market experience and proprietary BHHS tools to determine pricing that works.
+            Pricing isn't guesswork - it's science. Dr. Jan combines her PhD-level analytical approach with 35 years in Las Vegas and proprietary brokerage tools to determine pricing that works.
           </p>
           <p className="text-lg text-gray-700">
             Result: Strategic pricing that positions your home competitively from day one, attracting buyers while maximizing your return. No more chasing the market down after initial overpricing.
@@ -160,7 +160,7 @@ export default function HowItWorksPage() {
             Step 3: Professional Presentation & Marketing
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Your home receives professional presentation that showcases its best features: professional photography, staging consultation, and marketing materials with Berkshire Hathaway HomeServices luxury branding.
+            Your home receives professional presentation that showcases its best features: professional photography, staging consultation, and marketing materials with national brokerage luxury branding.
           </p>
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             <div>
@@ -183,9 +183,9 @@ export default function HowItWorksPage() {
             </div>
           </div>
           <div className="bg-cyan-50 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">BHHS Luxury Marketing</h3>
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">Luxury Brokerage Marketing</h3>
             <p className="text-gray-700 mb-3">
-              Marketing materials carry Berkshire Hathaway HomeServices luxury branding that signals quality and institutional backing. Your home appears in premium channels: Wall Street Journal Real Estate, NYT Real Estate sections, and elite luxury portals.
+              Marketing materials carry national brokerage luxury branding that signals quality and institutional backing. Your home appears in premium channels: Wall Street Journal Real Estate, NYT Real Estate sections, and elite luxury portals.
             </p>
             <p className="text-gray-700">
               This isn't just better MLS photos - it's your home reaching qualified buyers through channels that regional firms can't access. Institutional marketing power gets results that basic listing exposure can't match.
@@ -200,12 +200,12 @@ export default function HowItWorksPage() {
             Step 4: Network Activation & Buyer Outreach
           </h2>
           <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Your listing is actively promoted to Berkshire Hathaway HomeServices agent networks, luxury buyer databases, and international referral partners - reaching buyers that previous agents couldn't access.
+            Your listing is actively promoted to national brokerage agent networks, luxury buyer databases, and international referral partners - reaching buyers that previous agents couldn't access.
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold mb-3 text-gray-900">BHHS Agent Network</h3>
-              <p className="text-gray-700">900+ Berkshire Hathaway agents in Nevada receive your listing through internal network with buyers actively searching.</p>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">Brokerage Agent Network</h3>
+              <p className="text-gray-700">900+ brokerage agents in Nevada receive your listing through internal network with buyers actively searching.</p>
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-xl font-bold mb-3 text-gray-900">Luxury Buyer Database</h3>
@@ -213,7 +213,7 @@ export default function HowItWorksPage() {
             </div>
             <div className="bg-white p-6 rounded-lg border border-gray-200">
               <h3 className="text-xl font-bold mb-3 text-gray-900">International Referrals</h3>
-              <p className="text-gray-700">BHHS international offices and referral partners in all 50 states promote your listing to their clients.</p>
+              <p className="text-gray-700">International offices and referral partners in all 50 states promote your listing to their clients.</p>
             </div>
           </div>
         </div>

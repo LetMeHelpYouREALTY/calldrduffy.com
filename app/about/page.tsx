@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div>
               <p className="text-lg text-gray-700 mb-4">
-                Dr. Janet Duffy is a Las Vegas real estate agent who specializes in helping homeowners whose properties didn't sell the first time around. With over a decade of experience in the Las Vegas real estate market, she has built a reputation for turning challenging situations into successful home sales.
+                Dr. Janet Duffy is a Las Vegas real estate agent who specializes in helping homeowners whose properties didn't sell the first time around. Licensed since 2008 · 35 years in Las Vegas, she has built a reputation for turning challenging situations into successful home sales.
               </p>
               <p className="text-lg text-gray-700 mb-4">
                 What makes Dr. Jan unique is her focus on expired listings - properties that came off the market because they didn't sell. While many agents pursue new listings, fewer actively work with homeowners who had unsuccessful first attempts. This specialization makes her exceptionally effective at diagnosing problems and creating winning strategies.
@@ -41,8 +41,8 @@ export default function AboutPage() {
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Dr. Jan's Results</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-bold text-blue-600 mb-1">47 Homes Sold</p>
-                  <p className="text-gray-600">Properties that didn't sell before, sold successfully in 2024</p>
+                  <p className="font-bold text-blue-600 mb-1">500+ Homes Sold</p>
+                  <p className="text-gray-600">Homes sold for Las Vegas clients</p>
                 </div>
                 <div>
                   <p className="font-bold text-blue-600 mb-1">32 Day Average</p>
