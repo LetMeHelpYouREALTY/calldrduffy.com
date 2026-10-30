@@ -6,6 +6,7 @@ import DeployBanner from '../components/deploy-banner'
 import SiteNavigation from '../components/site-nav'
 import SiteFooter from '../components/site-footer'
 import Analytics from './analytics'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
 import StructuredData from '../components/structured-data'
 import {
   getLocalBusinessSchema,
@@ -83,6 +84,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </ThemeProvider>
+        <VercelAnalytics />
         {/* Widget Tracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
