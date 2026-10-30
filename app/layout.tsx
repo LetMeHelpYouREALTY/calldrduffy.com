@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import DeployBanner from '../components/deploy-banner'
 import SiteNavigation from '../components/site-nav'
 import SiteFooter from '../components/site-footer'
@@ -83,6 +84,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </ThemeProvider>
+        <SpeedInsights />
         {/* Widget Tracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
