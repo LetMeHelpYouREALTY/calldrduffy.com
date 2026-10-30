@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import AuthorBadge from '@/components/author-badge'
 import StructuredDataScript from '@/components/structured-data-script'
 import FAQSection from '@/components/faq-section'
 import Breadcrumbs from '@/components/breadcrumbs'
+import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
 import { getServiceSchemaForPage } from '@/lib/services'
 
@@ -46,47 +46,6 @@ export default function SellerConsultationPage() {
       answer: 'After the consultation, Dr. Jan provides a written strategic plan outlining identified issues, recommended improvements, pricing strategy, marketing approach, timeline, and expected results. You decide next steps with full information about how to successfully relist your property.'
     }
   ]
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    preferredTime: '',
-    consultationType: 'virtual'
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          website: '',
-          message: `Consultation Request: ${formData.consultationType}, Preferred Time: ${formData.preferredTime}`,
-          source: 'Seller Consultation Page',
-        })
-      })
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', address: '', preferredTime: '', consultationType: 'virtual' })
-      } else {
-        setSubmitStatus('error')
-      }
-    } catch (error) {
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
 
   return (
     <>
@@ -167,54 +126,9 @@ export default function SellerConsultationPage() {
           <h2 className="text-4xl font-bold mb-6 text-gray-900 text-center">Schedule Your Free Consultation</h2>
           <p className="text-xl mb-8 text-gray-700 text-center">Get expert analysis of why your home didn't sell and a proven strategy for successful relisting.</p>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-8 rounded-lg">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="consult-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name *</label>
-                <input id="consult-name" type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="consult-email" className="block text-sm font-semibold mb-2 text-gray-900">Email *</label>
-                <input id="consult-email" type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="consult-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone *</label>
-                <input id="consult-phone" type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="consult-type" className="block text-sm font-semibold mb-2 text-gray-900">Consultation Type</label>
-                <select id="consult-type" value={formData.consultationType} onChange={(e) => setFormData({...formData, consultationType: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                  <option value="virtual">Virtual (Video Call)</option>
-                  <option value="phone">Phone Consultation</option>
-                  <option value="in-person">In-Person</option>
-                </select>
-              </div>
-              <div className="md:col-span-2">
-                <label htmlFor="consult-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address</label>
-                <input id="consult-address" type="text" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="123 Main St, Las Vegas, NV" />
-              </div>
-              <div className="md:col-span-2">
-                <label htmlFor="consult-time" className="block text-sm font-semibold mb-2 text-gray-900">Preferred Time</label>
-                <input id="consult-time" type="text" value={formData.preferredTime} onChange={(e) => setFormData({...formData, preferredTime: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="e.g., Weekday mornings, Evening after 6pm" />
-              </div>
-            </div>
-
-            {submitStatus === 'success' && (
-              <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
-                <p className="font-semibold">Thank you! Dr. Jan will contact you soon to schedule your consultation.</p>
-              </div>
-            )}
-
-            {submitStatus === 'error' && (
-              <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
-                <p className="font-semibold">Error submitting request. Please call (702) 500-1955.</p>
-              </div>
-            )}
-
-            <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors">
-              {isSubmitting ? 'Submitting...' : 'Schedule Free Consultation'}
-            </button>
-          </form>
+          <div className="bg-gray-50 p-8 rounded-lg">
+            <CalendlyInlineWidget />
+          </div>
         </div>
       </section>
 
@@ -223,7 +137,7 @@ export default function SellerConsultationPage() {
           <p className="text-xl mb-8 text-blue-100">Or call directly for immediate scheduling</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a href="tel:+17025001955" className="bg-white text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
-            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Contact Form</Link>
+            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Contact Dr. Jan</Link>
           </div>
         </div>
       </section>

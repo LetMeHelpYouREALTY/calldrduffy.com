@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import AuthorBadge from '@/components/author-badge'
 import StructuredDataScript from '@/components/structured-data-script'
 import FAQSection from '@/components/faq-section'
 import Breadcrumbs from '@/components/breadcrumbs'
+import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 import { getServiceSchemaForPage } from '@/lib/services'
 import { BASE_URL } from '@/lib/schema'
 
@@ -19,7 +19,7 @@ export default function HomeValuationPage() {
     },
     {
       question: 'How long does it take to get a home valuation?',
-      answer: 'After you submit your property information, Dr. Jan conducts thorough research and typically provides your valuation analysis within 24-48 hours. The process includes comparable sales review, competition analysis, and strategic pricing recommendations.'
+      answer: 'After you book a time and share your property details, Dr. Jan conducts thorough research and typically provides your valuation analysis within 24-48 hours. The process includes comparable sales review, competition analysis, and strategic pricing recommendations.'
     },
     {
       question: 'What information do I need for a home valuation?',
@@ -39,18 +39,6 @@ export default function HomeValuationPage() {
     }
   ]
 
-  const [formData, setFormData] = useState({
-    address: '',
-    name: '',
-    email: '',
-    phone: '',
-    bedrooms: '',
-    bathrooms: '',
-    squareFeet: '',
-    yearBuilt: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   return (
     <>
       <StructuredDataScript data={serviceSchema} id="service-schema" />
@@ -109,88 +97,11 @@ export default function HomeValuationPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-6 text-gray-900 text-center">Get Your Free Home Value Today</h2>
-          <p className="text-xl mb-8 text-gray-700 text-center">Provide your property details for an accurate Las Vegas market analysis.</p>
+          <p className="text-xl mb-8 text-gray-700 text-center">Book a time with Dr. Jan for an accurate Las Vegas market analysis.</p>
           
-          <form onSubmit={async (e) => {
-            e.preventDefault()
-            setIsSubmitting(true)
-            setSubmitStatus('idle')
-
-            try {
-              const response = await fetch('/api/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  ...formData,
-                  website: '',
-                  message: `Home Valuation Request: ${formData.bedrooms}BR/${formData.bathrooms}BA, ${formData.squareFeet} sq ft, Built ${formData.yearBuilt}`,
-                  source: 'Home Valuation Page',
-                })
-              })
-
-              if (response.ok) {
-                setSubmitStatus('success')
-                setFormData({ address: '', name: '', email: '', phone: '', bedrooms: '', bathrooms: '', squareFeet: '', yearBuilt: '' })
-              } else {
-                setSubmitStatus('error')
-              }
-            } catch (error) {
-              setSubmitStatus('error')
-            } finally {
-              setIsSubmitting(false)
-            }
-          }} className="space-y-6 bg-gray-50 p-8 rounded-lg">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="val-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address *</label>
-                <input id="val-address" type="text" value={formData.address} onChange={(e) => setFormData({...formData, address: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="val-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name *</label>
-                <input id="val-name" type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="val-email" className="block text-sm font-semibold mb-2 text-gray-900">Email *</label>
-                <input id="val-email" type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="val-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone *</label>
-                <input id="val-phone" type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required />
-              </div>
-              <div>
-                <label htmlFor="val-bedrooms" className="block text-sm font-semibold mb-2 text-gray-900">Bedrooms</label>
-                <input id="val-bedrooms" type="number" min="1" max="10" value={formData.bedrooms} onChange={(e) => setFormData({...formData, bedrooms: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-              </div>
-              <div>
-                <label htmlFor="val-bathrooms" className="block text-sm font-semibold mb-2 text-gray-900">Bathrooms</label>
-                <input id="val-bathrooms" type="number" min="1" max="10" step="0.5" value={formData.bathrooms} onChange={(e) => setFormData({...formData, bathrooms: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-              </div>
-              <div>
-                <label htmlFor="val-sqft" className="block text-sm font-semibold mb-2 text-gray-900">Square Feet</label>
-                <input id="val-sqft" type="number" min="100" value={formData.squareFeet} onChange={(e) => setFormData({...formData, squareFeet: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-              </div>
-              <div>
-                <label htmlFor="val-year" className="block text-sm font-semibold mb-2 text-gray-900">Year Built</label>
-                <input id="val-year" type="number" min="1900" max={new Date().getFullYear()} value={formData.yearBuilt} onChange={(e) => setFormData({...formData, yearBuilt: e.target.value})} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-              </div>
-            </div>
-
-            {submitStatus === 'success' && (
-              <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
-                <p className="font-semibold">Thank you! Dr. Jan will analyze your property and contact you with your home value estimate.</p>
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
-                <p className="font-semibold">Error submitting request. Please call (702) 500-1955.</p>
-              </div>
-            )}
-
-            <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors">
-              {isSubmitting ? 'Submitting...' : 'Get My Free Home Valuation'}
-            </button>
-          </form>
+          <div className="bg-gray-50 p-8 rounded-lg">
+            <CalendlyInlineWidget />
+          </div>
         </div>
       </section>
 
@@ -199,7 +110,7 @@ export default function HomeValuationPage() {
           <p className="text-xl mb-8 text-blue-100">Or call directly for immediate assistance</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <a href="tel:+17025001955" className="bg-white text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Call: (702) 500-1955</a>
-            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Contact Form</Link>
+            <Link href="/contact" className="bg-blue-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-blue-900 transition-colors">Contact Dr. Jan</Link>
           </div>
         </div>
       </section>

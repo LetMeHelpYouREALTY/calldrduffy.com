@@ -1,53 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
+import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          website: '',
-          source: 'Contact Page',
-        })
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', address: '', message: '' })
-      } else {
-        setSubmitStatus('error')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero with H1 */}
@@ -62,7 +17,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Scheduling Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
           <div>
@@ -70,90 +25,10 @@ export default function ContactPage() {
               Get In Touch Today
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Fill out the form or call directly. Dr. Janet Duffy responds quickly to help homeowners whose properties didn't sell successfully.
+              Book a time below or call directly. Dr. Janet Duffy responds quickly to help homeowners whose properties didn't sell successfully.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="contact-name" className="block text-sm font-semibold mb-2 text-gray-900">Your Name</label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-email" className="block text-sm font-semibold mb-2 text-gray-900">Email Address</label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-phone" className="block text-sm font-semibold mb-2 text-gray-900">Phone Number</label>
-                <input
-                  id="contact-phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-address" className="block text-sm font-semibold mb-2 text-gray-900">Property Address</label>
-                <input
-                  id="contact-address"
-                  type="text"
-                  value={formData.address}
-                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="123 Main St, Las Vegas, NV"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="contact-message" className="block text-sm font-semibold mb-2 text-gray-900">Message</label>
-                <textarea
-                  id="contact-message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="Tell us about your situation..."
-                />
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg">
-                  <p className="font-semibold">Thank you! Dr. Jan will contact you soon.</p>
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg">
-                  <p className="font-semibold">There was an error sending your message. Please try again or call (702) 500-1955.</p>
-                </div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
+            <CalendlyInlineWidget />
           </div>
 
           {/* Contact Info */}
