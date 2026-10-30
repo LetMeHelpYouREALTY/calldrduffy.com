@@ -1,52 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import FeaturedListing from '@/components/sections/FeaturedListing'
+import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 
 export default function Homepage() {
-  const [address, setAddress] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          address,
-          website: '',
-          source: 'Rental sale consultation — homepage',
-        }),
-      })
-
-      if (response.ok) {
-        alert('Thank you! Dr. Jan will contact you soon.')
-        setAddress('')
-        setName('')
-        setEmail('')
-        setPhone('')
-      }
-    } catch (error) {
-      console.error('Form submission error:', error)
-      alert('There was an error. Please try again or call (702) 500-1955.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white py-24 px-4">
@@ -59,75 +17,10 @@ export default function Homepage() {
             remain in place
           </p>
 
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Request a Rental Sale Consultation</h2>
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="home-address" className="sr-only">Rental property address</label>
-                <input
-                  id="home-address"
-                  type="text"
-                  placeholder="Rental property address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  required
-                  aria-label="Rental property address"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="home-name" className="sr-only">Your Name</label>
-                  <input
-                    id="home-name"
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
-                    required
-                    aria-label="Your Name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="home-email" className="sr-only">Email Address</label>
-                  <input
-                    id="home-email"
-                    type="email"
-                    placeholder="Email Address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 w-full"
-                    required
-                    aria-label="Email Address"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="home-phone" className="sr-only">Phone Number</label>
-                <input
-                  id="home-phone"
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  required
-                  aria-label="Phone Number"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg transition-colors"
-              >
-                {isSubmitting ? 'Submitting...' : 'Start the Conversation'}
-              </button>
-            </div>
-            <p className="text-sm text-gray-600 mt-4 text-center">
-              By submitting, you agree to be contacted about your rental property sale
-            </p>
-          </form>
+          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-2xl p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Book a Rental Sale Consultation</h2>
+            <CalendlyInlineWidget />
+          </div>
         </div>
       </section>
 
