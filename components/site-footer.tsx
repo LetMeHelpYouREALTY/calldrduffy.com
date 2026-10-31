@@ -48,6 +48,8 @@ export default function SiteFooter() {
                 145 E Harmon Ave, Unit E
                 <br />
                 Las Vegas, NV 89109
+                <br />
+                By appointment
               </li>
             </ul>
           </div>

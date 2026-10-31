@@ -22,7 +22,14 @@ export const AGENT = {
     addressCountry: 'US',
   },
   yearsInMarket: 35,
+  /** Meetings at the office are by appointment, booked through Calendly. */
+  byAppointment: true,
 } as const
+
+/** Google Maps link for the office address (no coordinates guessed). */
+export const MAP_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${AGENT.address.streetAddress}, ${AGENT.address.addressLocality}, ${AGENT.address.addressRegion} ${AGENT.address.postalCode}`,
+)}`
 
 export const AGENT_ID = `${SITE_URL}/#agent`
 export const PERSON_ID = `${SITE_URL}/#jan-duffy`
@@ -45,6 +52,7 @@ export function getSiteGraph() {
         email: AGENT.email,
         image: `${SITE_URL}/images/og/home.jpg`,
         address: postalAddress,
+        hasMap: MAP_URL,
         areaServed: [
           { '@type': 'City', name: 'Las Vegas', containedInPlace: { '@type': 'State', name: 'Nevada' } },
           { '@type': 'City', name: 'Henderson', containedInPlace: { '@type': 'State', name: 'Nevada' } },

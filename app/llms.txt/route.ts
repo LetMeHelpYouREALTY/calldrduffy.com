@@ -21,7 +21,7 @@ export function GET() {
 
 > Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, Nevada, from ${AGENT.name}, ${AGENT.title} (Nevada license ${AGENT.license}), ${AGENT.brokerage}. Pages give sourced, dated rent benchmarks, HOA and short-term-rental rules, and Nevada landlord rules for each community.
 
-Contact: book at ${SITE_URL}/#consult · ${AGENT.email} · ${AGENT.address.streetAddress}, ${AGENT.address.addressLocality}, ${AGENT.address.addressRegion} ${AGENT.address.postalCode}
+Contact: book at ${SITE_URL}/#consult · ${AGENT.email} · ${AGENT.address.streetAddress}, ${AGENT.address.addressLocality}, ${AGENT.address.addressRegion} ${AGENT.address.postalCode} (by appointment)
 
 ## Guides for owners
 - [Owner leasing plan](${SITE_URL}/lease-your-luxury-home): Step-by-step plan for leasing a luxury home, from HOA approval to renewal.
