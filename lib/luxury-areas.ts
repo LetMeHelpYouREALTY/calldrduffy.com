@@ -266,7 +266,7 @@ const BASE_AREAS: Omit<LuxuryArea, 'lastReviewed'>[] = [
     jurisdiction: 'clark-county',
     tagline: 'Guard-gated enclaves around a Robert Trent Jones Sr. & Jr. course',
     intro:
-      'Southern Highlands runs from family neighborhoods to golf-frontage estates inside one master plan. Rents at the top come from guard-gated enclaves such as The Estates and Olympia Ridge.',
+      'Southern Highlands runs from production-built neighborhoods to golf-frontage estates inside one master plan. Rents at the top come from guard-gated enclaves such as The Estates and Olympia Ridge.',
     homeFacts: [
       'Private Southern Highlands Golf Club, co-designed by Robert Trent Jones Sr. and Jr.',
       'Guard-gated enclaves, including The Estates and Olympia Ridge',
