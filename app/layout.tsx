@@ -12,6 +12,8 @@ import './globals.css'
 
 import { headers } from 'next/headers'
 import { getMetadataForPath } from '../lib/page-metadata'
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -82,6 +84,8 @@ export default function RootLayout({
         </ThemeProvider>
         {/* GA4, Follow Up Boss tracker (WT-XQHVYQWW) and RealScout, deferred */}
         <DeferredThirdParty />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   )
