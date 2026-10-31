@@ -105,7 +105,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
               description: area.video.description,
               thumbnailUrl: area.video.poster,
               contentUrl: area.video.src,
-              uploadDate: area.video.uploadDate,
+              uploadDate: `${area.video.uploadDate}T12:00:00-07:00`,
               duration: `PT${area.video.seconds}S`,
               publisher: { '@id': `${SITE_URL}/#agent` },
             },
