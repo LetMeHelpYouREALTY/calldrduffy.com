@@ -125,6 +125,7 @@ export default function AboutPage() {
             <dl className="mt-5 space-y-4 text-[var(--lux-muted)]">
               <div><dt className="text-xs uppercase tracking-[0.14em]">License</dt><dd className="text-[var(--lux-ink)]">Nevada S.0197614.LLC</dd></div>
               <div><dt className="text-xs uppercase tracking-[0.14em]">Brokerage</dt><dd className="text-[var(--lux-ink)]">Berkshire Hathaway HomeServices Nevada Properties</dd></div>
+              <div><dt className="text-xs uppercase tracking-[0.14em]">Business</dt><dd className="text-[var(--lux-ink)]">Las Vegas Rental Homes - Just Call Dr. Jan Duffy</dd></div>
               <div><dt className="text-xs uppercase tracking-[0.14em]">Office</dt><dd className="text-[var(--lux-ink)]">145 E Harmon Ave, Unit E, Las Vegas, NV 89109</dd></div>
               
               <div><dt className="text-xs uppercase tracking-[0.14em]">Brokerage profile</dt><dd><a className="text-[var(--lux-ink)] underline decoration-[var(--lux-gold)] underline-offset-4" href="https://janetduffy.bhhsnv.com" rel="noopener">janetduffy.bhhsnv.com</a></dd></div>

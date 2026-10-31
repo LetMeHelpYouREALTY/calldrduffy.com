@@ -6,6 +6,8 @@ import { SITE_URL } from './site-url'
  * Address: Dr. Jan's office, 145 E Harmon Ave, Unit E, Las Vegas, NV 89109.
  */
 export const AGENT = {
+  /** Exactly as on the Google Business Profile (2026-10-30). */
+  businessName: 'Las Vegas Rental Homes - Just Call Dr. Jan Duffy',
   name: 'Dr. Jan Duffy',
   title: 'REALTOR®',
   email: 'HomeSales@CallDrDuffy.com',
@@ -35,7 +37,8 @@ export function getSiteGraph() {
       {
         '@type': 'RealEstateAgent',
         '@id': AGENT_ID,
-        name: `${AGENT.name}, ${AGENT.title}`,
+        name: AGENT.businessName,
+        alternateName: `${AGENT.name}, ${AGENT.title}`,
         description:
           'Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, including The Ridges, Red Rock Country Club, The Summit Club, Queensridge, MacDonald Highlands, Ascaya, Anthem Country Club, Lake Las Vegas, Southern Highlands and Spanish Trail.',
         url: `${SITE_URL}/`,

@@ -43,6 +43,8 @@ export default function SiteFooter() {
                 <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white">HomeSales@CallDrDuffy.com</a>
               </li>
               <li className="pt-2 text-xs leading-relaxed">
+                Las Vegas Rental Homes - Just Call Dr. Jan Duffy
+                <br />
                 145 E Harmon Ave, Unit E
                 <br />
                 Las Vegas, NV 89109

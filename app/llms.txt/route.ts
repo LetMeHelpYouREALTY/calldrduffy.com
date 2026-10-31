@@ -17,7 +17,7 @@ export function GET() {
       : `- ${a.name}: no reliable published rent median; price from closed leases.`
   }).join('\n')
 
-  const body = `# Call Dr. Duffy — Luxury Home Leasing, Las Vegas & Henderson
+  const body = `# ${AGENT.businessName} — Luxury Home Leasing, Las Vegas & Henderson
 
 > Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, Nevada, from ${AGENT.name}, ${AGENT.title} (Nevada license ${AGENT.license}), ${AGENT.brokerage}. Pages give sourced, dated rent benchmarks, HOA and short-term-rental rules, and Nevada landlord rules for each community.
 
