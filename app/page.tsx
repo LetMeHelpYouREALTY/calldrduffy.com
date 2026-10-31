@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { LUXURY_AREAS, LUXURY_LEASE_BENCHMARKS } from '@/lib/luxury-areas'
@@ -39,8 +40,18 @@ export default function Homepage() {
   return (
     <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
       {/* Hero */}
-      <section className="lux-hero px-4 pb-24 pt-24 text-white sm:pb-32 sm:pt-32">
-        <div className="mx-auto max-w-6xl">
+      <section className="lux-hero relative overflow-hidden px-4 pb-24 pt-24 text-white sm:pb-32 sm:pt-32">
+        <Image
+          src="/images/hero-red-rock-canyon.jpg"
+          alt="Red Rock Canyon at sunset, on the western edge of Summerlin"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_60%]"
+        />
+        <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-[#141311]/90 via-[#1c1b19]/70 to-[#1c1b19]/25" />
+        <p className="absolute bottom-3 right-4 z-10 text-[10px] text-white/60">Red Rock Canyon · Photo: Cat Parker / Unsplash</p>
+        <div className="relative z-10 mx-auto max-w-6xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Luxury home leasing · Las Vegas &amp; Henderson</p>
           <h1 className="lux-h1 mt-6 max-w-4xl">Your luxury home, leased right — or sold right.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#ddd5c6]">

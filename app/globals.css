@@ -307,3 +307,9 @@ realscout-your-listings {
   --rs-listing-divider-color: rgb(101, 141, 172);
   width: 100%;
 }
+
+/* FUB Pixel call-to-action popup: account-wide number belongs to another site,
+   so it is hidden here. The tracker itself (WT-XQHVYQWW) stays installed. */
+iframe[name="widgetCta"] {
+  display: none !important;
+}
