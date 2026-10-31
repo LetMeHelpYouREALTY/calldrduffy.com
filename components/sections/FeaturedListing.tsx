@@ -176,11 +176,9 @@ export function featuredListingJsonLd(pageUrl: string) {
   return { "@context": "https://schema.org", "@graph": [listing, faq] };
 }
 
-type PhoneProps = {
-  /** This site's own display phone, e.g. "(702) 555-0100". */
-  phone: string;
-  /** Matching tel: href, e.g. "tel:+17025550100". */
-  phoneHref: string;
+type ContactProps = {
+  /** Where to book a showing: this site's Calendly section, e.g. "/#consult". */
+  bookHref: string;
   /** This site's hostname, used to tag RealScout links. */
   siteHost: string;
 };
@@ -218,10 +216,9 @@ function Facts() {
 }
 
 export default function FeaturedListing({
-  phone,
-  phoneHref,
+  bookHref,
   siteHost,
-}: PhoneProps) {
+}: ContactProps) {
   const l = FEATURED_LISTING;
   if (!l.active) return null;
 
@@ -284,10 +281,10 @@ export default function FeaturedListing({
               See all photos
             </a>
             <a
-              href={phoneHref}
+              href={bookHref}
               className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100"
             >
-              Call Dr. Jan Duffy at {phone} to tour
+              Book a showing with Dr. Jan Duffy
             </a>
           </div>
           <p className="mt-4 text-xs text-slate-500">
@@ -300,10 +297,9 @@ export default function FeaturedListing({
 }
 
 export function FeaturedListingPageBody({
-  phone,
-  phoneHref,
+  bookHref,
   siteHost,
-}: PhoneProps) {
+}: ContactProps) {
   const l = FEATURED_LISTING;
 
   return (
@@ -402,10 +398,10 @@ export function FeaturedListingPageBody({
             See all photos on RealScout
           </a>
           <a
-            href={phoneHref}
+            href={bookHref}
             className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100"
           >
-            Call Dr. Jan Duffy at {phone} to tour
+            Book a showing with Dr. Jan Duffy
           </a>
         </div>
         <p className="mt-8 text-xs text-slate-500">

@@ -1,15 +1,13 @@
 import { SITE_URL } from './site-url'
 
 /**
- * One source of truth for who runs this site. Name, address and phone must
+ * One source of truth for who runs this site. Name and address must
  * match everywhere (site, Google Business Profile, BHHS profile, Bing Places).
  * Address: Dr. Jan's office, 8850 W Sunset Rd, Suite 200, Las Vegas, NV 89148.
  */
 export const AGENT = {
   name: 'Dr. Jan Duffy',
   title: 'REALTOR®',
-  phone: '+17025001955',
-  phoneDisplay: '(702) 500-1955',
   email: 'HomeSales@CallDrDuffy.com',
   license: 'S.0197614.LLC',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
@@ -41,7 +39,6 @@ export function getSiteGraph() {
         description:
           'Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, including The Ridges, Red Rock Country Club, The Summit Club, Queensridge, MacDonald Highlands, Ascaya, Anthem Country Club, Lake Las Vegas, Southern Highlands and Spanish Trail.',
         url: `${SITE_URL}/`,
-        telephone: AGENT.phone,
         email: AGENT.email,
         image: `${SITE_URL}/images/og/home.jpg`,
         address: postalAddress,
@@ -67,7 +64,6 @@ export function getSiteGraph() {
         honorificPrefix: 'Dr.',
         jobTitle: AGENT.title,
         url: `${SITE_URL}/about`,
-        telephone: AGENT.phone,
         worksFor: { '@type': 'Organization', name: AGENT.brokerage },
         workLocation: { '@type': 'Place', address: postalAddress },
         hasCredential: {

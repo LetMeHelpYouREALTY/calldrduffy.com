@@ -29,7 +29,6 @@ export function getServiceAreaSchema(areas: Array<{ name: string; type: 'City' |
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: BASE_URL,
-      servicePhone: DR_JAN_INFO.telephone
     }
   }
 }
@@ -106,7 +105,6 @@ export function getMultiLocationBusinessSchema() {
     image: `${BASE_URL}/og-image.png`,
     '@id': `${BASE_URL}#business`,
     url: BASE_URL,
-    telephone: DR_JAN_INFO.telephone,
     priceRange: '$$',
     address: DR_JAN_INFO.address,
     geo: {

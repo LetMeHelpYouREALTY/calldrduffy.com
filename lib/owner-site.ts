@@ -1,7 +1,4 @@
 /** Site-wide constants for the owner-leasing site. */
-export const SITE_PHONE = '(702) 500-1955'
-export const SITE_PHONE_HREF = 'tel:+17025001955'
-
 /** Owner consultations book through Dr. Jan's Luxury Lease Consultation event (30 min, created 2026-10-30). */
 export const CALENDLY_OWNER_URL =
   'https://calendly.com/drjanduffy/luxury-lease-consultation-30-min?hide_gdpr_banner=1&utm_source=calldrduffy&utm_medium=website&utm_campaign=owner_leasing'

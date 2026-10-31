@@ -22,7 +22,6 @@ export default function Footer() {
         {/* Hidden schema data */}
         <meta itemProp="priceRange" content="$$" />
         <meta itemProp="image" content="https://www.calldrduffy.com/og-image.png" />
-        <meta itemProp="telephone" content="+17025001955" />
         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
           <meta itemProp="addressLocality" content="Las Vegas" />
           <meta itemProp="addressRegion" content="NV" />

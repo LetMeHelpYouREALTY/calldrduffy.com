@@ -106,7 +106,7 @@ for (const file of walk(appDir)) {
     subtitle ||
     (route === '/'
       ? 'Owner-side leasing strategy for luxury homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and Las Vegas’s other top-rent areas.'
-      : `${stripBhhs(h1 || humanizeRoute(route))}. Luxury home leasing guidance from Dr. Jan Duffy. Call (702) 500-1955.`)
+      : `${stripBhhs(h1 || humanizeRoute(route))}. Luxury home leasing guidance from Dr. Jan Duffy. Book a private consultation.`)
 
   routes[route] = {
     title: stripBhhs(title),

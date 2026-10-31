@@ -5,7 +5,6 @@ export default function schema(): object {
     name: 'Dr. Janet Duffy',
     description: 'Las Vegas real estate agent specializing in helping homes that didn\'t sell get sold successfully',
     url: 'https://www.calldrduffy.com',
-    telephone: '+17025001955',
     email: 'HomeSales@CallDrDuffy.com',
     address: {
       '@type': 'PostalAddress',

@@ -24,7 +24,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
   "/listings/9528-rainfall-avenue": {
     "title": "9528 Rainfall Avenue | Dr. Jan Duffy",
-    "description": "9528 Rainfall Avenue. Luxury home leasing guidance from Dr. Jan Duffy. Call (702) 500-1955."
+    "description": "9528 Rainfall Avenue. Luxury home leasing guidance from Dr. Jan Duffy. Book a private consultation."
   },
   "/": {
     "title": "Lease or Sell Your Luxury Las Vegas Home | Dr. Jan Duffy",

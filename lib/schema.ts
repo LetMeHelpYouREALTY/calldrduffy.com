@@ -7,7 +7,6 @@ export const BASE_URL = SITE_URL
 export const DR_JAN_INFO = {
   name: 'Dr. Jan Duffy',
   fullTitle: 'Dr. Jan Duffy, REALTOR®',
-  telephone: '+17025001955',
   email: 'HomeSales@CallDrDuffy.com',
   licenseNumber: 'S.0197614.LLC',
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
@@ -31,7 +30,6 @@ export function getLocalBusinessSchema() {
     description:
       'Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson.',
     url: BASE_URL,
-    telephone: DR_JAN_INFO.telephone,
     email: DR_JAN_INFO.email,
     address: DR_JAN_INFO.address,
     priceRange: '$$',
@@ -89,8 +87,8 @@ export function getOrganizationSchema() {
     logo: `${BASE_URL}/og-image.png`,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: DR_JAN_INFO.telephone,
       contactType: 'Sales',
+      url: `${BASE_URL}/#consult`,
       areaServed: 'US',
       availableLanguage: 'English'
     },
@@ -106,7 +104,6 @@ export function getRealEstateAgentSchema() {
     name: DR_JAN_INFO.name,
     description: "Las Vegas real estate agent specializing in helping homes that didn't sell get sold successfully",
     url: BASE_URL,
-    telephone: DR_JAN_INFO.telephone,
     email: DR_JAN_INFO.email,
     address: DR_JAN_INFO.address,
     licenseNumber: DR_JAN_INFO.licenseNumber,
@@ -151,7 +148,6 @@ export function getPersonSchema() {
     name: DR_JAN_INFO.name,
     jobTitle: 'Licensed Real Estate Professional',
     description: `${DR_JAN_INFO.fullTitle}\n${DR_JAN_INFO.brokerage} | ${DR_JAN_INFO.location}\nLicense #${DR_JAN_INFO.licenseNumber}`,
-    telephone: DR_JAN_INFO.telephone,
     email: DR_JAN_INFO.email,
     url: BASE_URL,
     image: `${BASE_URL}/og-image.png`,

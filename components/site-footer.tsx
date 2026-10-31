@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { LUXURY_AREAS } from '@/lib/luxury-areas'
-import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear()
@@ -41,9 +40,6 @@ export default function SiteFooter() {
               <li><Link href="/about" className="hover:text-white">About Dr. Jan</Link></li>
               <li><Link href="/#consult" className="hover:text-white">Book a consultation</Link></li>
               <li className="pt-2">
-                <a href={SITE_PHONE_HREF} className="text-white">{SITE_PHONE}</a>
-              </li>
-              <li>
                 <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white">HomeSales@CallDrDuffy.com</a>
               </li>
               <li className="pt-2 text-xs leading-relaxed">

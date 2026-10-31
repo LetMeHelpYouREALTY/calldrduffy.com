@@ -22,7 +22,7 @@ Retired pages 301-redirect via `lib/legacy-redirects.json` (wired in `next.confi
 
 - **Every number carries a source and an as-of date.** Market figures live in `lib/luxury-areas.ts` and `lib/owner-site.ts`. Refresh or remove any figure older than 60 days rather than guessing.
 - **Fair Housing:** describe the home and the rules, never the ideal renter. No "family-friendly", "safe", "good schools", "perfect for professionals".
-- **No forms.** Owners book through Calendly (`CALENDLY_OWNER_URL` in `lib/owner-site.ts`). Site phone: (702) 500-1955.
+- **No forms.** Owners book through Calendly (`CALENDLY_OWNER_URL` in `lib/owner-site.ts`). No phone numbers on the site; contact is Calendly plus the Follow Up Boss pixel.
 - The FUB Widget Tracker in `app/layout.tsx` stays installed.
 
 ## Hero photos

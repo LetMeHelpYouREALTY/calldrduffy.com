@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
 
 const LINKS = [
   { href: '/areas', label: 'Areas' },
@@ -37,9 +36,6 @@ export default function SiteNavigation() {
               {l.label}
             </Link>
           ))}
-          <a href={SITE_PHONE_HREF} className="text-sm font-medium text-[var(--lux-ink)]">
-            {SITE_PHONE}
-          </a>
           <Link href="/#consult" className="lux-btn lux-btn-gold !px-5 !py-2.5">
             Book
           </Link>
@@ -75,9 +71,6 @@ export default function SiteNavigation() {
                 {l.label}
               </Link>
             ))}
-            <a href={SITE_PHONE_HREF} className="block py-2 font-medium text-[var(--lux-ink)]">
-              Call {SITE_PHONE}
-            </a>
             <Link
               href="/#consult"
               className="lux-btn lux-btn-gold mt-2 w-full"

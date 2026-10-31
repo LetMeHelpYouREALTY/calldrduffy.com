@@ -124,7 +124,7 @@ export default function AboutPage() {
               <div><dt className="text-xs uppercase tracking-[0.14em]">License</dt><dd className="text-[var(--lux-ink)]">Nevada S.0197614.LLC</dd></div>
               <div><dt className="text-xs uppercase tracking-[0.14em]">Brokerage</dt><dd className="text-[var(--lux-ink)]">Berkshire Hathaway HomeServices Nevada Properties</dd></div>
               <div><dt className="text-xs uppercase tracking-[0.14em]">Office</dt><dd className="text-[var(--lux-ink)]">8850 W Sunset Rd, Suite 200, Las Vegas, NV 89148</dd></div>
-              <div><dt className="text-xs uppercase tracking-[0.14em]">Phone</dt><dd className="text-[var(--lux-ink)]">(702) 500-1955</dd></div>
+              
               <div><dt className="text-xs uppercase tracking-[0.14em]">Brokerage profile</dt><dd><a className="text-[var(--lux-ink)] underline decoration-[var(--lux-gold)] underline-offset-4" href="https://janetduffy.bhhsnv.com" rel="noopener">janetduffy.bhhsnv.com</a></dd></div>
             </dl>
           </div>
