@@ -3,7 +3,7 @@ import { SITE_URL } from './site-url'
 /**
  * One source of truth for who runs this site. Name and address must
  * match everywhere (site, Google Business Profile, BHHS profile, Bing Places).
- * Address: Dr. Jan's office, 8850 W Sunset Rd, Suite 200, Las Vegas, NV 89148.
+ * Address: Dr. Jan's office, 145 E Harmon Ave, Unit E, Las Vegas, NV 89109.
  */
 export const AGENT = {
   name: 'Dr. Jan Duffy',
@@ -13,10 +13,10 @@ export const AGENT = {
   brokerage: 'Berkshire Hathaway HomeServices Nevada Properties',
   bhhsProfile: 'https://janetduffy.bhhsnv.com',
   address: {
-    streetAddress: '8850 W Sunset Rd, Suite 200',
+    streetAddress: '145 E Harmon Ave, Unit E',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
-    postalCode: '89148',
+    postalCode: '89109',
     addressCountry: 'US',
   },
   yearsInMarket: 35,

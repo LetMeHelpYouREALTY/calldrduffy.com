@@ -13,10 +13,10 @@ export const DR_JAN_INFO = {
   location: 'Las Vegas, NV',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '8850 W Sunset Rd, Suite 200',
+    streetAddress: '145 E Harmon Ave, Unit E',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
-    postalCode: '89148',
+    postalCode: '89109',
     addressCountry: 'US',
   },
 }

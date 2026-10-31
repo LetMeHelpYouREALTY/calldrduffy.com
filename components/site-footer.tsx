@@ -43,9 +43,9 @@ export default function SiteFooter() {
                 <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white">HomeSales@CallDrDuffy.com</a>
               </li>
               <li className="pt-2 text-xs leading-relaxed">
-                8850 W Sunset Rd, Suite 200
+                145 E Harmon Ave, Unit E
                 <br />
-                Las Vegas, NV 89148
+                Las Vegas, NV 89109
               </li>
             </ul>
           </div>
