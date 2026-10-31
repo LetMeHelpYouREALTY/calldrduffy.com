@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getStaticPageRoutes } from '@/lib/static-page-routes'
 import { LUXURY_AREAS } from '@/lib/luxury-areas'
+import { AREA_HERO_PHOTOS, PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 /**
  * Real last-changed dates. Update a date only when that page's content
@@ -19,29 +20,63 @@ const CONTENT_UPDATED: Record<string, string> = {
 }
 const DEFAULT_UPDATED = '2026-10-30'
 
-function priorityForRoute(route: string): number {
-  if (route === '/') return 1
-  if (route === '/areas' || route.startsWith('/areas/')) return 0.9
-  if (route === '/lease-your-luxury-home' || route === '/rent-vs-sell' || route === '/luxury-lease-report') return 0.9
-  if (route.startsWith('/listings/')) return 0.5
-  return 0.7
+/** Hero image per page, listed so the photos can surface in image search. */
+const PAGE_IMAGE: Record<string, string> = {
+  '/': '/images/hero-red-rock-canyon.jpg',
+  '/areas': PAGE_HERO_PHOTOS.areas.src,
+  '/lease-your-luxury-home': PAGE_HERO_PHOTOS.lease.src,
+  '/rent-vs-sell': PAGE_HERO_PHOTOS.rentVsSell.src,
+  '/about': PAGE_HERO_PHOTOS.about.src,
+  '/contact': PAGE_HERO_PHOTOS.contact.src,
+  '/luxury-lease-report': PAGE_HERO_PHOTOS.report.src,
+  '/las-vegas-property-tax': PAGE_HERO_PHOTOS.propertyTax.src,
 }
+
+/** Most important pages first; Google reads lastmod, not priority or changefreq. */
+const ORDER = ['/', '/areas', '/luxury-lease-report', '/lease-your-luxury-home', '/rent-vs-sell', '/las-vegas-property-tax', '/about', '/contact']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ||
     'https://www.calldrduffy.com'
+  const abs = (u: string) => (u.startsWith('http') ? u : `${baseUrl}${u}`)
+  // Next.js writes video text into the XML unescaped, so escape it here.
+  const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
-  const routes = [
-    ...getStaticPageRoutes().filter((r) => !r.includes('[') && !r.endsWith('.txt')),
-    ...LUXURY_AREAS.map((a) => `/areas/${a.slug}`),
-  ]
-  const areaDates = Object.fromEntries(LUXURY_AREAS.map((a) => [`/areas/${a.slug}`, a.lastReviewed]))
+  const pages = getStaticPageRoutes().filter((r) => !r.includes('[') && !r.endsWith('.txt') && r !== '/areas' && !r.startsWith('/areas/'))
+  const ordered = [...ORDER.filter((r) => pages.includes(r)), ...pages.filter((r) => !ORDER.includes(r))]
 
-  return routes.map((route) => ({
+  const pageEntries: MetadataRoute.Sitemap = ordered.map((route) => ({
     url: route === '/' ? baseUrl : `${baseUrl}${route}`,
-    lastModified: new Date(`${areaDates[route] ?? CONTENT_UPDATED[route] ?? DEFAULT_UPDATED}T12:00:00-07:00`),
-    changeFrequency: route === '/' || route.startsWith('/areas') ? 'weekly' : 'monthly',
-    priority: priorityForRoute(route),
+    lastModified: new Date(`${CONTENT_UPDATED[route] ?? DEFAULT_UPDATED}T12:00:00-07:00`),
+    ...(PAGE_IMAGE[route] ? { images: [abs(PAGE_IMAGE[route])] } : {}),
   }))
+
+  // /areas sits right after the home page.
+  pageEntries.splice(1, 0, {
+    url: `${baseUrl}/areas`,
+    lastModified: new Date(`${CONTENT_UPDATED['/areas'] ?? DEFAULT_UPDATED}T12:00:00-07:00`),
+    images: [abs(PAGE_IMAGE['/areas'])],
+  })
+
+  const areaEntries: MetadataRoute.Sitemap = LUXURY_AREAS.map((a) => ({
+    url: `${baseUrl}/areas/${a.slug}`,
+    lastModified: new Date(`${a.lastReviewed}T12:00:00-07:00`),
+    images: AREA_HERO_PHOTOS[a.slug] ? [abs(AREA_HERO_PHOTOS[a.slug].src)] : undefined,
+    videos: a.video
+      ? [
+          {
+            title: esc(a.video.title),
+            description: esc(a.video.description),
+            thumbnail_loc: abs(a.video.poster),
+            content_loc: abs(a.video.src),
+            duration: a.video.seconds,
+            publication_date: `${a.video.uploadDate}T12:00:00-07:00`,
+            family_friendly: 'yes' as const,
+          },
+        ]
+      : undefined,
+  }))
+
+  return [...pageEntries.slice(0, 2), ...areaEntries, ...pageEntries.slice(2)]
 }
