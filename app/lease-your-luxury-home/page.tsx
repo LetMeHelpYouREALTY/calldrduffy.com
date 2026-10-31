@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { LEASING_PACE, OWNER_RULES } from '@/lib/owner-site'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'How to Lease Your Luxury Las Vegas Home | Owner Leasing Plan' },
@@ -69,6 +70,8 @@ export default function LeaseYourLuxuryHomePage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl space-y-14">

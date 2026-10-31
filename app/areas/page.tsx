@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { LUXURY_AREAS } from '@/lib/luxury-areas'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'Highest-Rent Luxury Communities in Las Vegas | Owner Leasing Guide' },
@@ -26,6 +27,8 @@ export default function AreasPage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl space-y-16">

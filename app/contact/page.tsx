@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { SITE_PHONE, SITE_PHONE_HREF } from '@/lib/owner-site'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'Contact Dr. Jan Duffy | Luxury Home Leasing, Las Vegas' },
@@ -29,6 +30,8 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
       <ConsultSection heading="Pick a time" />
     </div>
   )

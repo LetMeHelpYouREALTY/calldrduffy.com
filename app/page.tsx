@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { LUXURY_AREAS, LUXURY_LEASE_BENCHMARKS } from '@/lib/luxury-areas'
 import { LEASING_PACE, OWNER_RULES } from '@/lib/owner-site'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'Lease or Sell Your Luxury Las Vegas Home | Dr. Jan Duffy' },
@@ -55,6 +56,8 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       {/* Benchmarks */}
       <section className="border-b border-[var(--lux-line)] px-4 py-14">

@@ -5,6 +5,7 @@ import AuthorBadge from '@/components/author-badge'
 import StructuredDataScript from '@/components/structured-data-script'
 import Breadcrumbs from '@/components/breadcrumbs'
 import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export default function LasVegasPropertyTaxPage() {
   const articleSchema = getArticleSchema({
@@ -30,6 +31,8 @@ export default function LasVegasPropertyTaxPage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       {/* Author Badge */}
       <section className="py-4 px-4 bg-gray-50">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'About Dr. Jan Duffy | Luxury Home Leasing & Sales, Las Vegas' },
@@ -29,6 +30,8 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       <section className="border-b border-[var(--lux-line)] px-4 py-14">
         <div className="mx-auto grid max-w-5xl gap-10 sm:grid-cols-3">

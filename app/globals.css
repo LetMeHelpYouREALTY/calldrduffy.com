@@ -295,3 +295,9 @@
     radial-gradient(ellipse at 10% 90%, rgba(216, 195, 154, 0.12), transparent 50%),
     linear-gradient(160deg, #2a2723 0%, #1c1b19 60%, #141311 100%);
 }
+
+/* RealScout office listings widget */
+realscout-office-listings {
+  --rs-listing-divider-color: rgb(101, 141, 172);
+  width: 100%;
+}

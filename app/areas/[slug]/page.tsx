@@ -5,6 +5,7 @@ import ConsultSection from '@/components/luxury/ConsultSection'
 import { JURISDICTION_STR_RULE, LUXURY_AREAS, getArea } from '@/lib/luxury-areas'
 import { OWNER_RULES } from '@/lib/owner-site'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export function generateStaticParams() {
   return LUXURY_AREAS.map((a) => ({ slug: a.slug }))
@@ -109,6 +110,8 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
           </Link>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       {area.figure && (
         <section className="border-b border-[var(--lux-line)] px-4 py-12">

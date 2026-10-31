@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import RentVsSellCalculator from '@/components/luxury/RentVsSellCalculator'
 import { SITE_URL } from '@/lib/site-url'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 
 export const metadata: Metadata = {
   title: { absolute: 'Rent or Sell Your Luxury Las Vegas Home? Calculator | Dr. Jan Duffy' },
@@ -23,6 +24,8 @@ export default function RentVsSellPage() {
           </p>
         </div>
       </section>
+
+      <RealScoutRentals />
 
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl">

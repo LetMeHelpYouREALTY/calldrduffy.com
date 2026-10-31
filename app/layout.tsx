@@ -63,6 +63,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* RealScout web components (loaded once for every widget on the page) */}
+        <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module" async />
         <Analytics />
                 <StructuredData data={getRealEstateAgentSchema()} id="real-estate-agent-schema" />
                 <StructuredData data={getLocalBusinessSchema()} id="local-business-schema" />
