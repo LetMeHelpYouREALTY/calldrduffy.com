@@ -301,3 +301,9 @@ realscout-office-listings {
   --rs-listing-divider-color: rgb(101, 141, 172);
   width: 100%;
 }
+
+/* RealScout your-listings (featured) widget */
+realscout-your-listings {
+  --rs-listing-divider-color: rgb(101, 141, 172);
+  width: 100%;
+}

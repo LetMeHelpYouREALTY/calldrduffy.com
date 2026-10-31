@@ -13,6 +13,7 @@ declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'realscout-office-listings': RealScoutOfficeListingsProps
+      'realscout-your-listings': RealScoutOfficeListingsProps
     }
   }
 }
