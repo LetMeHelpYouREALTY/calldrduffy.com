@@ -18,7 +18,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="lux-eyebrow">Areas</p>
+            <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Areas</p>
             <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
               {LUXURY_AREAS.map((a) => (
                 <li key={a.slug}>
@@ -31,7 +31,7 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <p className="lux-eyebrow">Owners</p>
+            <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Owners</p>
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/lease-your-luxury-home" className="hover:text-white">Leasing plan</Link></li>
               <li><Link href="/rent-vs-sell" className="hover:text-white">Rent vs. sell</Link></li>

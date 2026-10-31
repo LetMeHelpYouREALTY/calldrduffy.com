@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
+  images: {
+    // AVIF first, WebP fallback; heroes request quality 70.
+    formats: ['image/avif', 'image/webp'],
+    qualities: [70, 75],
+    minimumCacheTTL: 2678400,
+  },
   experimental: {
     optimizePackageImports: ['@radix-ui/react-icons'],
   },

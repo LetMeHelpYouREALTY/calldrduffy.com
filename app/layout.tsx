@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
+import DeferredThirdParty from '@/components/luxury/DeferredThirdParty'
 import { Geist, Geist_Mono, Cormorant_Garamond } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import DeployBanner from '../components/deploy-banner'
 import SiteNavigation from '../components/site-nav'
 import SiteFooter from '../components/site-footer'
-import Analytics from './analytics'
 import StructuredData from '../components/structured-data'
 import { getSiteGraph } from '../lib/site-entity'
 import { SITE_URL } from '../lib/site-url'
@@ -59,8 +58,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://media.calldrduffy.com" />
         {/* RealScout web components (loaded once for every widget on the page) */}
-        <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module" async />
-        <Analytics />
         <StructuredData data={getSiteGraph()} id="site-graph" />
       </head>
       <body
@@ -83,16 +80,8 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </ThemeProvider>
-        {/* Widget Tracker */}
-        <Script id="widget-tracker" strategy="afterInteractive">{`
-          (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
-          {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
-          (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
-          e.parentNode.insertBefore(t,e);})
-          (window,"https://widgetbe.com/agent",document,"widgetTracker");
-          window.widgetTracker("create", "WT-XQHVYQWW");
-          window.widgetTracker("send", "pageview");
-        `}</Script>
+        {/* GA4, Follow Up Boss tracker (WT-XQHVYQWW) and RealScout, deferred */}
+        <DeferredThirdParty />
       </body>
     </html>
   )

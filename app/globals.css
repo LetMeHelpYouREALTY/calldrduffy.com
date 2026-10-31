@@ -220,7 +220,7 @@
   --lux-charcoal: #24221f;
   --lux-ivory: #f7f4ee;
   --lux-paper: #fbf9f5;
-  --lux-gold: #a8874b;
+  --lux-gold: #86682f;
   --lux-gold-soft: #d8c39a;
   --lux-muted: #5f5a52;
   --lux-line: #e4ddd0;
@@ -279,7 +279,7 @@
   color: #fff;
 }
 .lux-btn-gold:hover {
-  background: #8f7240;
+  background: #6f5525;
 }
 
 .lux-btn-ghost {

@@ -14,6 +14,8 @@ export default function HeroBackdrop({ photo, priority = true }: { photo: HeroPh
         alt={photo.alt}
         fill
         priority={priority}
+        fetchPriority={priority ? 'high' : undefined}
+        quality={70}
         sizes="100vw"
         className="object-cover"
         style={{ objectPosition: photo.position ?? 'center' }}

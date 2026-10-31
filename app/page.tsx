@@ -46,6 +46,8 @@ export default function Homepage() {
           alt="Red Rock Canyon at sunset, on the western edge of Summerlin"
           fill
           priority
+          fetchPriority="high"
+          quality={70}
           sizes="100vw"
           className="object-cover object-[center_60%]"
         />
