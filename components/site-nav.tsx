@@ -8,6 +8,7 @@ const LINKS = [
   { href: '/areas', label: 'Areas' },
   { href: '/lease-your-luxury-home', label: 'Leasing Plan' },
   { href: '/rent-vs-sell', label: 'Rent vs. Sell' },
+  { href: '/luxury-lease-report', label: 'Lease Report' },
   { href: '/about', label: 'About' },
 ]
 

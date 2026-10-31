@@ -2,6 +2,23 @@ import type { Metadata } from 'next'
 import { ROUTE_SEO } from './route-seo'
 import { SITE_URL } from './site-url'
 
+/** Share image per path: a 1200x630 crop of that page's hero photo. */
+const OG_BY_PATH: Record<string, string> = {
+  '/': '/images/og/home.jpg',
+  '/areas': '/images/og/areas.jpg',
+  '/lease-your-luxury-home': '/images/og/lease-your-luxury-home.jpg',
+  '/rent-vs-sell': '/images/og/rent-vs-sell.jpg',
+  '/about': '/images/og/about.jpg',
+  '/contact': '/images/og/contact.jpg',
+  '/las-vegas-property-tax': '/images/og/las-vegas-property-tax.jpg',
+  '/luxury-lease-report': '/images/og/luxury-lease-report.jpg',
+}
+
+export function ogImageFor(path: string): string {
+  if (path.startsWith('/areas/')) return `/images/og/${path.split('/')[2]}.jpg`
+  return OG_BY_PATH[path] ?? '/images/og/home.jpg'
+}
+
 const defaultSeo = ROUTE_SEO['/']
 
 function normalizePath(pathname: string): string {
@@ -19,6 +36,7 @@ export function getMetadataForPath(pathname: string): Metadata {
   }
 
   const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`
+  const image = ogImageFor(path)
 
   return {
     title: seo.title,
@@ -33,13 +51,13 @@ export function getMetadataForPath(pathname: string): Metadata {
       siteName: 'Call Dr. Duffy',
       type: 'website',
       locale: 'en_US',
-      images: ['/og-image.png'],
+      images: [{ url: image, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: seo.title,
       description: seo.description,
-      images: ['/og-image.png'],
+      images: [image],
     },
     authors: [{ name: 'Dr. Jan Duffy' }],
     robots: {

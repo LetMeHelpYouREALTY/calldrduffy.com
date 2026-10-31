@@ -42,5 +42,6 @@ export const PAGE_HERO_PHOTOS = {
   rentVsSell: h('rent-vs-sell', 'A modern home with a lit swimming pool at dusk', 'Photo: Cesar Cid / Unsplash', 'center 60%'),
   about: h('about', 'The Las Vegas Strip from above at dusk', 'The Las Vegas Strip at dusk · Photo: Leo_Visions / Unsplash', 'center 55%'),
   contact: h('contact', 'A bright living room with a white sofa and wood furniture', 'Photo: Cat Han / Unsplash', 'center 55%'),
+  report: h('luxury-lease-report', 'Las Vegas at sunset under a sky of orange clouds', 'Las Vegas at sunset · Photo: Steven Pahel / Unsplash', 'center 60%'),
   propertyTax: h('las-vegas-property-tax', 'The Las Vegas skyline against the mountains, homes in the foreground', 'Las Vegas skyline · Photo: Tyler Hardie / Unsplash', 'center 55%'),
 } satisfies Record<string, HeroPhoto>

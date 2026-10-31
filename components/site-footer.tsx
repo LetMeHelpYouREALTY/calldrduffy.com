@@ -6,25 +6,16 @@ export default function SiteFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[var(--lux-ink)] text-[#cfc8bb]" itemScope itemType="https://schema.org/RealEstateAgent">
+    <footer className="bg-[var(--lux-ink)] text-[#cfc8bb]">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <p itemProp="name" className="font-[family-name:var(--font-cormorant)] text-2xl text-white">
+            <p className="font-[family-name:var(--font-cormorant)] text-2xl text-white">
               Dr. Jan Duffy
             </p>
-            <p className="mt-2 text-sm leading-relaxed" itemProp="description">
+            <p className="mt-2 text-sm leading-relaxed">
               Leasing and sales strategy for owners of luxury homes in Las Vegas and Henderson.
             </p>
-            <meta itemProp="telephone" content="+17025001955" />
-            <meta itemProp="image" content="https://www.calldrduffy.com/og-image.png" />
-            <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
-              <meta itemProp="streetAddress" content="9406 W Lake Mead Blvd, Suite 100" />
-              <meta itemProp="addressLocality" content="Las Vegas" />
-              <meta itemProp="addressRegion" content="NV" />
-              <meta itemProp="postalCode" content="89134" />
-              <meta itemProp="addressCountry" content="US" />
-            </div>
           </div>
 
           <div className="md:col-span-2">
@@ -45,6 +36,7 @@ export default function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm">
               <li><Link href="/lease-your-luxury-home" className="hover:text-white">Leasing plan</Link></li>
               <li><Link href="/rent-vs-sell" className="hover:text-white">Rent vs. sell</Link></li>
+              <li><Link href="/luxury-lease-report" className="hover:text-white">Luxury Lease Report</Link></li>
               <li><Link href="/las-vegas-property-tax" className="hover:text-white">Property tax</Link></li>
               <li><Link href="/about" className="hover:text-white">About Dr. Jan</Link></li>
               <li><Link href="/#consult" className="hover:text-white">Book a consultation</Link></li>
@@ -53,6 +45,11 @@ export default function SiteFooter() {
               </li>
               <li>
                 <a href="mailto:HomeSales@CallDrDuffy.com" className="hover:text-white">HomeSales@CallDrDuffy.com</a>
+              </li>
+              <li className="pt-2 text-xs leading-relaxed">
+                8850 W Sunset Rd, Suite 200
+                <br />
+                Las Vegas, NV 89148
               </li>
             </ul>
           </div>

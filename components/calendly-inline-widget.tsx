@@ -71,14 +71,34 @@ export default function CalendlyInlineWidget({
     if (!parent) return
 
     let cancelled = false
-    ensureCalendlyAssets(() => {
-      if (cancelled || !window.Calendly) return
-      parent.innerHTML = ''
-      window.Calendly.initInlineWidget({ url, parentElement: parent })
-    })
+    const init = () =>
+      ensureCalendlyAssets(() => {
+        if (cancelled || !window.Calendly) return
+        parent.innerHTML = ''
+        window.Calendly.initInlineWidget({ url, parentElement: parent })
+      })
+
+    // Load Calendly only when the scheduler is about to scroll into view,
+    // so its scripts do not slow the first paint of the page.
+    let observer: IntersectionObserver | undefined
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            observer?.disconnect()
+            init()
+          }
+        },
+        { rootMargin: '600px 0px' },
+      )
+      observer.observe(parent)
+    } else {
+      init()
+    }
 
     return () => {
       cancelled = true
+      observer?.disconnect()
     }
   }, [url])
 

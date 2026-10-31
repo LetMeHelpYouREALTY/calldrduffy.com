@@ -25,6 +25,17 @@ export type LuxuryArea = {
   homeFacts: string[]
   leasingNotes: string[]
   figure?: MarketFigure
+  /** ISO date the page's facts were last checked. */
+  lastReviewed: string
+  /** 40-60 word direct answer shown first (answer-engine friendly). */
+  answer?: string
+  /** Sourced facts for the data box. */
+  facts?: MarketFigure[]
+  /** Questions specific to this community. */
+  faqs?: { q: string; a: string }[]
+  /** Related communities to link to (slugs). */
+  siblings?: string[]
+  video?: { src: string; poster: string; title: string; description: string; uploadDate: string; seconds: number }
 }
 
 /** Valley-wide luxury lease benchmarks. */
@@ -58,7 +69,7 @@ export const JURISDICTION_STR_RULE: Record<Jurisdiction, string> = {
     'Unincorporated Clark County: a short-term rental license is required for stays of 30 days or less, and no new licenses were being issued as of September 2026. Plan on leases of 30 days or longer.',
 }
 
-export const LUXURY_AREAS: LuxuryArea[] = [
+const BASE_AREAS: Omit<LuxuryArea, 'lastReviewed'>[] = [
   {
     slug: 'the-ridges',
     name: 'The Ridges',
@@ -76,7 +87,7 @@ export const LUXURY_AREAS: LuxuryArea[] = [
       'Minutes to Downtown Summerlin retail and dining',
     ],
     leasingNotes: [
-      'The HOA does not permit stays under 31 days, so every lease here is a standard 30-day-plus lease.',
+      'Summerlin South master rules call for a written lease of at least one year; confirm The Ridges’ own lease steps with the HOA.',
       'Confirm the association’s lease-registration steps and gate-access process before listing.',
     ],
     figure: {
@@ -176,7 +187,7 @@ export const LUXURY_AREAS: LuxuryArea[] = [
       'Large lots with custom architecture',
     ],
     leasingNotes: [
-      'The HOA does not permit stays under 31 days.',
+      'The CC&Rs require written, whole-home leases of at least 30 days and bar transient tenants.',
       'Only 14 homes were listed for rent in August 2026, so a well-presented home stands out.',
     ],
     figure: {
@@ -289,6 +300,14 @@ export const LUXURY_AREAS: LuxuryArea[] = [
     ],
   },
 ]
+
+import { AREA_DETAILS } from './area-details'
+
+export const LUXURY_AREAS: LuxuryArea[] = BASE_AREAS.map((a) => ({
+  lastReviewed: '2026-10-30',
+  ...a,
+  ...(AREA_DETAILS[a.slug] ?? {}),
+}))
 
 export function getArea(slug: string): LuxuryArea | undefined {
   return LUXURY_AREAS.find((a) => a.slug === slug)

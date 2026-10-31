@@ -14,10 +14,10 @@ export const DR_JAN_INFO = {
   location: 'Las Vegas, NV',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '9406 W Lake Mead Blvd, Suite 100',
+    streetAddress: '8850 W Sunset Rd, Suite 200',
     addressLocality: 'Las Vegas',
     addressRegion: 'NV',
-    postalCode: '89134',
+    postalCode: '89148',
     addressCountry: 'US',
   },
 }
