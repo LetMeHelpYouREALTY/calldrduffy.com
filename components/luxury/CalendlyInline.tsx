@@ -1,21 +1,13 @@
 'use client'
 
-import Script from 'next/script'
+import CalendlyInlineWidget from '@/components/calendly-inline-widget'
 import { CALENDLY_OWNER_URL } from '@/lib/owner-site'
 
-/** Inline Calendly booking widget. No forms on this site: owners book directly. */
+/**
+ * Owner booking widget. No forms on this site: owners book directly.
+ * Uses the shared widget, which re-initializes Calendly on every mount so the
+ * scheduler also renders after client-side navigation between pages.
+ */
 export default function CalendlyInline({ url = CALENDLY_OWNER_URL }: { url?: string }) {
-  return (
-    <div className="w-full">
-      <div
-        className="calendly-inline-widget w-full"
-        data-url={url}
-        style={{ minWidth: '320px', height: '700px' }}
-      />
-      <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
-      <noscript>
-        <a href={url}>Book a private owner consultation</a>
-      </noscript>
-    </div>
-  )
+  return <CalendlyInlineWidget url={url} height="700px" />
 }
