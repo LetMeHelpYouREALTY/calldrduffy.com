@@ -80,8 +80,8 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </ThemeProvider>
-        {/* GA4, Follow Up Boss tracker (WT-XQHVYQWW) and RealScout, deferred */}
-        <DeferredThirdParty />
+        {/* GA4, Follow Up Boss tracker (WT-XQHVYQWW, production only) and RealScout, deferred */}
+        <DeferredThirdParty fubPixel={process.env.VERCEL_ENV === 'production'} />
       </body>
     </html>
   )
