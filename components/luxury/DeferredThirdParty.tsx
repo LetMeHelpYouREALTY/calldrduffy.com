@@ -11,6 +11,7 @@ import { useEffect } from 'react'
  *   so the page view is queued immediately and sent when gtag.js arrives.
  * - Follow Up Boss widget tracker (WT-XQHVYQWW): its command queue starts at
  *   once; the tracker script arrives with the others. Keep it installed.
+ *   Production only (fubPixel), so Vercel previews don't register with FUB.
  * - RealScout web components: only on pages that render a RealScout widget.
  */
 const GA_ID = 'G-4PR7PYZM0S'
@@ -36,7 +37,7 @@ function addScript(src: string, module = false) {
   document.head.appendChild(s)
 }
 
-export default function DeferredThirdParty() {
+export default function DeferredThirdParty({ fubPixel = false }: { fubPixel?: boolean }) {
   useEffect(() => {
     // Queue analytics and the tracker now; their scripts load later.
     window.dataLayer = window.dataLayer || []
@@ -47,23 +48,25 @@ export default function DeferredThirdParty() {
     window.gtag('js', new Date())
     window.gtag('config', GA_ID, { page_path: window.location.pathname })
 
-    window.WidgetTrackerObject = 'widgetTracker'
-    if (!window.widgetTracker) {
-      const wt: Queued = (...args: unknown[]) => {
-        ;(wt.q = wt.q || []).push(args)
+    if (fubPixel) {
+      window.WidgetTrackerObject = 'widgetTracker'
+      if (!window.widgetTracker) {
+        const wt: Queued = (...args: unknown[]) => {
+          ;(wt.q = wt.q || []).push(args)
+        }
+        wt.ds = Date.now()
+        window.widgetTracker = wt
       }
-      wt.ds = Date.now()
-      window.widgetTracker = wt
+      window.widgetTracker('create', 'WT-XQHVYQWW')
+      window.widgetTracker('send', 'pageview')
     }
-    window.widgetTracker('create', 'WT-XQHVYQWW')
-    window.widgetTracker('send', 'pageview')
 
     let done = false
     const load = () => {
       if (done) return
       done = true
       addScript(`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
-      addScript('https://widgetbe.com/agent')
+      if (fubPixel) addScript('https://widgetbe.com/agent')
       if (document.querySelector('realscout-office-listings, realscout-your-listings')) addScript(REALSCOUT_SRC, true)
     }
 
@@ -85,7 +88,7 @@ export default function DeferredThirdParty() {
     if (document.readyState === 'complete') startTimer()
     else window.addEventListener('load', startTimer, { once: true })
     return cleanup
-  }, [])
+  }, [fubPixel])
 
   return null
 }
