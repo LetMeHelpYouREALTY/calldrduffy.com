@@ -2,9 +2,9 @@
 export const SITE_PHONE = '(702) 500-1955'
 export const SITE_PHONE_HREF = 'tel:+17025001955'
 
-/** Owner consultations book through Dr. Jan's Listing Consultation event (30 min). */
+/** Owner consultations book through Dr. Jan's Luxury Lease Consultation event (30 min, created 2026-10-30). */
 export const CALENDLY_OWNER_URL =
-  'https://calendly.com/drjanduffy/listing-consultation?hide_gdpr_banner=1&utm_source=calldrduffy&utm_medium=website&utm_campaign=owner_leasing'
+  'https://calendly.com/drjanduffy/luxury-lease-consultation-30-min?hide_gdpr_banner=1&utm_source=calldrduffy&utm_medium=website&utm_campaign=owner_leasing'
 
 /** Nevada owner rules shown on several pages. Sources verified 2026-10-30. */
 export const OWNER_RULES = [
