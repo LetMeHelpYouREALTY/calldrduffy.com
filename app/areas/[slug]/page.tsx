@@ -6,6 +6,8 @@ import { JURISDICTION_STR_RULE, LUXURY_AREAS, getArea } from '@/lib/luxury-areas
 import { OWNER_RULES } from '@/lib/owner-site'
 import { SITE_URL } from '@/lib/site-url'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
+import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import { AREA_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export function generateStaticParams() {
   return LUXURY_AREAS.map((a) => ({ slug: a.slug }))
@@ -91,8 +93,9 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
-      <section className="lux-hero px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24">
-        <div className="mx-auto max-w-5xl">
+      <section className="lux-hero px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24 relative overflow-hidden">
+        <HeroBackdrop photo={AREA_HERO_PHOTOS[area.slug]} />
+        <div className="relative z-10 mx-auto max-w-5xl">
           <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.16em] text-[#bdb4a3]">
             <Link href="/" className="hover:text-white">Home</Link>
             <span className="mx-2">/</span>

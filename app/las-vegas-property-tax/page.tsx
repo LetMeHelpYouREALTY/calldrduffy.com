@@ -6,6 +6,8 @@ import StructuredDataScript from '@/components/structured-data-script'
 import Breadcrumbs from '@/components/breadcrumbs'
 import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
+import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export default function LasVegasPropertyTaxPage() {
   const articleSchema = getArticleSchema({
@@ -21,8 +23,9 @@ export default function LasVegasPropertyTaxPage() {
       <StructuredDataScript data={articleSchema} id="article-schema" />
       <Breadcrumbs />
       <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-20 px-4 relative overflow-hidden">
+        <HeroBackdrop photo={PAGE_HERO_PHOTOS.propertyTax} />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Las Vegas Property Tax: Complete Guide for Homeowners and Buyers
           </h1>

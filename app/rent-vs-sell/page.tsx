@@ -3,6 +3,8 @@ import ConsultSection from '@/components/luxury/ConsultSection'
 import RentVsSellCalculator from '@/components/luxury/RentVsSellCalculator'
 import { SITE_URL } from '@/lib/site-url'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
+import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
   title: { absolute: 'Rent or Sell Your Luxury Las Vegas Home? Calculator | Dr. Jan Duffy' },
@@ -14,8 +16,9 @@ export const metadata: Metadata = {
 export default function RentVsSellPage() {
   return (
     <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
-      <section className="lux-hero px-4 pb-16 pt-20 text-white sm:pt-24">
-        <div className="mx-auto max-w-6xl">
+      <section className="lux-hero px-4 pb-16 pt-20 text-white sm:pt-24 relative overflow-hidden">
+        <HeroBackdrop photo={PAGE_HERO_PHOTOS.rentVsSell} />
+        <div className="relative z-10 mx-auto max-w-6xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Rent vs. sell</p>
           <h1 className="lux-h1 mt-4">Lease it, or sell it?</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">

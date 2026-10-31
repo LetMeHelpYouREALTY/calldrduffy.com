@@ -25,6 +25,10 @@ Retired pages 301-redirect via `lib/legacy-redirects.json` (wired in `next.confi
 - **No forms.** Owners book through Calendly (`CALENDLY_OWNER_URL` in `lib/owner-site.ts`). Site phone: (702) 500-1955.
 - The FUB Widget Tracker in `app/layout.tsx` stays installed.
 
+## Hero photos
+
+Every page has its own hero photo, listed in `lib/hero-photos.ts` and stored in `public/images/heroes/`. All are from Unsplash under the Unsplash License (free commercial use) and carry a small credit. Community pages show landscapes or views from that part of the valley, never a specific house. A new community needs its own entry in `AREA_HERO_PHOTOS`.
+
 ## Adding a community
 
 Add an entry to `LUXURY_AREAS` in `lib/luxury-areas.ts`. The page, sitemap entry, footer link and homepage card are generated from it.

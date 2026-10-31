@@ -3,6 +3,8 @@ import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import { SITE_URL } from '@/lib/site-url'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
+import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
   title: { absolute: 'About Dr. Jan Duffy | Luxury Home Leasing & Sales, Las Vegas' },
@@ -20,8 +22,9 @@ const FACTS = [
 export default function AboutPage() {
   return (
     <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
-      <section className="lux-hero px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24">
-        <div className="mx-auto max-w-5xl">
+      <section className="lux-hero px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24 relative overflow-hidden">
+        <HeroBackdrop photo={PAGE_HERO_PHOTOS.about} />
+        <div className="relative z-10 mx-auto max-w-5xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">About</p>
           <h1 className="lux-h1 mt-4">Dr. Jan Duffy</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
