@@ -4,6 +4,7 @@ import ConsultSection from '@/components/luxury/ConsultSection'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
+import { Byline } from '@/components/luxury/Headshot'
 import { SITE_URL } from '@/lib/site-url'
 
 /**
@@ -106,9 +107,9 @@ export default function LasVegasPropertyTaxPage() {
             Usually, yes. Your primary residence gets a 3% cap on yearly tax-bill increases. A leased luxury home moves to
             a cap of up to 8%, because its rent is above the county’s limit for keeping 3%.
           </p>
-          <p className="mt-4 text-xs text-[var(--lux-muted)]">
+          <Byline>
             By Dr. Jan Duffy, REALTOR® · Last reviewed <time dateTime={CHECKED}>October 30, 2026</time> · {SOURCE}
-          </p>
+          </Byline>
         </div>
       </section>
 

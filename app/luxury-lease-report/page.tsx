@@ -3,6 +3,7 @@ import Link from 'next/link'
 import ConsultSection from '@/components/luxury/ConsultSection'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
+import { Byline } from '@/components/luxury/Headshot'
 import { LUXURY_AREAS, LUXURY_LEASE_BENCHMARKS } from '@/lib/luxury-areas'
 import { SITE_URL } from '@/lib/site-url'
 
@@ -64,6 +65,9 @@ export default function LuxuryLeaseReportPage() {
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Key findings</p>
           <h2 className="lux-h3 mt-3 !text-3xl">What do luxury homes rent for in Las Vegas?</h2>
+          <Byline>
+            By Dr. Jan Duffy, REALTOR® · Published <time dateTime={PUBLISHED}>October 30, 2026</time> · Next update {NEXT_UPDATE}
+          </Byline>
           <ul className="mt-5 space-y-3 text-lg leading-relaxed text-[var(--lux-ink)]">
             {LUXURY_LEASE_BENCHMARKS.map((b) => (
               <li key={b.label} className="flex gap-3">

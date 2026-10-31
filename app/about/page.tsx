@@ -5,6 +5,7 @@ import { SITE_URL } from '@/lib/site-url'
 import { LUXURY_AREAS } from '@/lib/luxury-areas'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import Headshot from '@/components/luxury/Headshot'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
@@ -33,13 +34,16 @@ export default function AboutPage() {
     <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
       <section className="lux-hero px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24 relative overflow-hidden">
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.about} />
-        <div className="relative z-10 mx-auto max-w-5xl">
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
+          <div>
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">About</p>
           <h1 className="lux-h1 mt-4">Dr. Jan Duffy, luxury leasing and sales REALTOR® in Las Vegas</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
             Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, with Berkshire Hathaway
             HomeServices Nevada Properties.
           </p>
+          </div>
+          <Headshot size={260} priority className="h-40 w-40 md:h-64 md:w-64" />
         </div>
       </section>
 

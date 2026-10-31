@@ -51,6 +51,7 @@ export function getSiteGraph() {
         url: `${SITE_URL}/`,
         email: AGENT.email,
         image: `${SITE_URL}/images/og/home.jpg`,
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-square.png`, width: 720, height: 720 },
         address: postalAddress,
         hasMap: MAP_URL,
         areaServed: [
@@ -73,6 +74,7 @@ export function getSiteGraph() {
         '@id': PERSON_ID,
         name: AGENT.name,
         honorificPrefix: 'Dr.',
+        image: `${SITE_URL}/images/dr-jan-duffy-square.jpg`,
         jobTitle: AGENT.title,
         url: `${SITE_URL}/about`,
         worksFor: { '@type': 'Organization', name: AGENT.brokerage },

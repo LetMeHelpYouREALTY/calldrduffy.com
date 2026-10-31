@@ -7,6 +7,7 @@ import { SITE_URL } from '@/lib/site-url'
 import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { AREA_HERO_PHOTOS } from '@/lib/hero-photos'
+import { Byline } from '@/components/luxury/Headshot'
 
 /** City label for headings, e.g. "Las Vegas (west)" -> "Las Vegas". */
 function placeOf(a: { region: string }) {
@@ -155,9 +156,9 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
             <p className="mt-4 max-w-3xl font-[family-name:var(--font-cormorant)] text-2xl leading-snug text-[var(--lux-ink)] sm:text-3xl">
               {area.answer}
             </p>
-            <p className="mt-4 text-xs text-[var(--lux-muted)]">
+            <Byline>
               By Dr. Jan Duffy, REALTOR® · Last reviewed <time dateTime={area.lastReviewed}>{reviewed}</time>
-            </p>
+            </Byline>
           </div>
         </section>
       )}

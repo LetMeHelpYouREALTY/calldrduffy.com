@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Logo from '@/components/luxury/Logo'
 
 const LINKS = [
   { href: '/areas', label: 'Areas' },
@@ -17,16 +18,9 @@ export default function SiteNavigation() {
   return (
     <nav className="sticky top-0 z-50 border-b border-[var(--lux-line)] bg-[var(--lux-paper)]/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-baseline gap-3">
-          <span className="font-[family-name:var(--font-cormorant)] text-2xl font-semibold tracking-wide text-[var(--lux-ink)]">
-            Dr. Jan Duffy
-          </span>
-          <span className="hidden text-[0.7rem] uppercase tracking-[0.2em] text-[var(--lux-gold)] lg:inline">
-            Luxury Home Leasing
-          </span>
-        </Link>
+        <Logo />
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {LINKS.map((l) => (
             <Link
               key={l.href}
@@ -43,7 +37,7 @@ export default function SiteNavigation() {
 
         <button
           type="button"
-          className="p-2 text-[var(--lux-ink)] md:hidden"
+          className="p-2 text-[var(--lux-ink)] lg:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -59,7 +53,7 @@ export default function SiteNavigation() {
       </div>
 
       {isMenuOpen && (
-        <div className="border-t border-[var(--lux-line)] bg-[var(--lux-paper)] md:hidden">
+        <div className="border-t border-[var(--lux-line)] bg-[var(--lux-paper)] lg:hidden">
           <div className="space-y-1 px-4 py-4">
             {LINKS.map((l) => (
               <Link

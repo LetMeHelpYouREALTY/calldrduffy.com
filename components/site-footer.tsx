@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Logo from '@/components/luxury/Logo'
+import Headshot from '@/components/luxury/Headshot'
 import { LUXURY_AREAS } from '@/lib/luxury-areas'
 
 export default function SiteFooter() {
@@ -9,10 +11,15 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
-            <p className="font-[family-name:var(--font-cormorant)] text-2xl text-white">
-              Dr. Jan Duffy
-            </p>
-            <p className="mt-2 text-sm leading-relaxed">
+            <Logo tone="dark" />
+            <div className="mt-6 flex items-center gap-3">
+              <Headshot size={56} />
+              <p className="text-sm leading-snug text-white">
+                Dr. Jan Duffy, REALTOR®
+                <span className="block text-xs text-[#9c968b]">Nevada S.0197614.LLC</span>
+              </p>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed">
               Leasing and sales strategy for owners of luxury homes in Las Vegas and Henderson.
             </p>
           </div>
