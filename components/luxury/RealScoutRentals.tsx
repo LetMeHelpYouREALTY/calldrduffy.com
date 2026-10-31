@@ -23,16 +23,20 @@ declare module 'react' {
  * Shown directly below the hero on every page. The web-components script
  * loads once from app/layout.tsx; element styles live in app/globals.css.
  */
-export default function RealScoutRentals() {
+export default function RealScoutRentals({
+  heading = 'Luxury homes for lease in Las Vegas now',
+}: {
+  heading?: string
+}) {
   return (
     <section aria-labelledby="rs-rentals-heading" className="border-b border-[var(--lux-line)] bg-white px-4 py-14 sm:py-16">
       <div className="mx-auto max-w-6xl">
         <p className="lux-eyebrow">Live from the MLS</p>
         <h2 id="rs-rentals-heading" className="lux-h2 mt-3">
-          Homes for lease now
+          {heading}
         </h2>
         <p className="mt-3 max-w-2xl text-[var(--lux-muted)]">
-          Single-family homes for rent at $3,500 a month and up. Updated as listings change.
+          Single-family luxury rentals in Las Vegas and Henderson at $3,500 a month and up, live from the MLS.
         </p>
         <div className="mt-8">
           <realscout-office-listings

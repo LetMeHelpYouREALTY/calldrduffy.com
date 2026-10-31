@@ -8,15 +8,15 @@ import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
-  title: { absolute: 'How to Lease Your Luxury Las Vegas Home | Owner Leasing Plan' },
+  title: { absolute: 'How to Rent Out Your Luxury Home in Las Vegas: Owner Plan' },
   description:
-    'A step-by-step owner plan for leasing a luxury Las Vegas or Henderson home: pricing from closed leases, presentation, written screening standards, Nevada deposit and tax rules.',
+    'How to rent out a luxury home in Las Vegas or Henderson: price from closed leases, present it like a sale, screen by written standards, and follow Nevada deposit and tax rules.',
   alternates: { canonical: `${SITE_URL}/lease-your-luxury-home` },
 }
 
 const PHASES = [
   {
-    title: 'Before you list',
+    title: 'Before you list: HOA, tax and insurance checks',
     items: [
       'Read your CC&Rs and rules for minimum lease terms, lease registration and gate-access steps.',
       'Check your property-tax status. Leasing at market rent can move the home from a 3% to an up-to-8% abatement cap (NRS 361.4722).',
@@ -25,7 +25,7 @@ const PHASES = [
     ],
   },
   {
-    title: 'Pricing',
+    title: 'How to price a luxury rental from closed leases',
     items: [
       'Pull closed leases of comparable homes inside the same community, not valley-wide averages.',
       'Adjust for view, lot, pool, finish level, furnishing and lease term.',
@@ -33,7 +33,7 @@ const PHASES = [
     ],
   },
   {
-    title: 'Presentation',
+    title: 'Presenting a luxury rental like a sale',
     items: [
       'Professional twilight and interior photography, a measured floor plan and a 3D tour.',
       'A listing description that leads with the home and its setting, then the specs.',
@@ -41,7 +41,7 @@ const PHASES = [
     ],
   },
   {
-    title: 'Screening and lease',
+    title: 'Tenant screening and the lease',
     items: [
       'One written set of criteria for income, credit and rental history, applied to every applicant the same way.',
       'Security deposit plus last month’s rent capped at three months’ rent (NRS 118A.242).',
@@ -50,7 +50,7 @@ const PHASES = [
     ],
   },
   {
-    title: 'Every renewal',
+    title: 'At every renewal: re-lease or sell',
     items: [
       'Re-check rent against fresh closed leases 90 days before the term ends.',
       'Compare re-leasing with selling, using the same numbers each time.',
@@ -66,7 +66,7 @@ export default function LeaseYourLuxuryHomePage() {
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.lease} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Leasing plan</p>
-          <h1 className="lux-h1 mt-4">How a luxury home gets leased right</h1>
+          <h1 className="lux-h1 mt-4">How to lease your luxury Las Vegas home the right way</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
             The plan for owners in Las Vegas’s guard-gated and club communities, from HOA paperwork to the renewal
             decision.
@@ -100,10 +100,11 @@ export default function LeaseYourLuxuryHomePage() {
       <section className="bg-[var(--lux-ivory)] px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Nevada rules at a glance</p>
+          <h2 className="lux-h2 mt-3">Nevada landlord rules for luxury home owners</h2>
           <div className="mt-8 grid gap-x-12 gap-y-8 md:grid-cols-2">
             {OWNER_RULES.map((r) => (
               <div key={r.title}>
-                <p className="lux-h3">{r.title}</p>
+                <h3 className="lux-h3">{r.title}</h3>
                 <p className="mt-2 leading-relaxed text-[var(--lux-muted)]">{r.body}</p>
                 <p className="mt-1 text-xs uppercase tracking-[0.14em] text-[var(--lux-gold)]">{r.cite}</p>
               </div>

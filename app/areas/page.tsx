@@ -8,9 +8,9 @@ import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Highest-Rent Luxury Communities in Las Vegas | Owner Leasing Guide' },
+  title: { absolute: 'Las Vegas Luxury Rental Communities: Highest Rents by Area' },
   description:
-    'Owner leasing guides for The Ridges, Red Rock Country Club, The Summit Club, Queensridge, MacDonald Highlands, Ascaya, Anthem Country Club, Lake Las Vegas, Southern Highlands and Spanish Trail.',
+    'Where luxury homes rent highest in Las Vegas and Henderson: rent prices and HOA lease rules for The Ridges, MacDonald Highlands, Red Rock Country Club and 7 more.',
   alternates: { canonical: `${SITE_URL}/areas` },
 }
 
@@ -40,7 +40,7 @@ export default function AreasPage() {
             if (!areas.length) return null
             return (
               <div key={g}>
-                <p className="lux-eyebrow">{g}</p>
+                <h2 className="lux-eyebrow">Luxury rentals in {g}</h2>
                 <div className="mt-6 divide-y divide-[var(--lux-line)] border-y border-[var(--lux-line)]">
                   {areas.map((a) => (
                     <Link
@@ -49,9 +49,9 @@ export default function AreasPage() {
                       className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between"
                     >
                       <span>
-                        <span className="lux-h3 group-hover:underline group-hover:decoration-[var(--lux-gold)] group-hover:underline-offset-4">
-                          {a.name}
-                        </span>
+                        <h3 className="lux-h3 inline group-hover:underline group-hover:decoration-[var(--lux-gold)] group-hover:underline-offset-4">
+                          {a.name} rentals
+                        </h3>
                         <span className="ml-3 text-sm text-[var(--lux-muted)]">{a.zip}</span>
                         <span className="mt-1 block text-[var(--lux-muted)]">{a.tagline}</span>
                       </span>

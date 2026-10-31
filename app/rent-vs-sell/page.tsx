@@ -7,9 +7,9 @@ import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Rent or Sell Your Luxury Las Vegas Home? Calculator | Dr. Jan Duffy' },
+  title: { absolute: 'Rent or Sell My House in Las Vegas? Free Calculator' },
   description:
-    'Compare monthly cash flow from leasing your luxury Las Vegas home with your net proceeds from selling it today. Enter your own rent, HOA, tax, insurance and loan numbers.',
+    'Should you rent or sell your Las Vegas home? Compare monthly cash flow from leasing with net proceeds from selling, using your own rent, HOA, tax, insurance and loan numbers.',
   alternates: { canonical: `${SITE_URL}/rent-vs-sell` },
 }
 
@@ -63,7 +63,7 @@ export default function RentVsSellPage() {
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.rentVsSell} />
         <div className="relative z-10 mx-auto max-w-6xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Rent vs. sell</p>
-          <h1 className="lux-h1 mt-4">Lease it, or sell it?</h1>
+          <h1 className="lux-h1 mt-4">Rent or sell your Las Vegas home?</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
             Put your monthly cash flow from leasing next to what a sale nets you today. The sample rent is the July 2026
             median asking rent for Las Vegas leases at $5,000 a month and up.
@@ -83,7 +83,7 @@ export default function RentVsSellPage() {
       <section className="border-t border-[var(--lux-line)] bg-white px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">How to read your numbers</p>
-          <h2 className="lux-h2 mt-3">Four things the calculator can’t see</h2>
+          <h2 className="lux-h2 mt-3">Rent vs. sell in Nevada: four things the calculator can’t see</h2>
           <div className="mt-10 grid gap-x-12 gap-y-10 md:grid-cols-2">
             {READ_NOTES.map((n) => (
               <div key={n.title}>
@@ -102,10 +102,11 @@ export default function RentVsSellPage() {
       <section className="px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Questions owners ask</p>
+          <h2 className="lux-h2 mt-3">Rent or sell: owner FAQ</h2>
           <div className="mt-8 divide-y divide-[var(--lux-line)] border-y border-[var(--lux-line)]">
             {RVS_FAQS.map((f) => (
               <details key={f.q} className="py-5">
-                <summary className="cursor-pointer list-none font-[family-name:var(--font-cormorant)] text-2xl">{f.q}</summary>
+                <summary className="cursor-pointer list-none"><h3 className="inline font-[family-name:var(--font-cormorant)] text-2xl font-normal">{f.q}</h3></summary>
                 <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{f.a}</p>
               </details>
             ))}
@@ -114,7 +115,7 @@ export default function RentVsSellPage() {
       </section>
 
       <ConsultSection
-        heading="Get your real numbers"
+        heading="Get real rent and sale numbers for your home"
         lead="Thirty minutes with closed lease comps and closed sales from your community, so both columns use real figures."
       />
     </div>

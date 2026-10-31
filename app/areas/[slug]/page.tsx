@@ -8,6 +8,11 @@ import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { AREA_HERO_PHOTOS } from '@/lib/hero-photos'
 
+/** City label for headings, e.g. "Las Vegas (west)" -> "Las Vegas". */
+function placeOf(a: { region: string }) {
+  return a.region.replace(/\s*\(.*?\)\s*/g, '').trim()
+}
+
 export function generateStaticParams() {
   return LUXURY_AREAS.map((a) => ({ slug: a.slug }))
 }
@@ -18,8 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const area = getArea(slug)
   if (!area) return {}
-  const title = `Lease Your Home in ${area.name} | ${area.region} ${area.zip} | Dr. Jan Duffy`
-  const description = `Owner leasing guide for ${area.name} (${area.region}, ${area.zip}): rent benchmarks, HOA and short-stay rules, and a closed-lease pricing plan.`
+  const title = `${area.name} Rentals: Rent Prices & Lease Rules for Owners`
+  const rent = area.facts?.find((f) => /(median|asking) rent/i.test(f.label))
+  const description = rent
+    ? `${area.name} rentals: ${rent.label.split(',')[0].toLowerCase()} ${rent.value} (${rent.source}, ${rent.asOf}). HOA lease rules and a rent plan for ${placeOf(area)} owners.`
+    : `Leasing a home in ${area.name}, ${placeOf(area)} ${area.zip}: HOA dues, lease minimums, short-term rental rules, and how to price rent from closed leases.`
   const url = `${SITE_URL}/areas/${area.slug}`
   return {
     title: { absolute: title },
@@ -82,7 +90,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       {
         '@type': 'WebPage',
         '@id': `${SITE_URL}/areas/${area.slug}`,
-        name: `Leasing your home in ${area.name}`,
+        name: `${area.name} rentals: rent prices and lease rules for owners`,
         dateModified: area.lastReviewed,
         author: { '@id': `${SITE_URL}/#jan-duffy` },
         publisher: { '@id': `${SITE_URL}/#agent` },
@@ -131,7 +139,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
           <p className="lux-eyebrow mt-10 !text-[var(--lux-gold-soft)]">
             {area.region} · {area.zip}
           </p>
-          <h1 className="lux-h1 mt-4">Leasing your home in {area.name}</h1>
+          <h1 className="lux-h1 mt-4">Leasing your home in {area.name}, {placeOf(area)}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">{area.intro}</p>
           <Link href="#consult" className="lux-btn lux-btn-gold mt-10">
             Get a closed-lease rent read
@@ -143,6 +151,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
         <section className="border-b border-[var(--lux-line)] bg-white px-4 py-12">
           <div className="mx-auto max-w-5xl">
             <p className="lux-eyebrow">The short answer</p>
+            <h2 className="lux-h3 mt-3 !text-2xl">How much does a home in {area.name} rent for?</h2>
             <p className="mt-4 max-w-3xl font-[family-name:var(--font-cormorant)] text-2xl leading-snug text-[var(--lux-ink)] sm:text-3xl">
               {area.answer}
             </p>
@@ -153,13 +162,13 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
         </section>
       )}
 
-      <RealScoutRentals />
+      <RealScoutRentals heading="Luxury homes for lease across Las Vegas and Henderson" />
 
       {area.facts && area.facts.length > 0 && (
         <section className="border-b border-[var(--lux-line)] px-4 py-14">
           <div className="mx-auto max-w-5xl">
             <p className="lux-eyebrow">{area.name} by the numbers</p>
-            <h2 className="lux-h3 mt-3 !text-3xl">What owners should know before leasing</h2>
+            <h2 className="lux-h3 mt-3 !text-3xl">{area.name} rent prices, HOA dues and lease terms</h2>
             <div className="mt-8 overflow-x-auto">
               <table className="w-full min-w-[560px] border-collapse text-left text-sm">
                 <caption className="sr-only">Leasing facts for {area.name}, with sources and dates</caption>
@@ -225,7 +234,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
         <div className="mx-auto grid max-w-5xl gap-14 md:grid-cols-2">
           <div>
             <p className="lux-eyebrow">What the home offers</p>
-            <h2 className="lux-h3 mt-3 !text-3xl">Features renters pay for here</h2>
+            <h2 className="lux-h3 mt-3 !text-3xl">What renters pay more for in {area.name}</h2>
             <ul className="mt-6 space-y-3">
               {area.homeFacts.map((f) => (
                 <li key={f} className="flex gap-3 leading-relaxed text-[var(--lux-muted)]">
@@ -237,7 +246,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
           </div>
           <div>
             <p className="lux-eyebrow">Leasing rules</p>
-            <h2 className="lux-h3 mt-3 !text-3xl">What shapes your lease</h2>
+            <h2 className="lux-h3 mt-3 !text-3xl">{area.name} HOA and lease rules</h2>
             <ul className="mt-6 space-y-3">
               {area.leasingNotes.map((n) => (
                 <li key={n} className="flex gap-3 leading-relaxed text-[var(--lux-muted)]">
@@ -267,11 +276,12 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       <section className="px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Questions owners ask</p>
+          <h2 className="lux-h3 mt-3 !text-3xl">Leasing in {area.name}: owner FAQ</h2>
           <div className="mt-8 divide-y divide-[var(--lux-line)] border-y border-[var(--lux-line)]">
             {faqs.map((f) => (
               <details key={f.q} className="group py-5">
-                <summary className="cursor-pointer list-none font-[family-name:var(--font-cormorant)] text-2xl">
-                  {f.q}
+                <summary className="cursor-pointer list-none">
+                  <h3 className="inline font-[family-name:var(--font-cormorant)] text-2xl font-normal">{f.q}</h3>
                 </summary>
                 <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{f.a}</p>
               </details>
@@ -281,13 +291,14 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       </section>
 
       <ConsultSection
-        heading={`Talk through your ${area.name} lease`}
+        heading={`Get a closed-lease rent read for your ${area.name} home`}
         lead={`Thirty minutes on your home: closed lease comps from ${area.name}, the HOA steps, and whether leasing or selling nets you more.`}
       />
 
       <section className="border-t border-[var(--lux-line)] px-4 py-14">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Related communities</p>
+          <h2 className="lux-h3 mt-3 !text-2xl">More high-rent luxury communities in Las Vegas and Henderson</h2>
           <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
             {others.map((o) => (
               <Link key={o.slug} href={`/areas/${o.slug}`} className="font-[family-name:var(--font-cormorant)] text-xl underline decoration-[var(--lux-line)] underline-offset-8 hover:decoration-[var(--lux-gold)]">

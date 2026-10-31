@@ -8,9 +8,9 @@ import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import RealScoutFeatured from '@/components/luxury/RealScoutFeatured'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Lease or Sell Your Luxury Las Vegas Home | Dr. Jan Duffy' },
+  title: { absolute: 'Luxury Home Leasing in Las Vegas & Henderson | Dr. Jan Duffy' },
   description:
-    'Owner-side leasing strategy for luxury homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and Las Vegas’s other top-rent areas. Closed lease comps, not estimates.',
+    'Rent out your luxury Las Vegas or Henderson home the right way: rent priced from closed leases, HOA lease rules checked first, and an honest rent-vs-sell comparison.',
 }
 
 const STEPS = [
@@ -53,7 +53,7 @@ export default function Homepage() {
         <p className="absolute bottom-3 right-4 z-10 text-[10px] text-white/60">Red Rock Canyon · Photo: Cat Parker / Unsplash</p>
         <div className="relative z-10 mx-auto max-w-6xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Luxury home leasing · Las Vegas &amp; Henderson</p>
-          <h1 className="lux-h1 mt-6 max-w-4xl">Your luxury home, leased right — or sold right.</h1>
+          <h1 className="lux-h1 mt-6 max-w-4xl">Your luxury Las Vegas home, leased right — or sold right.</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#ddd5c6]">
             Owner-side strategy for homes in The Ridges, MacDonald Highlands, Ascaya, Southern Highlands and the
             valley’s other top-rent addresses. One clear plan, built on closed leases.
@@ -93,7 +93,7 @@ export default function Homepage() {
       <section className="px-4 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <p className="lux-eyebrow">Where luxury rents run highest</p>
-          <h2 className="lux-h2 mt-3 max-w-3xl">Ten communities, each with its own rules</h2>
+          <h2 className="lux-h2 mt-3 max-w-3xl">Las Vegas luxury rental communities with the highest rents</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--lux-muted)]">
             Gate access, HOA lease approval and short-stay bans change from one community to the next. Pick yours.
           </p>
@@ -128,12 +128,12 @@ export default function Homepage() {
       <section className="bg-[var(--lux-ivory)] px-4 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <p className="lux-eyebrow">The owner’s plan</p>
-          <h2 className="lux-h2 mt-3">Four steps from vacant to leased</h2>
+          <h2 className="lux-h2 mt-3">How to lease a luxury home in Las Vegas, in four steps</h2>
           <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((s) => (
               <div key={s.n} className="border-t border-[var(--lux-gold)] pt-6">
                 <p className="text-sm text-[var(--lux-gold)]">{s.n}</p>
-                <p className="lux-h3 mt-2">{s.title}</p>
+                <h3 className="lux-h3 mt-2">{s.title}</h3>
                 <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{s.body}</p>
               </div>
             ))}
@@ -154,11 +154,11 @@ export default function Homepage() {
       <section className="px-4 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <p className="lux-eyebrow">Before you sign a lease</p>
-          <h2 className="lux-h2 mt-3">Four Nevada rules owners learn the hard way</h2>
+          <h2 className="lux-h2 mt-3">Four Nevada landlord rules owners learn the hard way</h2>
           <div className="mt-12 grid gap-x-12 gap-y-10 md:grid-cols-2">
             {OWNER_RULES.map((r) => (
               <div key={r.title}>
-                <p className="lux-h3">{r.title}</p>
+                <h3 className="lux-h3">{r.title}</h3>
                 <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{r.body}</p>
                 <p className="mt-2 text-xs uppercase tracking-[0.14em] text-[var(--lux-gold)]">{r.cite}</p>
               </div>
@@ -172,7 +172,7 @@ export default function Homepage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Rent or sell?</p>
-            <h2 className="lux-h2 mt-3 !text-white">Put both paths side by side</h2>
+            <h2 className="lux-h2 mt-3 !text-white">Should you rent or sell your Las Vegas home?</h2>
             <p className="mt-4 text-lg text-[#ddd5c6]">
               Enter your rent, carrying costs and loan. See monthly cash flow next to what you would net from a sale today.
             </p>

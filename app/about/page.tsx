@@ -8,7 +8,7 @@ import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
-  title: { absolute: 'About Dr. Jan Duffy | Luxury Home Leasing & Sales, Las Vegas' },
+  title: { absolute: 'Dr. Jan Duffy, Las Vegas Luxury Leasing REALTOR® | BHHS Nevada' },
   description:
     'Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties: 35 years in Las Vegas real estate, $127M+ in career sales, owner-side leasing and sales strategy.',
   alternates: { canonical: `${SITE_URL}/about` },
@@ -35,7 +35,7 @@ export default function AboutPage() {
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.about} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">About</p>
-          <h1 className="lux-h1 mt-4">Dr. Jan Duffy</h1>
+          <h1 className="lux-h1 mt-4">Dr. Jan Duffy, luxury leasing and sales REALTOR® in Las Vegas</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
             Owner-side leasing and sales strategy for luxury homes in Las Vegas and Henderson, with Berkshire Hathaway
             HomeServices Nevada Properties.
@@ -90,7 +90,7 @@ export default function AboutPage() {
       <section className="bg-[var(--lux-ivory)] px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">How the work goes</p>
-          <h2 className="lux-h2 mt-3">Working with an owner, start to finish</h2>
+          <h2 className="lux-h2 mt-3">How I lease luxury homes in Las Vegas and Henderson</h2>
           <ol className="mt-10 grid gap-10 md:grid-cols-2">
             {STEPS.map((st, i) => (
               <li key={st.title} className="border-t border-[var(--lux-gold)] pt-5">
@@ -107,6 +107,7 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">
           <div>
             <p className="lux-eyebrow">Where I work</p>
+            <h2 className="lux-h3 mt-3 !text-2xl">Luxury communities I lease and sell in</h2>
             <ul className="mt-5 space-y-2">
               {LUXURY_AREAS.map((a) => (
                 <li key={a.slug}>
@@ -120,6 +121,7 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="lux-eyebrow">Credentials</p>
+            <h2 className="lux-h3 mt-3 !text-2xl">Nevada license and brokerage</h2>
             <dl className="mt-5 space-y-4 text-[var(--lux-muted)]">
               <div><dt className="text-xs uppercase tracking-[0.14em]">License</dt><dd className="text-[var(--lux-ink)]">Nevada S.0197614.LLC</dd></div>
               <div><dt className="text-xs uppercase tracking-[0.14em]">Brokerage</dt><dd className="text-[var(--lux-ink)]">Berkshire Hathaway HomeServices Nevada Properties</dd></div>

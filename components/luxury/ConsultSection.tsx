@@ -1,7 +1,7 @@
 import CalendlyInline from './CalendlyInline'
 
 export default function ConsultSection({
-  heading = 'Book a private owner consultation',
+  heading = 'Book a private luxury leasing consultation',
   lead = 'Thirty minutes on your home, your timing, and what it should lease or sell for. Closed lease comps, not online estimates.',
 }: {
   heading?: string

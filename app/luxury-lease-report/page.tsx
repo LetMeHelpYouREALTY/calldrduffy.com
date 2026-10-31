@@ -11,9 +11,9 @@ const PUBLISHED = '2026-10-30'
 const NEXT_UPDATE = 'January 2027'
 
 export const metadata: Metadata = {
-  title: { absolute: `Las Vegas Luxury Lease Report, ${EDITION} | Rents by Community` },
+  title: { absolute: `Las Vegas Luxury Rent Prices by Community: ${EDITION} Report` },
   description:
-    'Rent benchmarks for leasing a luxury home in The Ridges, Red Rock Country Club, The Summit Club, Queensridge, MacDonald Highlands, Ascaya, Anthem Country Club, Lake Las Vegas, Southern Highlands and Spanish Trail, each with source and date.',
+    'What luxury homes rent for in Las Vegas and Henderson, Q4 2026: median and asking rents, HOA dues and lease rules for 10 communities, each with its source and date.',
   alternates: { canonical: `${SITE_URL}/luxury-lease-report` },
 }
 
@@ -63,6 +63,7 @@ export default function LuxuryLeaseReportPage() {
       <section className="border-b border-[var(--lux-line)] bg-white px-4 py-12">
         <div className="mx-auto max-w-5xl">
           <p className="lux-eyebrow">Key findings</p>
+          <h2 className="lux-h3 mt-3 !text-3xl">What do luxury homes rent for in Las Vegas?</h2>
           <ul className="mt-5 space-y-3 text-lg leading-relaxed text-[var(--lux-ink)]">
             {LUXURY_LEASE_BENCHMARKS.map((b) => (
               <li key={b.label} className="flex gap-3">
@@ -87,6 +88,7 @@ export default function LuxuryLeaseReportPage() {
       <section className="px-4 py-14">
         <div className="mx-auto max-w-6xl">
           <p className="lux-eyebrow">By community</p>
+          <h2 className="lux-h3 mt-3 !text-3xl">Luxury rent prices and lease rules by community</h2>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[760px] border-collapse text-left text-sm">
               <caption className="sr-only">Luxury lease benchmarks by community, {EDITION}</caption>
@@ -133,6 +135,7 @@ export default function LuxuryLeaseReportPage() {
       <section className="bg-[var(--lux-ivory)] px-4 py-14">
         <div className="mx-auto max-w-3xl space-y-4 text-[var(--lux-muted)]">
           <p className="lux-eyebrow">Method</p>
+          <h2 className="lux-h3 !text-2xl text-[var(--lux-ink)]">How this rent report is built</h2>
           <p>
             Figures come from the public sources named beside each one, checked October 30, 2026. Asking rents are what
             owners list for; signed rents usually land below them, and small communities can have few listings at any

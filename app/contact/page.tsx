@@ -6,8 +6,8 @@ import HeroBackdrop from '@/components/luxury/HeroBackdrop'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Contact Dr. Jan Duffy | Luxury Home Leasing, Las Vegas' },
-  description: `Book a private owner consultation online. Leasing and sales strategy for luxury homes in Las Vegas and Henderson.`,
+  title: { absolute: 'Book a Las Vegas Luxury Leasing Consultation | Dr. Jan Duffy' },
+  description: `Book a private, 30-minute owner consultation online: what your luxury Las Vegas or Henderson home should rent for, the HOA lease steps, and rent vs. sell.`,
   alternates: { canonical: `${SITE_URL}/contact` },
 }
 
@@ -18,7 +18,7 @@ export default function ContactPage() {
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.contact} />
         <div className="relative z-10 mx-auto max-w-5xl">
           <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Contact</p>
-          <h1 className="lux-h1 mt-4">Talk about your home</h1>
+          <h1 className="lux-h1 mt-4">Book a luxury leasing consultation</h1>
           <p className="mt-6 max-w-2xl text-lg text-[#ddd5c6]">
             Pick a time below or email{' '}
             <a href="mailto:HomeSales@CallDrDuffy.com" className="text-white underline decoration-[var(--lux-gold)] underline-offset-4">
@@ -30,7 +30,7 @@ export default function ContactPage() {
       </section>
 
       <RealScoutRentals />
-      <ConsultSection heading="Pick a time" />
+      <ConsultSection heading="Pick a time for your owner consultation" />
     </div>
   )
 }

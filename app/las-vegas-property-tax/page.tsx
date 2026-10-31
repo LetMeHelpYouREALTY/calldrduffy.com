@@ -1,174 +1,218 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import AuthorBadge from '@/components/author-badge'
-import StructuredDataScript from '@/components/structured-data-script'
-import Breadcrumbs from '@/components/breadcrumbs'
-import { getArticleSchema, getPersonSchema, BASE_URL } from '@/lib/schema'
-import RealScoutRentals from '@/components/luxury/RealScoutRentals'
+import ConsultSection from '@/components/luxury/ConsultSection'
 import HeroBackdrop from '@/components/luxury/HeroBackdrop'
+import RealScoutRentals from '@/components/luxury/RealScoutRentals'
 import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
+import { SITE_URL } from '@/lib/site-url'
+
+/**
+ * Owner-focused property tax guide. Every figure is from the Clark County
+ * Assessor's tax abatement pages and Nevada Tax Commission regulation R098-26,
+ * checked 2026-10-30. Refresh each July when the new HUD rent limits post.
+ */
+const CHECKED = '2026-10-30'
+const SOURCE = 'Clark County Assessor, tax abatement, checked October 30, 2026'
+
+const HUD_LIMITS = [
+  { beds: '3 bedrooms', max: '$2,139' },
+  { beds: '4 bedrooms', max: '$2,456' },
+  { beds: '5 bedrooms', max: '$2,824' },
+]
+
+const FAQS = [
+  {
+    q: 'Does renting out my Las Vegas home raise my property tax?',
+    a: 'Usually, yes. A home you live in as your primary residence gets a 3% cap on how much its tax bill can rise each year. A home you lease out gets a cap of up to 8%, unless the rent is at or below the county’s HUD limit, which no luxury rental meets.',
+  },
+  {
+    q: 'What is the 2026–27 rent limit for keeping the 3% cap on a rental?',
+    a: 'For the 2026–27 tax year, Clark County lists $2,139 a month for three bedrooms, $2,456 for four and $2,824 for five. A luxury lease at $3,500 or more is above every limit, so the home moves to the up-to-8% cap.',
+  },
+  {
+    q: 'Does the cap limit my home’s value or my tax bill?',
+    a: 'Your tax bill. The cap limits how much the bill can rise over last year’s bill. It does not limit the assessed value.',
+  },
+  {
+    q: 'Can I get the 3% cap back if I move back in?',
+    a: 'Yes. Once the home is your primary residence again, claim it with the Clark County Assessor. For the 2026–27 tax year, the county says owners have until June 30, 2027, to correct their cap.',
+  },
+  {
+    q: 'Can moving my house into a trust change my property tax cap?',
+    a: 'It can. Clark County says any recorded ownership document removes the owner-occupied 3% cap until you return the assessor’s new postcard. A refinance that records no ownership document does not affect it.',
+  },
+  {
+    q: 'Can I keep the 3% cap on two homes?',
+    a: 'No. Only one property in Nevada can be your primary residence for the 3% cap.',
+  },
+]
+
+export const metadata: Metadata = {
+  title: { absolute: 'Las Vegas Property Tax When You Rent Out Your Home: 3% vs 8%' },
+  description:
+    'Renting out your Las Vegas home can move its property tax cap from 3% to up to 8% a year. The 2026–27 Clark County rent limits, what else resets the cap, and how to get 3% back.',
+  alternates: { canonical: `${SITE_URL}/las-vegas-property-tax` },
+}
 
 export default function LasVegasPropertyTaxPage() {
-  const articleSchema = getArticleSchema({
-    headline: 'Las Vegas Property Tax: Complete Guide for Homeowners and Buyers',
-    description: 'Comprehensive guide to Las Vegas property tax rates, assessments, and exemptions. Essential information for Las Vegas homeowners and homebuyers understanding property tax implications.',
-    datePublished: '2024-07-20',
-    dateModified: '2024-12-01',
-    author: getPersonSchema()
-  })
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: 'Las Vegas property tax when you rent out your home: the 3% and 8% caps',
+        datePublished: '2024-07-20',
+        dateModified: CHECKED,
+        author: { '@id': `${SITE_URL}/#jan-duffy` },
+        publisher: { '@id': `${SITE_URL}/#agent` },
+        mainEntityOfPage: `${SITE_URL}/las-vegas-property-tax`,
+        about: ['Nevada property tax abatement', 'NRS 361.4722', 'Clark County property tax'],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: FAQS.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Property tax', item: `${SITE_URL}/las-vegas-property-tax` },
+        ],
+      },
+    ],
+  }
 
   return (
-    <>
-      <StructuredDataScript data={articleSchema} id="article-schema" />
-      <Breadcrumbs />
-      <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white py-20 px-4 relative overflow-hidden">
+    <div className="bg-[var(--lux-paper)] text-[var(--lux-ink)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+
+      <section className="lux-hero relative overflow-hidden px-4 pb-20 pt-20 text-white sm:pb-24 sm:pt-24">
         <HeroBackdrop photo={PAGE_HERO_PHOTOS.propertyTax} />
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Las Vegas Property Tax: Complete Guide for Homeowners and Buyers
-          </h1>
-          <p className="text-xl md:text-2xl text-indigo-100 max-w-3xl">
-            Comprehensive guide to Las Vegas property tax rates, assessments, and exemptions. Essential information for Las Vegas homeowners and homebuyers understanding property tax implications.
+        <div className="relative z-10 mx-auto max-w-5xl">
+          <p className="lux-eyebrow !text-[var(--lux-gold-soft)]">Property tax · Clark County</p>
+          <h1 className="lux-h1 mt-4">Las Vegas property tax when you rent out your home</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#ddd5c6]">
+            Leasing your home can change how fast its tax bill is allowed to grow. Here is how Nevada’s 3% and 8% caps
+            work for an owner who leases, using the county’s own 2026–27 figures.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--lux-line)] bg-white px-4 py-12">
+        <div className="mx-auto max-w-5xl">
+          <p className="lux-eyebrow">The short answer</p>
+          <h2 className="lux-h3 mt-3 !text-2xl">Does renting out my home raise my property tax?</h2>
+          <p className="mt-4 max-w-3xl font-[family-name:var(--font-cormorant)] text-2xl leading-snug sm:text-3xl">
+            Usually, yes. Your primary residence gets a 3% cap on yearly tax-bill increases. A leased luxury home moves to
+            a cap of up to 8%, because its rent is above the county’s limit for keeping 3%.
+          </p>
+          <p className="mt-4 text-xs text-[var(--lux-muted)]">
+            By Dr. Jan Duffy, REALTOR® · Last reviewed <time dateTime={CHECKED}>October 30, 2026</time> · {SOURCE}
           </p>
         </div>
       </section>
 
       <RealScoutRentals />
 
-      {/* Author Badge */}
-      <section className="py-4 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <AuthorBadge />
+      <section className="px-4 py-16 sm:py-20">
+        <div className="mx-auto grid max-w-5xl gap-14 md:grid-cols-2">
+          <div>
+            <p className="lux-eyebrow">How it works</p>
+            <h2 className="lux-h3 mt-3 !text-3xl">How the Nevada property tax cap works</h2>
+            <ul className="mt-6 space-y-3 leading-relaxed text-[var(--lux-muted)]">
+              <li>A single-family home that is your primary residence gets a 3% cap: the bill can rise at most 3% over last year’s.</li>
+              <li>Homes that are not owner-occupied get a cap of up to 8%. Land and commercial property use the same up-to-8% cap.</li>
+              <li>The cap limits the tax bill, not the assessed value.</li>
+              <li>Only one home in Nevada can be your primary residence.</li>
+            </ul>
+            <p className="mt-4 text-xs uppercase tracking-[0.14em] text-[var(--lux-gold)]">NRS 361.4722–361.4724</p>
+          </div>
+          <div>
+            <p className="lux-eyebrow">For landlords</p>
+            <h2 className="lux-h3 mt-3 !text-3xl">Why a luxury rental lands on the 8% cap</h2>
+            <p className="mt-6 leading-relaxed text-[var(--lux-muted)]">
+              A rental keeps the 3% cap only if the rent is at or below the HUD limit the county publishes each year.
+              These are the 2026–27 Clark County limits:
+            </p>
+            <table className="mt-5 w-full border-collapse text-left text-sm">
+              <caption className="sr-only">Clark County 2026–27 maximum rents for the 3% rental cap</caption>
+              <thead>
+                <tr className="border-b border-[var(--lux-ink)] text-xs uppercase tracking-[0.12em] text-[var(--lux-muted)]">
+                  <th scope="col" className="py-2 pr-4 font-semibold">Home size</th>
+                  <th scope="col" className="py-2 font-semibold">Maximum monthly rent</th>
+                </tr>
+              </thead>
+              <tbody>
+                {HUD_LIMITS.map((r) => (
+                  <tr key={r.beds} className="border-b border-[var(--lux-line)]">
+                    <th scope="row" className="py-2 pr-4 font-normal text-[var(--lux-muted)]">{r.beds}</th>
+                    <td className="py-2 font-medium">{r.max}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-3 text-sm text-[var(--lux-muted)]">
+              Luxury leases in the{' '}
+              <Link href="/luxury-lease-report" className="underline decoration-[var(--lux-gold)] underline-offset-4">Luxury Lease Report</Link>{' '}
+              start well above $3,500 a month, so plan on the up-to-8% cap.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            Understanding Las Vegas Property Tax
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            Las Vegas property tax is important consideration for homeowners and buyers. Nevada offers some of the lowest property tax rates in the country, making Las Vegas real estate more affordable than many other markets. Understanding property tax rates, assessments, and exemptions helps buyers make informed decisions.
+      <section className="bg-[var(--lux-ivory)] px-4 py-16 sm:py-20">
+        <div className="mx-auto grid max-w-5xl gap-14 md:grid-cols-2">
+          <div>
+            <p className="lux-eyebrow">Watch for this</p>
+            <h2 className="lux-h3 mt-3 !text-3xl">What else resets your 3% cap</h2>
+            <ul className="mt-6 space-y-3 leading-relaxed text-[var(--lux-muted)]">
+              <li>Recording any ownership document, such as a deed into a trust, removes the 3% cap until you return the assessor’s new postcard.</li>
+              <li>A refinance that records no ownership document leaves the cap alone.</li>
+              <li>New construction gets no cap in its first fiscal year, then 3% or up to 8% after that.</li>
+            </ul>
+          </div>
+          <div>
+            <p className="lux-eyebrow">Moving back in</p>
+            <h2 className="lux-h3 mt-3 !text-3xl">How to get the 3% cap back</h2>
+            <p className="mt-6 leading-relaxed text-[var(--lux-muted)]">
+              When the home is your primary residence again, claim it with the Clark County Assessor by signing the tax
+              cap postcard or notice, by mail, online or in person. For the 2026–27 tax year, the county says owners have
+              until June 30, 2027, to correct the cap.
+            </p>
+            <p className="mt-4 leading-relaxed text-[var(--lux-muted)]">
+              Weighing a lease against a sale? The{' '}
+              <Link href="/rent-vs-sell" className="underline decoration-[var(--lux-gold)] underline-offset-4">rent vs. sell calculator</Link>{' '}
+              shows where the higher tax lands in your monthly numbers.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-16 sm:py-20">
+        <div className="mx-auto max-w-5xl">
+          <p className="lux-eyebrow">Questions owners ask</p>
+          <h2 className="lux-h3 mt-3 !text-3xl">Las Vegas property tax for landlords: FAQ</h2>
+          <div className="mt-8 divide-y divide-[var(--lux-line)] border-y border-[var(--lux-line)]">
+            {FAQS.map((f) => (
+              <details key={f.q} className="py-5">
+                <summary className="cursor-pointer list-none">
+                  <h3 className="inline font-[family-name:var(--font-cormorant)] text-2xl font-normal">{f.q}</h3>
+                </summary>
+                <p className="mt-3 leading-relaxed text-[var(--lux-muted)]">{f.a}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-6 text-xs text-[var(--lux-muted)]">
+            General information, not tax advice. Confirm your parcel’s cap with the Clark County Assessor or your tax
+            adviser.
           </p>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Nevada Property Tax Benefits</h3>
-              <p className="text-gray-700 mb-3">
-                Nevada has one of the lowest property tax rates in the United States, with effective rate typically around 0.6% of assessed value. This low property tax rate makes Las Vegas homes more affordable than higher-tax states and reduces ongoing ownership costs.
-              </p>
-              <p className="text-gray-700 mb-3">
-                Nevada Constitution caps property tax increases at 3% annually for residential properties, protecting homeowners from dramatic tax increases. This tax cap provides stability and predictability for Las Vegas property owners.
-              </p>
-              <p className="text-gray-700">
-                For Las Vegas homebuyers, understanding property tax implications helps calculate true homeownership costs. Low property taxes contribute to affordability and make Las Vegas real estate attractive compared to high-tax states.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Property Tax Assessment Process</h3>
-              <p className="text-gray-700 mb-3">
-                Las Vegas property tax is based on assessed value determined by Clark County Assessor's Office. Assessed value considers property improvements, recent sales in area, and market conditions. Property owners receive assessment notices and can appeal if they believe assessment is incorrect.
-              </p>
-              <p className="text-gray-700 mb-3">
-                New Las Vegas homebuyers should understand that property tax assessment may change after purchase based on purchase price. This reassessment ensures property taxes reflect current market value rather than previous owner's assessment.
-              </p>
-              <p className="text-gray-700">
-                Dr. Jan helps Las Vegas buyers understand property tax implications during home purchase process. Understanding current taxes, potential reassessment, and exemptions helps buyers make informed decisions about Las Vegas real estate investments.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            Las Vegas Property Tax for Home Buyers
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            When buying Las Vegas home, understanding property tax implications helps calculate true ownership costs and make informed decisions. Property taxes are important part of monthly housing expenses and should be factored into affordability calculations.
-          </p>
-          <div className="bg-white p-8 rounded-lg border border-gray-200 mb-12">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">Key Considerations for Buyers</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-bold mb-2 text-gray-900">Current Property Tax</h4>
-                <p className="text-gray-700 mb-4">
-                  Review current property tax amount on Las Vegas home you're considering. This provides baseline understanding, though assessment may change after purchase based on purchase price.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold mb-2 text-gray-900">Potential Reassessment</h4>
-                <p className="text-gray-700 mb-4">
-                  Understand that Clark County may reassess Las Vegas property based on purchase price. New assessment typically reflects purchase price, affecting property tax amount you'll pay.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold mb-2 text-gray-900">Tax Exemptions</h4>
-                <p className="text-gray-700 mb-4">
-                  Nevada offers property tax exemptions for veterans, seniors, and disabled homeowners. Understanding available exemptions helps Las Vegas buyers calculate accurate property tax projections.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold mb-2 text-gray-900">Overall Affordability</h4>
-                <p className="text-gray-700 mb-4">
-                  Factor property taxes into overall Las Vegas homeownership costs. Low property tax rates contribute to Las Vegas affordability compared to higher-tax states, making Las Vegas real estate attractive investment.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6 text-gray-900">
-            Property Tax and Home Selling
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-3xl">
-            For Las Vegas homeowners selling their property, understanding property tax implications helps prepare for sale and answer buyer questions. Buyers often ask about property taxes, and accurate information helps facilitate successful sales.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Providing Tax Information</h3>
-              <p className="text-gray-700 mb-3">
-                Las Vegas sellers should be prepared to provide property tax information to potential buyers. Current tax amount, assessment details, and any exemptions help buyers understand ownership costs and make informed purchase decisions.
-              </p>
-              <p className="text-gray-700 mb-3">
-                For Las Vegas homes that didn't sell initially, comprehensive property information including tax details can help buyers feel confident about purchase. Complete information addresses buyer concerns and facilitates sales.
-              </p>
-              <p className="text-gray-700">
-                Dr. Jan ensures Las Vegas sellers have accurate property tax information available for buyers. This comprehensive approach addresses buyer questions and helps facilitate successful sales for Las Vegas properties.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Tax Benefits as Selling Point</h3>
-              <p className="text-gray-700 mb-3">
-                Las Vegas property tax benefits can be selling point: low tax rates, 3% annual cap on increases, and Nevada tax advantages compared to higher-tax states. Highlighting these benefits appeals to buyers from high-tax areas.
-              </p>
-              <p className="text-gray-700 mb-3">
-                For Las Vegas homes that didn't sell, emphasizing property tax advantages can differentiate property and attract buyers seeking affordability and tax benefits. This positioning addresses buyer concerns about ownership costs.
-              </p>
-              <p className="text-gray-700">
-                Dr. Jan helps Las Vegas sellers position property tax benefits effectively. Understanding tax advantages and communicating them to buyers can help Las Vegas homes sell successfully by highlighting affordability and value.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Las Vegas Real Estate Expertise</h2>
-          <p className="text-xl mb-8 text-indigo-100">Expert guidance on Las Vegas property tax and home buying or selling.</p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-indigo-800 text-white font-bold py-4 px-8 rounded-lg hover:bg-indigo-900 transition-colors">Schedule Consultation</Link>
-          </div>
-        </div>
-      </section>
-      </div>
-    </>
+      <ConsultSection
+        heading="Check the tax cost before you lease"
+        lead="Thirty minutes on your home: what it should rent for, what the cap change adds to your tax bill, and whether leasing or selling nets you more."
+      />
+    </div>
   )
 }
-

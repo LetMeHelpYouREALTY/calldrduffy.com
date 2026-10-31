@@ -227,7 +227,7 @@ export const AREA_DETAILS: Record<string, Partial<LuxuryArea>> = {
   'southern-highlands': {
     lastReviewed: REVIEWED,
     answer:
-      'Southern Highlands rents vary widely because one master plan runs from family neighborhoods to golf-frontage estates, so area averages mislead. Price a guard-gated home against single-family leases in its own enclave. Dues differ too: The Estates runs $500 to $650 a month, plus about $55 to $62 in master dues.',
+      'Southern Highlands rents vary widely because one master plan runs from production-built neighborhoods to golf-frontage estates, so area averages mislead. Price a guard-gated home against single-family leases in its own enclave. Dues differ too: The Estates runs $500 to $650 a month, plus about $55 to $62 in master dues.',
     facts: [
       { label: 'HOA dues, The Estates', value: '$500–$650/mo', source: 'Ryan Rose, HOA Fees in Southern Highlands', asOf: '2026' },
       { label: 'HOA dues, Olympia Ridge', value: '$382–$685/mo', source: 'Ryan Rose, HOA Fees in Southern Highlands', asOf: '2026' },
