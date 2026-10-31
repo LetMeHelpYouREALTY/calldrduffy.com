@@ -1,4 +1,5 @@
 import type { LuxuryArea } from './luxury-areas'
+import { mediaPoster, mediaVideo } from './media'
 
 /**
  * Per-community details layered onto lib/luxury-areas.ts.
@@ -9,8 +10,8 @@ import type { LuxuryArea } from './luxury-areas'
 const REVIEWED = '2026-10-30'
 
 const video = (slug: string, name: string, description: string) => ({
-  src: `/videos/${slug}.mp4`,
-  poster: `/videos/${slug}.jpg`,
+  src: mediaVideo(slug),
+  poster: mediaPoster(slug),
   title: `Leasing your home in ${name}, in 28 seconds`,
   description,
   uploadDate: REVIEWED,

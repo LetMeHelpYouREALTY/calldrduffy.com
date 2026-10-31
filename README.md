@@ -41,3 +41,7 @@ npm run dev     # http://localhost:3000
 npm run build
 node scripts/generate-route-seo.mjs   # refresh fallback titles after changing H1s
 ```
+
+## Media (Cloudflare R2)
+
+Community videos live in R2 bucket `calldrduffy-media`, served at `https://media.calldrduffy.com` (see `lib/media.ts`). Website files are 720p (`videos/v1/<slug>-720.mp4`); 1080p social originals are in `videos/v1/social/`. Objects are immutable with a 1-year browser cache and 30-day edge cache (zone cache rule `media_long_cache`). To replace a video, upload to a new version folder and bump `MEDIA_VERSION`.

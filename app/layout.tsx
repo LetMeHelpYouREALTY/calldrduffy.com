@@ -57,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://media.calldrduffy.com" />
         {/* RealScout web components (loaded once for every widget on the page) */}
         <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module" async />
         <Analytics />
