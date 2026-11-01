@@ -6,6 +6,7 @@ import { PAGE_HERO_PHOTOS } from '@/lib/hero-photos'
 import { Byline } from '@/components/luxury/Headshot'
 import { LUXURY_AREAS, LUXURY_LEASE_BENCHMARKS } from '@/lib/luxury-areas'
 import { SITE_URL } from '@/lib/site-url'
+import { AGENT } from '@/lib/site-entity'
 
 const EDITION = 'Q4 2026'
 const PUBLISHED = '2026-10-30'
@@ -38,7 +39,9 @@ export default function LuxuryLeaseReportPage() {
     datePublished: PUBLISHED,
     dateModified: PUBLISHED,
     creator: { '@id': `${SITE_URL}/#jan-duffy` },
-    publisher: { '@id': `${SITE_URL}/#agent` },
+    // Google's Dataset publisher must be a plain Person or Organization. The site graph types #agent as
+    // RealEstateAgent, which Search Console rejects here ("Invalid object type for field publisher").
+    publisher: { '@type': 'Organization', name: AGENT.businessName, url: `${SITE_URL}/` },
     spatialCoverage: { '@type': 'Place', name: 'Las Vegas Valley, Nevada' },
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
